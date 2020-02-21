@@ -1,4 +1,5 @@
 {
-  "admin/test": "teste",
-  "store/test": "teste"
+  "store/listPrice.default": "Precio original: {listPrice}",
+  "admin/listPrice.description": "Valores disponibles para interpolación: {listPrice}",
+  "admin/listPrice.title": "List Price"
 }
