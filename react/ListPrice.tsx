@@ -3,9 +3,9 @@ import { defineMessages } from 'react-intl'
 import { ProductContext } from 'vtex.product-context'
 import { FormattedCurrency } from 'vtex.format-currency'
 import { useCssHandles } from 'vtex.css-handles'
+import { IOMessageWithMarkers } from 'vtex.native-types'
 
 import { StorefrontFC } from './types'
-import IOMessageWithMarkers from './utils/IOMessageWithMarkers'
 
 interface Props {
   label: string
@@ -25,7 +25,7 @@ const ListPrice: StorefrontFC<Props> = props => {
         label={label}
         markers={markers}
         componentName={CSS_HANDLES[0]}
-        rest={{
+        values={{
           listPrice: <FormattedCurrency value={listPrice} />,
         }}
       />
