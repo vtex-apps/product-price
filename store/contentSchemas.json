@@ -1,13 +1,13 @@
 {
   "definitions": {
-    "ListPrice" : {
+    "ListPrice": {
       "type": "object",
       "properties": {
         "label": {
-          "title": "admin/listPrice.title",
-          "description": "admin/listPrice.description",
+          "title": "admin/list-price.title",
+          "description": "admin/list-price.description",
           "$ref": "app:vtex.native-types#/definitions/text",
-          "default": "store/listPrice.default"
+          "default": "store/list-price.default"
         }
       }
     }

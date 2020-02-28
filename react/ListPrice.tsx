@@ -12,13 +12,14 @@ interface Props {
   markers: string[]
 }
 
-const CSS_HANDLES = ['listPrice'] as const
+const CSS_HANDLES = ['listPrice', 'listPriceValue'] as const
 
 const ListPrice: StorefrontFC<Props> = props => {
   const { label, markers } = props
   const { selectedItem } = useContext(ProductContext)
   const handles = useCssHandles(CSS_HANDLES)
   const listPrice = selectedItem.sellers[0].commertialOffer.ListPrice
+
   return (
     <div className={handles.listPrice}>
       <IOMessageWithMarkers
@@ -26,7 +27,11 @@ const ListPrice: StorefrontFC<Props> = props => {
         markers={markers}
         componentName={CSS_HANDLES[0]}
         values={{
-          listPrice: <FormattedCurrency value={listPrice} />,
+          listPrice: (
+            <span className={handles.listPriceValue}>
+              <FormattedCurrency value={listPrice} />
+            </span>
+          ),
         }}
       />
     </div>
@@ -36,15 +41,15 @@ const ListPrice: StorefrontFC<Props> = props => {
 const messages = defineMessages({
   title: {
     defaultMessage: '',
-    id: 'admin/listPrice.title',
+    id: 'admin/list-price.title',
   },
   description: {
     defaultMessage: '',
-    id: 'admin/listPrice.description',
+    id: 'admin/list-price.description',
   },
   default: {
     defaultMessage: '',
-    id: 'store/listPrice.default',
+    id: 'store/list-price.default',
   },
 })
 
