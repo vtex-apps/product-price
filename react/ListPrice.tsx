@@ -25,7 +25,7 @@ const ListPrice: StorefrontFC<Props> = props => {
       <IOMessageWithMarkers
         label={label}
         markers={markers}
-        componentName={CSS_HANDLES[0]}
+        componentName={'listPrice'}
         values={{
           listPrice: (
             <span className={handles.listPriceValue}>
