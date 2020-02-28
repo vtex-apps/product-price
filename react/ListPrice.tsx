@@ -8,14 +8,14 @@ import { IOMessageWithMarkers } from 'vtex.native-types'
 import { StorefrontFC } from './types'
 
 interface Props {
-  label: string
+  message: string
   markers: string[]
 }
 
 const CSS_HANDLES = ['listPrice', 'listPriceValue'] as const
 
 const ListPrice: StorefrontFC<Props> = props => {
-  const { label, markers } = props
+  const { message, markers } = props
   const { selectedItem } = useContext(ProductContext)
   const handles = useCssHandles(CSS_HANDLES)
   const listPrice = selectedItem.sellers[0].commertialOffer.ListPrice
@@ -23,9 +23,9 @@ const ListPrice: StorefrontFC<Props> = props => {
   return (
     <div className={handles.listPrice}>
       <IOMessageWithMarkers
-        label={label}
+        message={message}
         markers={markers}
-        componentName={'listPrice'}
+        handleBase={'listPrice'}
         values={{
           listPrice: (
             <span className={handles.listPriceValue}>

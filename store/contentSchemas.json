@@ -3,7 +3,7 @@
     "ListPrice": {
       "type": "object",
       "properties": {
-        "label": {
+        "message": {
           "title": "admin/list-price.title",
           "description": "admin/list-price.description",
           "$ref": "app:vtex.native-types#/definitions/text",
