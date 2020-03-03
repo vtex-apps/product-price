@@ -16,8 +16,12 @@ const CSS_HANDLES = ['listPrice', 'listPriceValue'] as const
 
 const ListPrice: StorefrontFC<Props> = props => {
   const { message, markers } = props
-  const { selectedItem } = useContext(ProductContext)
   const handles = useCssHandles(CSS_HANDLES)
+  const { selectedItem } = useContext(ProductContext)
+
+  if (!selectedItem) {
+    return <div></div>
+  }
   const listPrice = selectedItem.sellers[0].commertialOffer.ListPrice
 
   return (
