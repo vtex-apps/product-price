@@ -1,0 +1,9 @@
+{
+  "product-list-price": {
+    "component": "ListPrice",
+    "composition": "children",
+    "content": {
+      "$ref": "app:vtex.product-price#/definitions/ListPrice"
+    }
+  }
+}
