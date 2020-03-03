@@ -20,7 +20,7 @@ const ListPrice: StorefrontFC<Props> = props => {
   const { selectedItem } = useContext(ProductContext)
 
   if (!selectedItem) {
-    return <div></div>
+    return null
   }
   const listPrice = selectedItem.sellers[0].commertialOffer.ListPrice
 
@@ -29,7 +29,7 @@ const ListPrice: StorefrontFC<Props> = props => {
       <IOMessageWithMarkers
         message={message}
         markers={markers}
-        handleBase={'listPrice'}
+        handleBase="listPrice"
         values={{
           listPrice: (
             <span className={handles.listPriceValue}>
