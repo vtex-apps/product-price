@@ -22,7 +22,7 @@ const ListPrice: StorefrontFC<Props> = props => {
   if (!selectedItem) {
     return null
   }
-  const listPrice = selectedItem.sellers[0].commertialOffer.ListPrice
+  const listPriceValue = selectedItem.sellers[0].commertialOffer.ListPrice
 
   return (
     <div className={handles.listPrice}>
@@ -31,9 +31,9 @@ const ListPrice: StorefrontFC<Props> = props => {
         markers={markers}
         handleBase="listPrice"
         values={{
-          listPrice: (
+          listPriceValue: (
             <span className={handles.listPriceValue}>
-              <FormattedCurrency value={listPrice} />
+              <FormattedCurrency value={listPriceValue} />
             </span>
           ),
         }}

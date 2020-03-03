@@ -1,5 +1,5 @@
 {
-  "store/list-price.default": "Preço original: {listPrice}",
-  "admin/list-price.description": "Valores disponiveis para interpolação: {listPrice}",
+  "store/list-price.default": "Preço original: {listPriceValue}",
+  "admin/list-price.description": "Valores disponiveis para interpolação: {listPriceValue}",
   "admin/list-price.title": "List Price"
 }
