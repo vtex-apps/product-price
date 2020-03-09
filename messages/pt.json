@@ -1,5 +1,8 @@
 {
   "store/list-price.default": "Preço original: {listPriceValue}",
+  "store/savings.default": "Preço de venda: {newPriceValue}",
   "admin/list-price.description": "Valores disponiveis para interpolação: {listPriceValue}",
-  "admin/list-price.title": "List Price"
+  "admin/list-price.title": "List Price",
+  "admin/savings.description": "Valores disponiveis para interpolação: {newPriceValue}, {previousPriceValue}, {savingsValue}, {savingsPercentage}",
+  "admin/savings.title": "Price Savings"
 }
