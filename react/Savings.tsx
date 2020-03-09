@@ -33,6 +33,9 @@ const Savings: StorefrontFC<Props> = props => {
   const newPriceValue = selectedItem.sellers[0].commertialOffer.Price
   const savingsValue = previousPriceValue - newPriceValue
   const savingsPercentage = savingsValue / previousPriceValue
+  if (savingsValue === 0) {
+    return null
+  }
 
   return (
     <div className={handles.savings}>
@@ -85,7 +88,6 @@ const messages = defineMessages({
 Savings.schema = {
   title: messages.title.id,
   description: messages.description.id,
-  default: messages.default.id,
 }
 
 export default Savings

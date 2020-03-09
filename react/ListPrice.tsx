@@ -60,7 +60,6 @@ const messages = defineMessages({
 ListPrice.schema = {
   title: messages.title.id,
   description: messages.description.id,
-  default: messages.default.id,
 }
 
 export default ListPrice
