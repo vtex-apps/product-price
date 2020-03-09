@@ -22,7 +22,13 @@ const ListPrice: StorefrontFC<Props> = props => {
   if (!selectedItem) {
     return null
   }
-  const listPriceValue = selectedItem.sellers[0].commertialOffer.ListPrice
+
+  const commertialOffer = selectedItem?.sellers[0]?.commertialOffer
+  if (!commertialOffer) {
+    return null
+  }
+
+  const listPriceValue = commertialOffer.ListPrice
 
   return (
     <div className={handles.listPrice}>
