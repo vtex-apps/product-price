@@ -22,7 +22,13 @@ const ListPrice: StorefrontFC<Props> = props => {
   if (!selectedItem) {
     return null
   }
-  const listPriceValue = selectedItem.sellers[0].commertialOffer.ListPrice
+
+  const commertialOffer = selectedItem?.sellers[0]?.commertialOffer
+  if (!commertialOffer) {
+    return null
+  }
+
+  const listPriceValue = commertialOffer.ListPrice
 
   return (
     <div className={handles.listPrice}>
@@ -44,23 +50,15 @@ const ListPrice: StorefrontFC<Props> = props => {
 
 const messages = defineMessages({
   title: {
-    defaultMessage: '',
     id: 'admin/list-price.title',
   },
   description: {
-    defaultMessage: '',
     id: 'admin/list-price.description',
-  },
-  default: {
-    defaultMessage: '',
-    id: 'store/list-price.default',
   },
 })
 
 ListPrice.schema = {
   title: messages.title.id,
-  description: messages.description.id,
-  default: messages.default.id,
 }
 
 export default ListPrice

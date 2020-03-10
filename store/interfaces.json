@@ -5,5 +5,12 @@
     "content": {
       "$ref": "app:vtex.product-price#/definitions/ListPrice"
     }
+  },
+  "product-price-savings": {
+    "component": "Savings",
+    "composition": "children",
+    "content": {
+      "$ref": "app:vtex.product-price#/definitions/Savings"
+    }
   }
 }
