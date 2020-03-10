@@ -12,5 +12,12 @@
     "content": {
       "$ref": "app:vtex.product-price#/definitions/Savings"
     }
+  },
+  "product-installments": {
+    "component": "Installments",
+    "composition": "children",
+    "content": {
+      "$ref": "app:vtex.product-price#/definitions/Installments"
+    }
   }
 }

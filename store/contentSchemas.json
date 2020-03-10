@@ -21,6 +21,17 @@
           "default": "store/savings.default"
         }
       }
+    },
+    "Installments": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "title": "admin/installments.title",
+          "description": "admin/installments.description",
+          "$ref": "app:vtex.native-types#/definitions/text",
+          "default": "store/installments.default"
+        }
+      }
     }
   }
 }
