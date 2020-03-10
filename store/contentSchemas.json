@@ -10,6 +10,17 @@
           "default": "store/list-price.default"
         }
       }
+    },
+    "Savings": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "title": "admin/savings.title",
+          "description": "admin/savings.description",
+          "$ref": "app:vtex.native-types#/definitions/text",
+          "default": "store/savings.default"
+        }
+      }
     }
   }
 }

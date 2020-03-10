@@ -7,7 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.0] - 2020-03-03
+## [0.2.0] - 2020-03-10
+### Added
+- `Savings` component.
 
+## [0.1.0] - 2020-03-03
 ### Added
 - `ListPrice` component.
