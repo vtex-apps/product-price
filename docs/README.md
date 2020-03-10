@@ -1,10 +1,10 @@
-âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸
-`ðŸ“¢ THIS APP SHOULD NOT BE USED UNTIL THE 1.X VERSION IS RELEASED`
-âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸âš ï¸
+                             
+`=â THIS APP SHOULD NOT BE USED UNTIL THE 1.X VERSION IS RELEASED`
+                             
 
 First of all (even before the block's name), its README.md should contain the following sentence at the very beginning:
 
-`ðŸ“¢ Use this project, [contribute](https://github.com/{OrganizationName}/{AppName}) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).`
+`=â Use this project, [contribute](https://github.com/{OrganizationName}/{AppName}) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).`
 
 > :warning: *Remember to replace the values between braces according to your scenario. For example: https://github.com/vtex-apps/breadcrumb*
 
@@ -62,3 +62,8 @@ Check out some documentation models that are already live:
 - [Breadcrumb](https://github.com/vtex-apps/breadcrumb)
 - [Image](https://vtex.io/docs/components/general/vtex.store-components/image)
 
+
+
+**Upcoming documentation:**
+
+ - [Added Savings component](https://github.com/vtex-apps/product-price/pull/2)
