@@ -36,8 +36,8 @@ const Installments: StorefrontFC<Props> = props => {
     return null
   }
 
-  const commertialOffer = selectedItem?.sellers[0]?.commertialOffer
-  if (!commertialOffer) {
+  const commercialOffer = selectedItem?.sellers[0]?.commertialOffer
+  if (!commercialOffer) {
     return null
   }
 
@@ -46,7 +46,7 @@ const Installments: StorefrontFC<Props> = props => {
     InterestRate,
     TotalValuePlusInterestRate,
     NumberOfInstallments,
-  } = commertialOffer.Installments.reduce(
+  } = commercialOffer.Installments.reduce(
     (previous: Installment, current: Installment) =>
       previous.NumberOfInstallments > current.NumberOfInstallments
         ? previous
