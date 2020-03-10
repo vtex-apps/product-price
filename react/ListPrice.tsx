@@ -50,22 +50,15 @@ const ListPrice: StorefrontFC<Props> = props => {
 
 const messages = defineMessages({
   title: {
-    defaultMessage: '',
     id: 'admin/list-price.title',
   },
   description: {
-    defaultMessage: '',
     id: 'admin/list-price.description',
-  },
-  default: {
-    defaultMessage: '',
-    id: 'store/list-price.default',
   },
 })
 
 ListPrice.schema = {
   title: messages.title.id,
-  description: messages.description.id,
 }
 
 export default ListPrice

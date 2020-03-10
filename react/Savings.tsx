@@ -77,22 +77,15 @@ const Savings: StorefrontFC<Props> = props => {
 
 const messages = defineMessages({
   title: {
-    defaultMessage: '',
     id: 'admin/savings.title',
   },
   description: {
-    defaultMessage: '',
     id: 'admin/savings.description',
-  },
-  default: {
-    defaultMessage: '',
-    id: 'store/savings.default',
   },
 })
 
 Savings.schema = {
   title: messages.title.id,
-  description: messages.description.id,
 }
 
 export default Savings
