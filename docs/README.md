@@ -1,10 +1,20 @@
-�����������������������������
-`=� THIS APP SHOULD NOT BE USED UNTIL THE 1.X VERSION IS RELEASED`
-�����������������������������
+
+                             
+`=â THIS APP SHOULD NOT BE USED UNTIL THE 1.X VERSION IS RELEASED`
+                             
+
+
+â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
+`ð¢ THIS APP SHOULD NOT BE USED UNTIL THE 1.X VERSION IS RELEASED`
+â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸â ï¸
+
 
 First of all (even before the block's name), its README.md should contain the following sentence at the very beginning:
 
-`=� Use this project, [contribute](https://github.com/{OrganizationName}/{AppName}) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).`
+`=â Use this project, [contribute](https://github.com/{OrganizationName}/{AppName}) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).`
 
 > :warning: *Remember to replace the values between braces according to your scenario. For example: https://github.com/vtex-apps/breadcrumb*
 
@@ -64,6 +74,21 @@ Check out some documentation models that are already live:
 
 
 
+## Contributors â¨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+
 **Upcoming documentation:**
 
  - [Added Savings component](https://github.com/vtex-apps/product-price/pull/2)
+
