@@ -53,6 +53,8 @@ const Installments: StorefrontFC<Props> = props => {
         : current
   )
 
+  const hasInterest = InterestRate !== 0
+
   return (
     <div className={handles.installments}>
       <IOMessageWithMarkers
@@ -80,6 +82,7 @@ const Installments: StorefrontFC<Props> = props => {
               <FormattedNumber value={InterestRate} style="percent" />
             </span>
           ),
+          hasInterest: hasInterest,
         }}
       />
     </div>
