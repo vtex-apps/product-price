@@ -1,7 +1,7 @@
 {
   "store/list-price.default": "Original price: {listPriceValue}",
   "store/savings.default": "Selling price: {newPriceValue}",
-  "store/installments.default": "or {installmentsNumber}x of {installmentValue}{hasInterest, select, true {, {interestRate} of interest (total: {installmentsTotalValue})} false { interest-free}}",
+  "store/installments.default": "or {installmentsNumber}x of {installmentValue}{hasInterest, select, true {, {interestRate} of interest} false { interest-free}}",
   "admin/list-price.description": "Values available for interpolation: '{listPriceValue}'",
   "admin/list-price.title": "List Price",
   "admin/savings.description": "Values available for interpolation: '{newPriceValue}, {previousPriceValue}, {savingsValue}, {savingsPercentage}'",
