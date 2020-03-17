@@ -12,9 +12,9 @@ interface Props {
   markers: string[]
 }
 
-const CSS_HANDLES = ['listPrice', 'listPriceValue'] as const
+const CSS_HANDLES = ['sellingPrice', 'sellingPriceValue']
 
-const ListPrice: StorefrontFC<Props> = props => {
+const SellingPrice: StorefrontFC<Props> = props => {
   const { message, markers } = props
   const handles = useCssHandles(CSS_HANDLES)
   const { selectedItem } = useContext(ProductContext)
@@ -28,18 +28,18 @@ const ListPrice: StorefrontFC<Props> = props => {
     return null
   }
 
-  const listPriceValue = commercialOffer.ListPrice
+  const sellingPriceValue = commercialOffer.Price
 
   return (
-    <div className={handles.listPrice}>
+    <div className={handles.sellingPrice}>
       <IOMessageWithMarkers
         message={message}
         markers={markers}
-        handleBase="listPrice"
+        handleBase="sellingPrice"
         values={{
-          listPriceValue: (
-            <span className={handles.listPriceValue}>
-              <FormattedCurrency value={listPriceValue} />
+          sellingPriceValue: (
+            <span className={handles.sellingPriceValue}>
+              <FormattedCurrency value={sellingPriceValue} />
             </span>
           ),
         }}
@@ -50,15 +50,15 @@ const ListPrice: StorefrontFC<Props> = props => {
 
 const messages = defineMessages({
   title: {
-    id: 'admin/list-price.title',
+    id: 'admin/selling-price.title',
   },
   description: {
-    id: 'admin/list-price.description',
+    id: 'admin/selling-price.description',
   },
 })
 
-ListPrice.schema = {
+SellingPrice.schema = {
   title: messages.title.id,
 }
 
-export default ListPrice
+export default SellingPrice
