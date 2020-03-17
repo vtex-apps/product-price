@@ -29,13 +29,13 @@ const Savings: StorefrontFC<Props> = props => {
     return null
   }
 
-  const commertialOffer = selectedItem?.sellers[0]?.commertialOffer
-  if (!commertialOffer) {
+  const commercialOffer = selectedItem?.sellers[0]?.commertialOffer
+  if (!commercialOffer) {
     return null
   }
 
-  const previousPriceValue = commertialOffer.ListPrice
-  const newPriceValue = commertialOffer.Price
+  const previousPriceValue = commercialOffer.ListPrice
+  const newPriceValue = commercialOffer.Price
   const savingsValue = previousPriceValue - newPriceValue
   const savingsPercentage = savingsValue / previousPriceValue
   if (savingsValue === 0) {

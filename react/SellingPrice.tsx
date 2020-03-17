@@ -23,12 +23,12 @@ const SellingPrice: StorefrontFC<Props> = props => {
     return null
   }
 
-  const commertialOffer = selectedItem?.sellers[0]?.commertialOffer
-  if (!commertialOffer) {
+  const commercialOffer = selectedItem?.sellers[0]?.commertialOffer
+  if (!commercialOffer) {
     return null
   }
 
-  const sellingPriceValue = commertialOffer.Price
+  const sellingPriceValue = commercialOffer.Price
 
   return (
     <div className={handles.sellingPrice}>
