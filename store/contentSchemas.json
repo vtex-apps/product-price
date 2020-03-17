@@ -11,6 +11,17 @@
         }
       }
     },
+    "SellingPrice": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "title": "admin/selling-price.title",
+          "description": "admin/selling-price.description",
+          "$ref": "app:vtex.native-types#/definitions/text",
+          "default": "store/selling-price.default"
+        }
+      }
+    },
     "Savings": {
       "type": "object",
       "properties": {

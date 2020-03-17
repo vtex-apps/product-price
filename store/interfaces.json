@@ -6,6 +6,13 @@
       "$ref": "app:vtex.product-price#/definitions/ListPrice"
     }
   },
+  "product-selling-price": {
+    "component": "SellingPrice",
+    "composition": "children",
+    "content": {
+      "$ref": "app:vtex.product-price#/definitions/SellingPrice"
+    }
+  },
   "product-price-savings": {
     "component": "Savings",
     "composition": "children",

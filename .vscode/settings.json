@@ -20,5 +20,8 @@
       "directory": "node",
       "changeProcessCWD": true
     }
-  ]
+  ],
+  "[markdown]": {
+    "editor.formatOnSave": false
+  }
 }
