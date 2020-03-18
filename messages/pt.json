@@ -4,11 +4,11 @@
   "store/savings.default": "Economize {savingsValue} ({savingsPercentage})",
   "store/installments.default": "ou {installmentsNumber}x de {installmentValue}{hasInterest, select, true {, {interestRate} de juros} false { sem juros}}",
   "admin/list-price.description": "Valores disponiveis para interpolação: '{listPriceValue}'",
-  "admin/list-price.title": "List Price",
+  "admin/list-price.title": "Preço de Tabela",
   "admin/selling-price.description": "Valores disponiveis para interpolação: '{sellingPriceValue}'",
-  "admin/selling-price.title": "Selling Price",
+  "admin/selling-price.title": "Preço de Venda",
   "admin/savings.description": "Valores disponiveis para interpolação: '{newPriceValue}, {previousPriceValue}, {savingsValue}, {savingsPercentage}'",
-  "admin/savings.title": "Price Savings",
+  "admin/savings.title": "Economias",
   "admin/installments.description": "Valores disponiveis para interpolação: '{installmentsNumber}, {installmentValue}, {installmentsTotalValue}, {interestRate}, {hasInterest}'",
-  "admin/installments.title": "Installments"
+  "admin/installments.title": "Prestações"
 }

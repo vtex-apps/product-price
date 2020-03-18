@@ -5,12 +5,7 @@ import { FormattedCurrency } from 'vtex.format-currency'
 import { useCssHandles } from 'vtex.css-handles'
 import { IOMessageWithMarkers } from 'vtex.native-types'
 
-import { StorefrontFC } from './types'
-
-interface Props {
-  message: string
-  markers: string[]
-}
+import { StorefrontFC, BasicPriceProps } from './types'
 
 const CSS_HANDLES = [
   'savings',
@@ -20,14 +15,10 @@ const CSS_HANDLES = [
   'savingsPercentage',
 ] as const
 
-const Savings: StorefrontFC<Props> = props => {
+const Savings: StorefrontFC<BasicPriceProps> = props => {
   const { message, markers } = props
   const handles = useCssHandles(CSS_HANDLES)
   const { selectedItem } = useContext(ProductContext)
-
-  if (!selectedItem) {
-    return null
-  }
 
   const commercialOffer = selectedItem?.sellers[0]?.commertialOffer
   if (!commercialOffer) {
@@ -43,7 +34,7 @@ const Savings: StorefrontFC<Props> = props => {
   }
 
   return (
-    <div className={handles.savings}>
+    <span className={handles.savings}>
       <IOMessageWithMarkers
         message={message}
         markers={markers}
@@ -71,7 +62,7 @@ const Savings: StorefrontFC<Props> = props => {
           ),
         }}
       />
-    </div>
+    </span>
   )
 }
 
