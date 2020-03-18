@@ -10,5 +10,5 @@
   "admin/savings.description": "Valores disponiveis para interpolação: '{newPriceValue}, {previousPriceValue}, {savingsValue}, {savingsPercentage}'",
   "admin/savings.title": "Economias",
   "admin/installments.description": "Valores disponiveis para interpolação: '{installmentsNumber}, {installmentValue}, {installmentsTotalValue}, {interestRate}, {hasInterest}'",
-  "admin/installments.title": "Prestações"
+  "admin/installments.title": "Parcelamento"
 }
