@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-- `ListPriceRange` component.
+- `ListPriceRange` and `SellingPriceRange` component.
 
 ### Changed
 - Made `ListPrice` render null if it is the same as `SellingPrice`.

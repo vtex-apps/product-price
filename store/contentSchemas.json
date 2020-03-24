@@ -60,6 +60,23 @@
           "default": "store/list-price-range-no-range-message.default"
         }
       }
+    },
+    "SellingPriceRange": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "title": "admin/selling-price-range-message.title",
+          "description": "admin/selling-price-range-message.description",
+          "$ref": "app:vtex.native-types#/definitions/text",
+          "default": "store/selling-price-range-message.default"
+        },
+        "noRangeMessage": {
+          "title": "admin/selling-price-range-no-range-message.title",
+          "description": "admin/selling-price-range-no-range-message.description",
+          "$ref": "app:vtex.native-types#/definitions/text",
+          "default": "store/selling-price-range-no-range-message.default"
+        }
+      }
     }
   }
 }
