@@ -68,10 +68,10 @@ const messages = defineMessages({
     id: 'admin/list-price-range-message.description',
   },
   noRangeMessageTitle: {
-    id: 'admin/list-price-range-message.title',
+    id: 'admin/list-price-range-no-range-message.title',
   },
   noRangeMessageDescription: {
-    id: 'admin/list-price-range-message.description',
+    id: 'admin/list-price-range-no-range-message.description',
   },
 })
 
