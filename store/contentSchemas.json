@@ -43,6 +43,23 @@
           "default": "store/installments.default"
         }
       }
+    },
+    "ListPriceRange": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "title": "admin/list-price-range-message.title",
+          "description": "admin/list-price-range-message.description",
+          "$ref": "app:vtex.native-types#/definitions/text",
+          "default": "store/list-price-range-message.default"
+        },
+        "noRangeMessage": {
+          "title": "admin/list-price-range-no-range-message.title",
+          "description": "admin/list-price-range-no-range-message.description",
+          "$ref": "app:vtex.native-types#/definitions/text",
+          "default": "store/list-price-range-no-range-message.default"
+        }
+      }
     }
   }
 }

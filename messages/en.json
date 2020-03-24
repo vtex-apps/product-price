@@ -3,6 +3,9 @@
   "store/selling-price.default": "Selling price: {sellingPriceValue}",
   "store/savings.default": "Save {savingsValue} ({savingsPercentage})",
   "store/installments.default": "or {installmentsNumber}x of {installmentValue}{hasInterest, select, true {, {interestRate} of interest} false { interest-free}}",
+  "store/list-price-range-message.default": "{minPriceValue} - {maxPriceValue}",
+  "store/list-price-range-no-range-message.default": "{minPriceValue}",
+
   "admin/list-price.description": "Values available for interpolation: '{listPriceValue}'",
   "admin/list-price.title": "List Price",
   "admin/selling-price.description": "Values available for interpolation: '{sellingPriceValue}'",
@@ -10,5 +13,10 @@
   "admin/savings.description": "Values available for interpolation: '{newPriceValue}, {previousPriceValue}, {savingsValue}, {savingsPercentage}'",
   "admin/savings.title": "Savings",
   "admin/installments.description": "Values available for interpolation: '{installmentsNumber}, {installmentValue}, {installmentsTotalValue}, {interestRate} {hasInterest}'",
-  "admin/installments.title": "Installments"
+  "admin/installments.title": "Installments",
+  "admin/list-price-range.title": "List Price Range",
+  "admin/list-price-range-message.description": "Message to be shown when there is a difference in price between the SKUs.\nValues available for interpolation: '{minPriceValue}, {maxPriceValue}'",
+  "admin/list-price-range-message.title": "List Price (Range)",
+  "admin/list-price-range-no-range-message.description": "Message to be shown when there is not a difference in price between the SKUs.\nValues available for interpolation: '{minPriceValue}, {maxPriceValue}'",
+  "admin/list-price-range-no-range-message.title": "List Price (No Range)"
 }

@@ -3,6 +3,9 @@
   "store/selling-price.default": "Precio de venta: {sellingPriceValue}",
   "store/savings.default": "Ahorre {savingsValue} ({savingsPercentage})",
   "store/installments.default": "ou {installmentsNumber}x de {installmentValue}{hasInterest, select, true {, {interestRate} de interés} false { sin interés}}",
+  "store/list-price-range-message.default": "{minPriceValue} - {maxPriceValue}",
+  "store/list-price-range-no-range-message.default": "{minPriceValue}",
+
   "admin/list-price.description": "Valores disponibles para interpolación: '{listPriceValue}'",
   "admin/list-price.title": "Precio de Lista",
   "admin/selling-price.description": "Valores disponibles para interpolación: '{sellingPriceValue}'",
@@ -10,5 +13,10 @@
   "admin/savings.description": "Valores disponibles para interpolación: '{newPriceValue}, {previousPriceValue}, {savingsValue}, {savingsPercentage}'",
   "admin/savings.title": "Ahorros",
   "admin/installments.description": "Valores disponibles para interpolación: '{installmentsNumber}, {installmentValue}, {installmentsTotalValue}, {interestRate}, {hasInterest}'",
-  "admin/installments.title": "Cuotas"
+  "admin/installments.title": "Cuotas",
+  "admin/list-price-range.title": "Rango de Precio de Lista",
+  "admin/list-price-range-message.description": "Mensaje que se mostrará cuando haya una diferencia de precio entre los SKU.\nValores disponibles para interpolación: '{minPriceValue}, {maxPriceValue}'",
+  "admin/list-price-range-message.title": "Precio de Lista (Rango)",
+  "admin/list-price-range-no-range-message.description": "ensaje que se mostrará cuando no haya una diferencia de precio entre los SKU.\nValores disponibles para interpolación: '{minPriceValue}, {maxPriceValue}'",
+  "admin/list-price-range-no-range-message.title": "Precio de Lista (Sin rango)"
 }
