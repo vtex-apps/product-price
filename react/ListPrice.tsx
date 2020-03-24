@@ -20,6 +20,11 @@ const ListPrice: StorefrontFC<BasicPriceProps> = props => {
   }
 
   const listPriceValue = commercialOffer.ListPrice
+  const sellingPriceValue = commercialOffer.Price
+
+  if (listPriceValue === sellingPriceValue) {
+    return null
+  }
 
   return (
     <span className={handles.listPrice}>
