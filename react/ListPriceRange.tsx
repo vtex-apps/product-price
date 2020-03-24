@@ -11,6 +11,7 @@ const CSS_HANDLES = [
   'listPriceRange',
   'listPriceRangeMinValue',
   'listPriceRangeMaxValue',
+  'listPriceRangeUniqueValue',
 ] as const
 
 const ListPriceRange: StorefrontFC<PriceRangeProps> = props => {
@@ -40,18 +41,30 @@ const ListPriceRange: StorefrontFC<PriceRangeProps> = props => {
         message={hasRange ? message : noRangeMessage}
         markers={markers}
         handleBase="listPriceRange"
-        values={{
-          minPriceValue: (
-            <span className={`${handles.listPriceRangeMinValue} strike`}>
-              <FormattedCurrency value={minPrice} />
-            </span>
-          ),
-          maxPriceValue: (
-            <span className={`${handles.listPriceRangeMaxValue} strike`}>
-              <FormattedCurrency value={maxPrice} />
-            </span>
-          ),
-        }}
+        values={
+          hasRange
+            ? {
+                minPriceValue: (
+                  <span className={`${handles.listPriceRangeMinValue} strike`}>
+                    <FormattedCurrency value={minPrice} />
+                  </span>
+                ),
+                maxPriceValue: (
+                  <span className={`${handles.listPriceRangeMaxValue} strike`}>
+                    <FormattedCurrency value={maxPrice} />
+                  </span>
+                ),
+              }
+            : {
+                listPriceValue: (
+                  <span
+                    className={`${handles.listPriceRangeUniqueValue} strike`}
+                  >
+                    <FormattedCurrency value={maxPrice} />
+                  </span>
+                ),
+              }
+        }
       />
     </span>
   )

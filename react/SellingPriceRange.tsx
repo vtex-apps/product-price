@@ -11,6 +11,7 @@ const CSS_HANDLES = [
   'sellingPriceRange',
   'sellingPriceRangeMinValue',
   'sellingPriceRangeMaxValue',
+  'sellingPriceRangeUniqueValue',
 ] as const
 
 const SellingPriceRange: StorefrontFC<PriceRangeProps> = props => {
@@ -33,18 +34,28 @@ const SellingPriceRange: StorefrontFC<PriceRangeProps> = props => {
         message={hasRange ? message : noRangeMessage}
         markers={markers}
         handleBase="sellingPriceRange"
-        values={{
-          minPriceValue: (
-            <span className={handles.sellingPriceRangeMinValue}>
-              <FormattedCurrency value={minPrice} />
-            </span>
-          ),
-          maxPriceValue: (
-            <span className={handles.sellingPriceRangeMaxValue}>
-              <FormattedCurrency value={maxPrice} />
-            </span>
-          ),
-        }}
+        values={
+          hasRange
+            ? {
+                minPriceValue: (
+                  <span className={handles.sellingPriceRangeMinValue}>
+                    <FormattedCurrency value={minPrice} />
+                  </span>
+                ),
+                maxPriceValue: (
+                  <span className={handles.sellingPriceRangeMaxValue}>
+                    <FormattedCurrency value={maxPrice} />
+                  </span>
+                ),
+              }
+            : {
+                sellingPriceValue: (
+                  <span className={handles.sellingPriceRangeUniqueValue}>
+                    <FormattedCurrency value={maxPrice} />
+                  </span>
+                ),
+              }
+        }
       />
     </span>
   )
