@@ -18,13 +18,20 @@ const ListPriceRange: StorefrontFC<PriceRangeProps> = props => {
   const handles = useCssHandles(CSS_HANDLES)
   const { product } = useContext(ProductContext)
 
-  const priceRange = product?.priceRange.listPrice
+  const priceRange = product?.priceRange
   if (!priceRange) {
     return null
   }
 
-  const minPrice = priceRange.lowPrice
-  const maxPrice = priceRange.highPrice
+  if (
+    priceRange.listPrice.lowPrice === priceRange.sellingPrice.lowPrice &&
+    priceRange.listPrice.highPrice === priceRange.sellingPrice.highPrice
+  ) {
+    return null
+  }
+
+  const minPrice = priceRange.listPrice.lowPrice
+  const maxPrice = priceRange.listPrice.highPrice
   const hasRange = minPrice !== maxPrice
 
   return (

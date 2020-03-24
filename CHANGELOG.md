@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - `ListPriceRange` component.
 
+### Changed
+- Made `ListPrice` render null if it is the same as `SellingPrice`.
+
 ## [0.4.1] - 2020-03-18
 ### Changed
 - Overall refactor.
