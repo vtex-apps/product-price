@@ -35,36 +35,43 @@ const ListPriceRange: StorefrontFC<PriceRangeProps> = props => {
   const maxPrice = priceRange.listPrice.highPrice
   const hasRange = minPrice !== maxPrice
 
+  if (hasRange) {
+    return (
+      <span className={handles.listPriceRange}>
+        <IOMessageWithMarkers
+          message={message}
+          markers={markers}
+          handleBase="listPriceRange"
+          values={{
+            minPriceValue: (
+              <span className={`${handles.listPriceRangeMinValue} strike`}>
+                <FormattedCurrency value={minPrice} />
+              </span>
+            ),
+            maxPriceValue: (
+              <span className={`${handles.listPriceRangeMaxValue} strike`}>
+                <FormattedCurrency value={maxPrice} />
+              </span>
+            ),
+          }}
+        />
+      </span>
+    )
+  }
+
   return (
     <span className={handles.listPriceRange}>
       <IOMessageWithMarkers
-        message={hasRange ? message : noRangeMessage}
+        message={noRangeMessage}
         markers={markers}
         handleBase="listPriceRange"
-        values={
-          hasRange
-            ? {
-                minPriceValue: (
-                  <span className={`${handles.listPriceRangeMinValue} strike`}>
-                    <FormattedCurrency value={minPrice} />
-                  </span>
-                ),
-                maxPriceValue: (
-                  <span className={`${handles.listPriceRangeMaxValue} strike`}>
-                    <FormattedCurrency value={maxPrice} />
-                  </span>
-                ),
-              }
-            : {
-                listPriceValue: (
-                  <span
-                    className={`${handles.listPriceRangeUniqueValue} strike`}
-                  >
-                    <FormattedCurrency value={maxPrice} />
-                  </span>
-                ),
-              }
-        }
+        values={{
+          listPriceValue: (
+            <span className={`${handles.listPriceRangeUniqueValue} strike`}>
+              <FormattedCurrency value={maxPrice} />
+            </span>
+          ),
+        }}
       />
     </span>
   )

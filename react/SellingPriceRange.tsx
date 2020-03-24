@@ -28,34 +28,43 @@ const SellingPriceRange: StorefrontFC<PriceRangeProps> = props => {
   const maxPrice = priceRange.sellingPrice.highPrice
   const hasRange = minPrice !== maxPrice
 
+  if (hasRange) {
+    return (
+      <span className={handles.sellingPriceRange}>
+        <IOMessageWithMarkers
+          message={message}
+          markers={markers}
+          handleBase="sellingPriceRange"
+          values={{
+            minPriceValue: (
+              <span className={handles.sellingPriceRangeMinValue}>
+                <FormattedCurrency value={minPrice} />
+              </span>
+            ),
+            maxPriceValue: (
+              <span className={handles.sellingPriceRangeMaxValue}>
+                <FormattedCurrency value={maxPrice} />
+              </span>
+            ),
+          }}
+        />
+      </span>
+    )
+  }
+
   return (
     <span className={handles.sellingPriceRange}>
       <IOMessageWithMarkers
-        message={hasRange ? message : noRangeMessage}
+        message={noRangeMessage}
         markers={markers}
         handleBase="sellingPriceRange"
-        values={
-          hasRange
-            ? {
-                minPriceValue: (
-                  <span className={handles.sellingPriceRangeMinValue}>
-                    <FormattedCurrency value={minPrice} />
-                  </span>
-                ),
-                maxPriceValue: (
-                  <span className={handles.sellingPriceRangeMaxValue}>
-                    <FormattedCurrency value={maxPrice} />
-                  </span>
-                ),
-              }
-            : {
-                sellingPriceValue: (
-                  <span className={handles.sellingPriceRangeUniqueValue}>
-                    <FormattedCurrency value={maxPrice} />
-                  </span>
-                ),
-              }
-        }
+        values={{
+          sellingPriceValue: (
+            <span className={handles.sellingPriceRangeUniqueValue}>
+              <FormattedCurrency value={maxPrice} />
+            </span>
+          ),
+        }}
       />
     </span>
   )
