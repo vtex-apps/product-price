@@ -51,7 +51,7 @@ const Installments: StorefrontFC<BasicPriceProps> = props => {
       <IOMessageWithMarkers
         message={message}
         markers={markers}
-        handleBase="listPrice"
+        handleBase="installments"
         values={{
           installmentsNumber: (
             <span className={handles.installmentsNumber}>
