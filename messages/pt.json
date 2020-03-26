@@ -1,8 +1,8 @@
 {
-  "store/list-price.default": "Preço original: {listPriceValue}",
-  "store/selling-price.default": "Preço de venda: {sellingPriceValue}",
-  "store/savings.default": "Economize {savingsValue} ({savingsPercentage})",
-  "store/installments.default": "ou {installmentsNumber}x de {installmentValue}{hasInterest, select, true {, {interestRate} de juros} false { sem juros}}",
+  "store/list-price.default": "{listPriceValue}",
+  "store/selling-price.default": "{sellingPriceValue}",
+  "store/savings.default": "Economize {savingsValue}",
+  "store/installments.default": "Em até {installmentsNumber}x {installmentValue}{hasInterest, select, true {, {interestRate} de juros} false { sem juros}}",
   "store/list-price-range-message.default": "{minPriceValue} - {maxPriceValue}",
   "store/list-price-range-no-range-message.default": "{listPriceValue}",
   "store/selling-price-range-message.default": "{minPriceValue} - {maxPriceValue}",
