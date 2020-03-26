@@ -38,7 +38,7 @@ const Savings: StorefrontFC<BasicPriceProps> = props => {
       <IOMessageWithMarkers
         message={message}
         markers={markers}
-        handleBase="listPrice"
+        handleBase="savings"
         values={{
           previousPriceValue: (
             <span className={handles.previousPriceValue}>
