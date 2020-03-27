@@ -8,9 +8,9 @@ First of all (even before the block's name), its README.md should contain the fo
 
 📢 Use this project, [contribute](https://github.com/vtex-apps/productPrice) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).
 
-# PRODUCT PRICE
+# Product Price
 
-VTEX Product Price app is responsible for exporting blocks related to the product's price, such as list price, selling price and savings.
+Product Price app is responsible for exporting blocks related to the product's price, such as list price, selling price and savings.
 
 ![image](https://user-images.githubusercontent.com/8443580/77692675-d5694180-6f85-11ea-8690-49db5be24b3d.png)
 
@@ -26,14 +26,15 @@ dependencies: {
 ```
   
 Now, you can use all the blocks exported by the `product-price` app. Check out the full list below:
+
 | Block name          |  Description |
 | --------------------| -------- |
-| `ListPrice`         | Renders the product's list price. If the product's list price is the same as the selling price, this block will not be rendered. | 
-| `SellingPrice`      | Renders the product's selling price.| 
-| `Installments`      | Renders the product's installments. If there is more than one option, the one with the biggest number of installments will be displayed.| 
-| `Savings`           | Renders the product's price savings, if there is any. It can show the percentage of the discount and the value of the absolute savings. | 
-| `ListPriceRange`    | Renders the list price range of the product. It follows the same rule of the `ListPrice`, if it is the same as `SellingPriceRange`, this block is not rendered. | 
-| `SellingPriceRange` | Renders the selling price range of the product. | 
+| `ListPrice`         | The product's list price. If the product's list price is the same as the selling price, this block will not be rendered. | 
+| `SellingPrice`      | The product's selling price.| 
+| `Installments`      | The product's installments. If there is more than one option, the one with the biggest number of installments will be displayed.| 
+| `Savings`           | The product's price savings, if there is any. It can show the percentage of the discount and the value of the absolute savings. | 
+| `ListPriceRange`    | The list price range of the product. It follows the same rule of the `ListPrice`, if it is the same as `SellingPriceRange`, this block is not rendered. | 
+| `SellingPriceRange` | The selling price range of the product. | 
 
 ℹ️ These blocks need the product context to work correctly, so be sure that you are putting them where this context is available!
 
@@ -43,10 +44,10 @@ To add the blocks of this app in your theme, you just need to add them as childr
 ```
 "product-summary.shelf": {
   "children": [
-	"product-list-price",
-	"product-selling-price",
+    "product-list-price",
+    "product-selling-price",
     "product-price-savings",
-	"product-installments"
+    "product-installments"
   ]
 },
 ```
@@ -75,10 +76,12 @@ Every Product Price message uses the [ICU Message Format](https://format-message
 
 ![image](https://user-images.githubusercontent.com/8443580/77782384-f6896b00-7035-11ea-8808-fb2a5533d1a6.png)
 
-Another special feature these messages have are `markers`, which is the possibility to wrap a part of the message in a `span` with its CSS handle. To use `markers` in your message, do the following:
-1 - Add the desired marker to your block, such as in the example of step 2
-2 - Go on site-editor and wrap the text you want in the marker as if it were an element. Example: `<discount>-{savingsPercentage}</discount>`
-3 - Save the changes, and then you will notice that this part of the text is wrapped in a new `span` with its own unique selector: `<span class="vtex-product-price-1-x-savings-discount vtex-product-price-0-x-savings-discount--summary">`
+Another special feature these messages have are `markers`, which gives the possibility to wrap a part of the message in a `span` with its own CSS handle. To use `markers` in your message, do the following:
+1 - Add to the prop `markers` a marker name, for example: `"markers": ["highlight"]`
+2 - Open the Site Editor and click to edit the block
+3 - In the edition form of the block, fill the field with a text and wrap the piece of a text using the marker as if it were an element. Example: `<highlight>-{savingsPercentage}</highlight>`
+4 - Save the changes
+5 - If you inspect the HTML of the element you will notice that this part of the text is wrapped in a new `span` with its own unique selector: `<span class="vtex-product-price-1-x-savings-highlight">`
 
 ## Customization
 
@@ -115,17 +118,10 @@ To apply  CSS  customization in this and other blocks, follow the instructions g
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-
 <!-- prettier-ignore-start -->
-
 <!-- markdownlint-disable -->
-
 <!-- markdownlint-enable -->
-
 <!-- prettier-ignore-end -->
-
-  
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
