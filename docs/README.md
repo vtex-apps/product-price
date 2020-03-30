@@ -19,8 +19,8 @@ Product Price app is responsible for exporting blocks related to the product's p
 ### Step 1 - Adding the Product Price app to your theme's dependencies
 In your theme's `manifest.json`, add the Search Result app as a dependency:
 
-```
-dependencies: {
+```json
+"dependencies": {
   "vtex.product-price": "1.x"
 }
 ```
@@ -60,7 +60,8 @@ Every block in this app has some props in common:
 |  `blockClass`  |  `String`  |  Unique  block  ID  to  be  used  in [CSS  customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization#using-the-blockclass-property)  |  `undefined`  |
 
 Example  of usage:
-```
+
+```json
 "product-price-savings#summary": {
   "props": {
     "markers": [
@@ -70,6 +71,7 @@ Example  of usage:
   }
 },
 ```
+
 ### Step 3 - Editing the values on Site Editor
 
 Every Product Price message uses the [ICU Message Format](https://format-message.github.io/icu-message-format-for-translators/), which means you can interpolate values and apply some conditions to the message. This makes it possible to fully edit the prices' messages. Every block has its values that can be interpolated in the message and you can check them out in the description of the field on site-editor:
@@ -77,6 +79,7 @@ Every Product Price message uses the [ICU Message Format](https://format-message
 ![image](https://user-images.githubusercontent.com/8443580/77782384-f6896b00-7035-11ea-8808-fb2a5533d1a6.png)
 
 Another special feature these messages have are `markers`, which gives the possibility to wrap a part of the message in a `span` with its own CSS handle. To use `markers` in your message, do the following:
+
 1 - Add to the prop `markers` a marker name, for example: `"markers": ["highlight"]`
 2 - Open the Site Editor and click to edit the block
 3 - In the edition form of the block, fill the field with a text and wrap the piece of a text using the marker as if it were an element. Example: `<highlight>-{savingsPercentage}</highlight>`
@@ -111,7 +114,6 @@ To apply  CSS  customization in this and other blocks, follow the instructions g
 | `sellingPriceRangeMinValue` |
 | `sellingPriceRangeMaxValue` |
 | `sellingPriceRangeUniqueValue` |
-
 
 ## Contributors ✨
 
