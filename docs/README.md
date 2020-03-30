@@ -17,6 +17,7 @@ Product Price app is responsible for exporting blocks related to the product's p
 ## Configuration
 
 ### Step 1 - Adding the Product Price app to your theme's dependencies
+
 In your theme's `manifest.json`, add the Search Result app as a dependency:
 
 ```json
@@ -41,7 +42,8 @@ Now, you can use all the blocks exported by the `product-price` app. Check out t
 ### Step 2 - Adding the Product Price to page templates
 
 To add the blocks of this app in your theme, you just need to add them as children in the desired block. For example:
-```
+
+```json
 "product-summary.shelf": {
   "children": [
     "product-list-price",
