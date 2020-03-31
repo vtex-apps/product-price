@@ -4,9 +4,7 @@
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-First of all (even before the block's name), its README.md should contain the following sentence at the very beginning:
-
-📢 Use this project, [contribute](https://github.com/vtex-apps/productPrice) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).
+📢 Use this project, [contribute](https://github.com/vtex-apps/product-price) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).
 
 # Product Price
 
@@ -18,7 +16,7 @@ Product Price app is responsible for exporting blocks related to the product's p
 
 ### Step 1 - Adding the Product Price app to your theme's dependencies
 
-In your theme's `manifest.json`, add the Search Result app as a dependency:
+In your theme's `manifest.json`, add the Product Price app as a dependency:
 
 ```json
 "dependencies": {
@@ -37,11 +35,15 @@ Now, you can use all the blocks exported by the `product-price` app. Check out t
 | `ListPriceRange`    | The list price range of the product. It follows the same rule of the `ListPrice`, if it is the same as `SellingPriceRange`, this block is not rendered. | 
 | `SellingPriceRange` | The selling price range of the product. | 
 
-ℹ️ These blocks need the product context to work correctly, so be sure that you are putting them where this context is available!
+All blocks listed above use product price data fetched from the store catalog. In order to understand further, please access the [Pricing Module overview](https://help.vtex.com/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP).
 
 ### Step 2 - Adding the Product Price to page templates
 
-To add the blocks of this app in your theme, you just need to add them as children in the desired block. For example:
+To add the Product Price's blocks in your theme, you just need to declare them as children of the `product-summary-shelf`, exported by the [Product Summary](https://vtex.io/docs/components/content-blocks/vtex.product-summary@2.52.3) app, or declare them in the theme's Product template (`store.product`).
+
+Notice the following: these blocks necessarily need a Product context in order to work properly. Therefore, when declaring them as children of the `product-summary-shelf`, be sure that they are in a store template in which this context is available.
+
+For example:
 
 ```json
 "product-summary.shelf": {
@@ -56,12 +58,12 @@ To add the blocks of this app in your theme, you just need to add them as childr
 
 Every block in this app has some props in common:
 
-| Block name          | Type      |  Description | Default value |
+| Prop name          | Type      |  Description | Default value |
 | --------------------| ----------|--------------|---------------|
-| `markers`           |`string[]` |Custom markers used to customize parts of the message on siteeditor|`[]`|
-|  `blockClass`  |  `String`  |  Unique  block  ID  to  be  used  in [CSS  customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization#using-the-blockclass-property)  |  `undefined`  |
+| `markers`           |`string[]` | Custom markers used to customize parts of the message on Site Editor|`[]`|
+|  `blockClass`  |  `string`  |  Unique  block  ID  to  be  used  in [CSS  customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization#using-the-blockclass-property)  |  `undefined`  |
 
-Example  of usage:
+For example:
 
 ```json
 "product-price-savings#summary": {
@@ -76,11 +78,13 @@ Example  of usage:
 
 ### Step 3 - Editing the values on Site Editor
 
-Every Product Price message uses the [ICU Message Format](https://format-message.github.io/icu-message-format-for-translators/), which means you can interpolate values and apply some conditions to the message. This makes it possible to fully edit the prices' messages. Every block has its values that can be interpolated in the message and you can check them out in the description of the field on site-editor:
+Every Product Price's block uses the [ICU Message Format](https://format-message.github.io/icu-message-format-for-translators/).
+
+This makes it possible to fully edit the messages exported by each Product Price's block. Check it out in the admin's Site Editor:
 
 ![image](https://user-images.githubusercontent.com/8443580/77782384-f6896b00-7035-11ea-8808-fb2a5533d1a6.png)
 
-Another special feature these messages have are `markers`, which gives the possibility to wrap a part of the message in a `span` with its own CSS handle. To use `markers` in your message, do the following:
+Each of these messages has `markers` responsible for wrapping a part of the message with its own CSS handle. To use `markers` in your message, do the following:
 
 1 - Add to the prop `markers` a marker name, for example: `"markers": ["highlight"]`
 2 - Open the Site Editor and click to edit the block
