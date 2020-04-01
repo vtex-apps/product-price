@@ -60,8 +60,8 @@ Every block in this app has some props in common:
 
 | Prop name          | Type      |  Description | Default value |
 | --------------------| ----------|--------------|---------------|
-| `markers`           |`string[]` | Custom markers used to customize parts of the message on Site Editor|`[]`|
-|  `blockClass`  |  `string`  |  Unique  block  ID  to  be  used  in [CSS  customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization#using-the-blockclass-property)  |  `undefined`  |
+| `markers`           |`[string]` | IDs of your choosing to identify the block's exported messages and customize them using the admin's Site Editor. Learn how to use them below |`[]`|
+|  `blockClass`  |  `string`  |  Block  ID  of your choosing to  be  used  in [CSS  customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization#using-the-blockclass-property)  |  `undefined`  |
 
 For example:
 
@@ -80,17 +80,46 @@ For example:
 
 Every Product Price's block uses the [ICU Message Format](https://format-message.github.io/icu-message-format-for-translators/).
 
-This makes it possible to fully edit the messages exported by each Product Price's block. Check it out in the admin's Site Editor:
+This makes it possible to fully edit the messages exported by each Product Price's block through the admin's Site Editor.
 
-![image](https://user-images.githubusercontent.com/8443580/77782384-f6896b00-7035-11ea-8808-fb2a5533d1a6.png)
+![Product-Price-Site-Editor-gif](https://user-images.githubusercontent.com/52087100/78073694-bdbffd80-7377-11ea-9262-40854dccdd53.gif)
 
-Each of these messages has `markers` responsible for wrapping a part of the message with its own CSS handle. To use `markers` in your message, do the following:
+Notice that you not only can edit the message text used by the block but also choose which data will be rendered according to the options stated in the field description.
 
-1 - Add to the prop `markers` a marker name, for example: `"markers": ["highlight"]`
-2 - Open the Site Editor and click to edit the block
-3 - In the edition form of the block, fill the field with a text and wrap the piece of a text using the marker as if it were an element. Example: `<highlight>-{savingsPercentage}</highlight>`
-4 - Save the changes
-5 - If you inspect the HTML of the element you will notice that this part of the text is wrapped in a new `span` with its own unique selector: `<span class="vtex-product-price-1-x-savings-highlight">`
+In the example above, the block was firstly displaying a `Save $224.40` message. As a final result, it now renders a `You are saving: $224.40 (37%)` thanks to the changes performed through the admin's Site Editor.
+
+![product-price-edited-img](https://user-images.githubusercontent.com/52087100/78073688-bc8ed080-7377-11ea-9a7a-53c36d9a9fe2.png)
+
+### Using the `markers` prop 
+
+1. Using your terminal and the [VTEX IO Toolbelt](https://vtex.io/docs/recipes/development/vtex-io-cli-installment-and-command-reference), login to the desired VTEX account from a development workspace;
+2. Access the theme directory and open it using the code editor of your choosing;
+3. Using your code editor, add the `markers` prop to the block whose text messages you want to customize and define unique value for it. For example:
+
+```json
+"product-price-savings#summary": {
+  "props": {
+    "markers": [
+      "discount"
+    ],
+  }
+},
+```
+
+4. Save your changes and [link the theme app](https://vtex.io/docs/recipes/development/linking-an-app);
+5. Using the developer workspace you were previously developing, access the account's admin;
+6. Then, open the Site Editor section in the CMS module;
+7.  Click on the block in which the `markers` prop was added to edit it;
+8.  Use the `markers` prop value as a tag, wrapping the desired block message that will be customized by you. For example: `<discount>-{savingsPercentage}</discount>`
+ 
+![markers-prop-site-editor](https://user-images.githubusercontent.com/52087100/78163670-0f6f9300-741f-11ea-83a4-7122113234fb.gif)
+*Once the changes performed are dully saved, the wrapped block message gains an identifier that corresponds to the prop value applied in the tag. This will allow the HTML element CSS customization*
+9. Using the same development workspace, access the account's website in which you are working on (`{workspaceName}--{accountName}.myvtex.com`); 
+10. Then, inspect the HTML element that corresponds to the text message just configured through the admin's Site Editor;
+![product-price-markers-inspect](https://user-images.githubusercontent.com/52087100/78162509-578db600-741d-11ea-9d7d-e4c74399576e.png)
+*Notice that the HTML element is now wrapped in a new* `span` *with its own unique selector:* `<span class="vtex-product-price-1-x-savings-discount">`.
+11. Once all changes are verified, it is time now to use a Production workspace. Repeat the steps above using a workspace in production mode. Then, [promote it to Master](https://vtex.io/docs/recipes/development/promoting-a-workspace-to-master).
+12. Done! You are now able to use the new HTML element identifier to customize the text message as desired. To know the next steps, access the [Customing your store using CSS Handles](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization) recipe.
 
 ## Customization
 
