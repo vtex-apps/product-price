@@ -28,16 +28,16 @@ Now, you can use all the blocks exported by the `product-price` app. Check out t
 
 | Block name          |  Description |
 | --------------------| -------- |
-| `ListPrice`         | The product's list price. If the product's list price is the same as the selling price, this block will not be rendered. | 
-| `SellingPrice`      | The product's selling price.| 
-| `Installments`      | The product's installments. If there is more than one option, the one with the biggest number of installments will be displayed.| 
-| `Savings`           | The product's price savings, if there is any. It can show the percentage of the discount and the value of the absolute savings. | 
-| `ListPriceRange`    | The list price range of the product. It follows the same rule of the `ListPrice`, if it is the same as `SellingPriceRange`, this block is not rendered. | 
-| `SellingPriceRange` | The selling price range of the product. | 
+| `ListPrice`         | Renders the product list price. If it is equal to the product selling price, this block will not be rendered. | 
+| `SellingPrice`      | Renders the product selling price.| 
+| `Installments`      | Renders the product installments. If more than one option is available, the one with the biggest number of installments will be displayed. | 
+| `Savings`           | Renders the product price savings, if there is any. It can show the percentage of the discount or the value of the absolute saving. | 
+| `ListPriceRange`    | Renders the product list price range. It follows the same logic applied to the `ListPrice`: if its value is equal to the product selling price, this block is not rendered. | 
+| `SellingPriceRange` | The product selling price range. | 
 
 All blocks listed above use product price data fetched from the store catalog. In order to understand further, please access the [Pricing Module overview](https://help.vtex.com/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP).
 
-### Step 2 - Adding the Product Price to page templates
+### Step 2 - Adding the Product Price's blocks to your theme's templates
 
 To add the Product Price's blocks in your theme, you just need to declare them as children of the `product-summary-shelf`, exported by the [Product Summary](https://vtex.io/docs/components/content-blocks/vtex.product-summary@2.52.3) app, or declare them in the theme's Product template (`store.product`).
 
@@ -46,6 +46,10 @@ Notice the following: these blocks necessarily need a Product context in order t
 For example:
 
 ```json
+"shelf#home": {
+  "blocks": ["product-summary.shelf"]
+},
+
 "product-summary.shelf": {
   "children": [
     "product-list-price",
