@@ -28,12 +28,12 @@ Now, you can use all the blocks exported by the `product-price` app. Check out t
 
 | Block name          |  Description |
 | --------------------| -------- |
-| `ListPrice`         | Renders the product list price. If it is equal to the product selling price, this block will not be rendered. | 
-| `SellingPrice`      | Renders the product selling price.| 
-| `Installments`      | Renders the product installments. If more than one option is available, the one with the biggest number of installments will be displayed. | 
-| `Savings`           | Renders the product price savings, if there is any. It can show the percentage of the discount or the value of the absolute saving. | 
-| `ListPriceRange`    | Renders the product list price range. It follows the same logic applied to the `ListPrice`: if its value is equal to the product selling price, this block is not rendered. | 
-| `SellingPriceRange` | The product selling price range. | 
+| `product-list-price`         | Renders the product list price. If it is equal to the product selling price, this block will not be rendered. | 
+| `product-selling-price`      | Renders the product selling price.| 
+| `product-installments`      | Renders the product installments. If more than one option is available, the one with the biggest number of installments will be displayed. | 
+| `product-price-savings`           | Renders the product price savings, if there is any. It can show the percentage of the discount or the value of the absolute saving. | 
+| `product-list-price-range`    | Renders the product list price range. It follows the same logic applied to the `ListPrice`: if its value is equal to the product selling price, this block is not rendered. | 
+| `product-selling-price-range` | The product selling price range. | 
 
 All blocks listed above use product price data fetched from the store catalog. In order to understand further, please access the [Pricing Module overview](https://help.vtex.com/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP).
 
