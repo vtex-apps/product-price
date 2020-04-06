@@ -44,12 +44,18 @@ const ListPriceRange: StorefrontFC<PriceRangeProps> = props => {
           handleBase="listPriceRange"
           values={{
             minPriceValue: (
-              <span className={`${handles.listPriceRangeMinValue} strike`}>
+              <span
+                key="minPriceValue"
+                className={`${handles.listPriceRangeMinValue} strike`}
+              >
                 <FormattedCurrency value={minPrice} />
               </span>
             ),
             maxPriceValue: (
-              <span className={`${handles.listPriceRangeMaxValue} strike`}>
+              <span
+                key="maxPriceValue"
+                className={`${handles.listPriceRangeMaxValue} strike`}
+              >
                 <FormattedCurrency value={maxPrice} />
               </span>
             ),
@@ -67,7 +73,10 @@ const ListPriceRange: StorefrontFC<PriceRangeProps> = props => {
         handleBase="listPriceRange"
         values={{
           listPriceValue: (
-            <span className={`${handles.listPriceRangeUniqueValue} strike`}>
+            <span
+              key="listPriceValue"
+              className={`${handles.listPriceRangeUniqueValue} strike`}
+            >
               <FormattedCurrency value={maxPrice} />
             </span>
           ),

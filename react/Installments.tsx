@@ -54,22 +54,28 @@ const Installments: StorefrontFC<BasicPriceProps> = props => {
         handleBase="installments"
         values={{
           installmentsNumber: (
-            <span className={handles.installmentsNumber}>
-              <FormattedNumber value={NumberOfInstallments} style="unit" />
+            <span
+              key="installmentsNumber"
+              className={handles.installmentsNumber}
+            >
+              <FormattedNumber value={NumberOfInstallments} />
             </span>
           ),
           installmentValue: (
-            <span className={handles.installmentValue}>
+            <span key="installmentValue" className={handles.installmentValue}>
               <FormattedCurrency value={Value} />
             </span>
           ),
           installmentsTotalValue: (
-            <span className={handles.installmentsTotalValue}>
+            <span
+              key="installmentsTotalValue"
+              className={handles.installmentsTotalValue}
+            >
               <FormattedCurrency value={TotalValuePlusInterestRate} />
             </span>
           ),
           interestRate: (
-            <span className={handles.interestRate}>
+            <span key="interestRate" className={handles.interestRate}>
               <FormattedNumber value={InterestRate} style="percent" />
             </span>
           ),
