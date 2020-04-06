@@ -37,12 +37,18 @@ const SellingPriceRange: StorefrontFC<PriceRangeProps> = props => {
           handleBase="sellingPriceRange"
           values={{
             minPriceValue: (
-              <span className={handles.sellingPriceRangeMinValue}>
+              <span
+                key="minPriceValue"
+                className={handles.sellingPriceRangeMinValue}
+              >
                 <FormattedCurrency value={minPrice} />
               </span>
             ),
             maxPriceValue: (
-              <span className={handles.sellingPriceRangeMaxValue}>
+              <span
+                key="maxPriceValue"
+                className={handles.sellingPriceRangeMaxValue}
+              >
                 <FormattedCurrency value={maxPrice} />
               </span>
             ),
@@ -60,7 +66,10 @@ const SellingPriceRange: StorefrontFC<PriceRangeProps> = props => {
         handleBase="sellingPriceRange"
         values={{
           sellingPriceValue: (
-            <span className={handles.sellingPriceRangeUniqueValue}>
+            <span
+              key="sellingPriceValue"
+              className={handles.sellingPriceRangeUniqueValue}
+            >
               <FormattedCurrency value={maxPrice} />
             </span>
           ),

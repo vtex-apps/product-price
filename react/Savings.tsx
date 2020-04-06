@@ -41,22 +41,25 @@ const Savings: StorefrontFC<BasicPriceProps> = props => {
         handleBase="savings"
         values={{
           previousPriceValue: (
-            <span className={handles.previousPriceValue}>
+            <span
+              key="previousPriceValue"
+              className={handles.previousPriceValue}
+            >
               <FormattedCurrency value={previousPriceValue} />
             </span>
           ),
           newPriceValue: (
-            <span className={handles.newPriceValue}>
+            <span key="newPriceValue" className={handles.newPriceValue}>
               <FormattedCurrency value={newPriceValue} />
             </span>
           ),
           savingsValue: (
-            <span className={handles.savingsValue}>
+            <span key="savingsValue" className={handles.savingsValue}>
               <FormattedCurrency value={savingsValue} />
             </span>
           ),
           savingsPercentage: (
-            <span className={handles.savingsPercentage}>
+            <span key="savingsPercentage" className={handles.savingsPercentage}>
               <FormattedNumber value={savingsPercentage} style="percent" />
             </span>
           ),

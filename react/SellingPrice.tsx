@@ -29,7 +29,7 @@ const SellingPrice: StorefrontFC<BasicPriceProps> = props => {
         handleBase="sellingPrice"
         values={{
           sellingPriceValue: (
-            <span className={handles.sellingPriceValue}>
+            <span key="sellingPriceValue" className={handles.sellingPriceValue}>
               <FormattedCurrency value={sellingPriceValue} />
             </span>
           ),

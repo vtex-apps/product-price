@@ -34,7 +34,10 @@ const ListPrice: StorefrontFC<BasicPriceProps> = props => {
         handleBase="listPrice"
         values={{
           listPriceValue: (
-            <span className={`${handles.listPriceValue} strike`}>
+            <span
+              key="listPriceValue"
+              className={`${handles.listPriceValue} strike`}
+            >
               <FormattedCurrency value={listPriceValue} />
             </span>
           ),
