@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.3] - 2020-04-07
+
 ## [1.0.2] - 2020-04-06
 ### Fixed
 - Issues causing console errors: FormattedNumber used wrongly on Installments and missing Key on some spans.
