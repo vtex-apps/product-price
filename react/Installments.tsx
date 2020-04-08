@@ -28,7 +28,7 @@ const Installments: StorefrontFC<BasicPriceProps> = props => {
   const { selectedItem } = useContext(ProductContext)
 
   const commercialOffer = selectedItem?.sellers[0]?.commertialOffer
-  if (!commercialOffer) {
+  if (commercialOffer?.Installments?.length === 0) {
     return null
   }
 
@@ -41,7 +41,8 @@ const Installments: StorefrontFC<BasicPriceProps> = props => {
     (previous: Installment, current: Installment) =>
       previous.NumberOfInstallments > current.NumberOfInstallments
         ? previous
-        : current
+        : current,
+    {}
   )
 
   const hasInterest = InterestRate !== 0
