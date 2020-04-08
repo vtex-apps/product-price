@@ -28,7 +28,10 @@ const Installments: StorefrontFC<BasicPriceProps> = props => {
   const { selectedItem } = useContext(ProductContext)
 
   const commercialOffer = selectedItem?.sellers[0]?.commertialOffer
-  if (commercialOffer?.Installments?.length === 0) {
+  if (
+    !commercialOffer?.Installments ||
+    commercialOffer?.Installments?.length === 0
+  ) {
     return null
   }
 
