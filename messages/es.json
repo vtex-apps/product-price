@@ -7,7 +7,6 @@
   "store/list-price-range-no-range-message.default": "{listPriceValue}",
   "store/selling-price-range-message.default": "{minPriceValue} - {maxPriceValue}",
   "store/selling-price-range-no-range-message.default": "{sellingPriceValue}",
-
   "admin/list-price.description": "Valores disponibles para interpolación: '{listPriceValue}'",
   "admin/list-price.title": "Precio de Lista",
   "admin/selling-price.description": "Valores disponibles para interpolación: '{sellingPriceValue}'",

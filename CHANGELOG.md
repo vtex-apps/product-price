@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 -  `sellingPrice--hasListPrice` handle to the `selling-price` block if there is a `list-price`.
 
+### Security
+- Bump dependency versions.
+
 ## [1.0.5] - 2020-04-08
 ### Fixed
 - `undefined` check in `Installments`.
