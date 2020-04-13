@@ -152,14 +152,11 @@ To apply  CSS  customization in this and other blocks, follow the instructions g
 | `sellingPriceRangeMaxValue` |
 | `sellingPriceRangeMinValue` |
 | `sellingPriceRangeUniqueValue` |
-<<<<<<< HEAD
 | `sellingPriceRange` |
 | `sellingPriceValue` |
 | `sellingPrice` |
-=======
-| `spotPrice` |
 | `spotPriceValue` |
->>>>>>> Add `SpotPrice`
+| `spotPrice` |
 
 ## Contributors ✨
 
