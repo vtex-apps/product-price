@@ -29,7 +29,8 @@ Now, you can use all the blocks exported by the `product-price` app. Check out t
 | Block name          |  Description |
 | --------------------| -------- |
 | `product-list-price`         | Renders the product list price. If it is equal to the product selling price, this block will not be rendered. | 
-| `product-selling-price`      | Renders the product selling price.| 
+| `product-selling-price`      | Renders the product selling price.|
+| `product-spot-price`         | Renders the product spot price. If it is equal to the product selling price, this block will not be rendered. |
 | `product-installments`      | Renders the product installments. If more than one option is available, the one with the biggest number of installments will be displayed. | 
 | `product-price-savings`           | Renders the product price savings, if there is any. It can show the percentage of the discount or the value of the absolute saving. | 
 | `product-list-price-range`    | Renders the product list price range. It follows the same logic applied to the `ListPrice`: if its value is equal to the product selling price, this block is not rendered. | 
@@ -151,9 +152,14 @@ To apply  CSS  customization in this and other blocks, follow the instructions g
 | `sellingPriceRangeMaxValue` |
 | `sellingPriceRangeMinValue` |
 | `sellingPriceRangeUniqueValue` |
+<<<<<<< HEAD
 | `sellingPriceRange` |
 | `sellingPriceValue` |
 | `sellingPrice` |
+=======
+| `spotPrice` |
+| `spotPriceValue` |
+>>>>>>> Add `SpotPrice`
 
 ## Contributors ✨
 

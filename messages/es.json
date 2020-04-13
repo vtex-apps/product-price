@@ -1,6 +1,7 @@
 {
   "store/list-price.default": "{listPriceValue}",
   "store/selling-price.default": "{sellingPriceValue}",
+  "store/spot-price.default": "Precio en efectivo: {spotPriceValue}",
   "store/savings.default": "Ahorre {savingsValue}",
   "store/installments.default": "Hasta {installmentsNumber}x {installmentValue}{hasInterest, select, true {, {interestRate} de interés} false { sin interés}}",
   "store/list-price-range-message.default": "{minPriceValue} - {maxPriceValue}",
@@ -11,6 +12,8 @@
   "admin/list-price.title": "Precio de Lista",
   "admin/selling-price.description": "Valores disponibles para interpolación: '{sellingPriceValue}'",
   "admin/selling-price.title": "Precio de Venta",
+  "admin/spot-price.description": "Valores disponibles para interpolación: '{spotPrice}'",
+  "admin/spot-price.title": "Precio en Efectivo",
   "admin/savings.description": "Valores disponibles para interpolación: '{newPriceValue}, {previousPriceValue}, {savingsValue}, {savingsPercentage}'",
   "admin/savings.title": "Ahorros",
   "admin/installments.description": "Valores disponibles para interpolación: '{installmentsNumber}, {installmentValue}, {installmentsTotalValue}, {interestRate}, {hasInterest}'",
