@@ -2,12 +2,12 @@ import React, { useContext } from 'react'
 import { defineMessages } from 'react-intl'
 import { ProductContext } from 'vtex.product-context'
 import { FormattedCurrency } from 'vtex.format-currency'
-import { useCssHandles } from 'vtex.css-handles'
 import { IOMessageWithMarkers } from 'vtex.native-types'
+import { useCssHandles, applyModifiers } from 'vtex.css-handles'
 
 import { StorefrontFC, BasicPriceProps } from './types'
 
-const CSS_HANDLES = ['sellingPrice', 'sellingPriceValue']
+const CSS_HANDLES = ['sellingPrice', 'sellingPriceValue'] as const
 
 const SellingPrice: StorefrontFC<BasicPriceProps> = props => {
   const { message, markers } = props
@@ -18,11 +18,18 @@ const SellingPrice: StorefrontFC<BasicPriceProps> = props => {
   if (!commercialOffer) {
     return null
   }
-
   const sellingPriceValue = commercialOffer.Price
+  const listPriceValue = commercialOffer.ListPrice
+
+  const hasListPrice = sellingPriceValue !== listPriceValue
+
+  const containerClasses = applyModifiers(
+    handles.sellingPrice,
+    hasListPrice ? 'hasListPrice' : ''
+  )
 
   return (
-    <span className={handles.sellingPrice}>
+    <span className={containerClasses}>
       <IOMessageWithMarkers
         message={message}
         markers={markers}

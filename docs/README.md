@@ -131,28 +131,29 @@ To apply  CSS  customization in this and other blocks, follow the instructions g
 
 | CSS Handles |
 | ----------- |
-| `installments` |
-| `installmentsNumber` |
 | `installmentValue` |
+| `installmentsNumber` |
 | `installmentsTotalValue` |
+| `installments` |
 | `interestRate` |
 | `listPrice'` |
-| `listPriceValue` |
-| `listPriceRange` |
-| `listPriceRangeMinValue` |
 | `listPriceRangeMaxValue` |
+| `listPriceRangeMinValue` |
 | `listPriceRangeUniqueValue` |
-| `savings` |
-| `previousPriceValue` |
+| `listPriceRange` |
+| `listPriceValue` |
 | `newPriceValue` |
-| `savingsValue` |
+| `previousPriceValue` |
 | `savingsPercentage` |
-| `sellingPrice` |
-| `sellingPriceValue` |
-| `sellingPriceRange` |
-| `sellingPriceRangeMinValue` |
+| `savingsValue` |
+| `savings` |
+| `sellingPrice--hasListPrice` |
 | `sellingPriceRangeMaxValue` |
+| `sellingPriceRangeMinValue` |
 | `sellingPriceRangeUniqueValue` |
+| `sellingPriceRange` |
+| `sellingPriceValue` |
+| `sellingPrice` |
 
 ## Contributors ✨
 
