@@ -13,6 +13,13 @@
       "$ref": "app:vtex.product-price#/definitions/SellingPrice"
     }
   },
+  "product-spot-price": {
+    "component": "SpotPrice",
+    "composition": "children",
+    "content": {
+      "$ref": "app:vtex.product-price#/definitions/SpotPrice"
+    }
+  },
   "product-price-savings": {
     "component": "Savings",
     "composition": "children",

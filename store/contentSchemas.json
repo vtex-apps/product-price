@@ -22,6 +22,17 @@
         }
       }
     },
+    "SpotPrice": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "title": "admin/spot-price.title",
+          "description": "admin/spot-price.description",
+          "$ref": "app:vtex.native-types#/definitions/text",
+          "default": "store/spot-price.default"
+        }
+      }
+    },
     "Savings": {
       "type": "object",
       "properties": {
