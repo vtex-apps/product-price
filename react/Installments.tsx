@@ -83,7 +83,7 @@ const Installments: StorefrontFC<BasicPriceProps> = props => {
               <FormattedNumber value={InterestRate} style="percent" />
             </span>
           ),
-          hasInterest: hasInterest,
+          hasInterest,
         }}
       />
     </span>
