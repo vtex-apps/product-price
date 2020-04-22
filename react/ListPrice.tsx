@@ -54,6 +54,9 @@ const messages = defineMessages({
   description: {
     id: 'admin/list-price.description',
   },
+  default: {
+    id: 'store/list-price.default',
+  },
 })
 
 ListPrice.schema = {
