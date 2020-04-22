@@ -51,6 +51,9 @@ const messages = defineMessages({
   description: {
     id: 'admin/spot-price.description',
   },
+  default: {
+    id: 'store/spot-price.default',
+  },
 })
 
 SpotPrice.schema = {

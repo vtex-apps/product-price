@@ -76,6 +76,9 @@ const messages = defineMessages({
   description: {
     id: 'admin/savings.description',
   },
+  default: {
+    id: 'store/savings.default',
+  },
 })
 
 Savings.schema = {

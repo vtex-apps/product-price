@@ -96,11 +96,17 @@ const messages = defineMessages({
   messageDescription: {
     id: 'admin/list-price-range-message.description',
   },
+  messageDefault: {
+    id: 'store/list-price-range-message.default',
+  },
   noRangeMessageTitle: {
     id: 'admin/list-price-range-no-range-message.title',
   },
   noRangeMessageDescription: {
     id: 'admin/list-price-range-no-range-message.description',
+  },
+  noRangeMessageDefault: {
+    id: 'store/list-price-range-no-range-message.default',
   },
 })
 

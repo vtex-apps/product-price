@@ -53,6 +53,9 @@ const messages = defineMessages({
   description: {
     id: 'admin/selling-price.description',
   },
+  default: {
+    id: 'store/selling-price.default',
+  },
 })
 
 SellingPrice.schema = {

@@ -97,6 +97,9 @@ const messages = defineMessages({
   description: {
     id: 'admin/installments.description',
   },
+  default: {
+    id: 'store/installments.default',
+  },
 })
 
 Installments.schema = {

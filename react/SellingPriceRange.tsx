@@ -89,11 +89,17 @@ const messages = defineMessages({
   messageDescription: {
     id: 'admin/selling-price-range-message.description',
   },
+  messageDefault: {
+    id: 'store/selling-price-range-message.default',
+  },
   noRangeMessageTitle: {
     id: 'admin/selling-price-range-no-range-message.title',
   },
   noRangeMessageDescription: {
     id: 'admin/selling-price-range-no-range-message.description',
+  },
+  noRangeMessageDefault: {
+    id: 'store/selling-price-range-no-range-message.default',
   },
 })
 
