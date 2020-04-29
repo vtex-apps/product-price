@@ -24,25 +24,90 @@ In your theme's `manifest.json`, add the Product Price app as a dependency:
 }
 ```
   
-Now, you can use all the blocks exported by the `product-price` app. Check out the full list below:
+Now, you can use all the blocks exported by the `product-price` app.
 
-| Block name          |  Description |
-| --------------------| -------- |
-| `product-list-price`         | Renders the product list price. If it is equal to the product selling price, this block will not be rendered. | 
-| `product-selling-price`      | Renders the product selling price.|
-| `product-spot-price`         | Renders the product spot price. If it is equal to the product selling price, this block will not be rendered. For more information about how to set this up in your store, check this [document](https://docs.google.com/document/d/1zguIGidi_qFtoX101J7zPsjU7-MyV0qiQvTo_dOR_w0/edit?usp=sharing).|
-| `product-installments`      | Renders the product installments. If more than one option is available, the one with the biggest number of installments will be displayed. | 
-| `product-price-savings`           | Renders the product price savings, if there is any. It can show the percentage of the discount or the value of the absolute saving. | 
-| `product-list-price-range`    | Renders the product list price range. It follows the same logic applied to the `ListPrice`: if its value is equal to the product selling price, this block is not rendered. | 
-| `product-selling-price-range` | The product selling price range. | 
+Every block in this app have the common props:
+
+| Prop name          | Type      |  Description | Default value |
+| --------------------| ----------|--------------|---------------|
+| `markers`           |`[string]` | IDs of your choosing to identify the block's exported messages and customize them using the admin's Site Editor. Learn how to use them below |`[]`|
+|  `blockClass`  |  `string`  |  Block  ID  of your choosing to  be  used  in [CSS  customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization#using-the-blockclass-property)  |  `undefined`  |
+
+Blocks available:
+
+#### `product-list-price`
+
+Renders the product list price. If it is equal to the product selling price, this block will not be rendered.
+
+| Message variable | type | Description |
+| --- | --- | --- |
+| `listPriceValue` | `string` | List price value |
+
+#### `product-selling-price`
+
+Renders the product selling price.
+
+| Message variable | type | Description |
+| --- | --- | --- |
+| `sellingPriceValue` | `string` | Selling price value |
+
+#### `product-spot-price`
+
+Renders the product spot price. If it is equal to the product selling price, this block will not be rendered. For more information about how to set this up in your store, check this [document](https://docs.google.com/document/d/1zguIGidi_qFtoX101J7zPsjU7-MyV0qiQvTo_dOR_w0/edit?usp=sharing).
+
+| Message variable | type | Description |
+| --- | --- | --- |
+| `spotPriceValue` | `string` | Spot price value |
+
+#### `product-installments`
+
+Renders the product installments. If more than one option is available, the one with the biggest number of installments will be displayed.
+
+| Message variable | type | Description |
+| --- | --- | --- |
+| `spotPriceValue` | `string` | Spot price value |
+| `installmentsNumber` | `string` | Quantity of installments |
+| `installmentValue` | `string` | Value of a installment |
+| `installmentsTotalValue` | `string` | Total value |
+| `interestRate` | `string` | Interest rate |
+| `hasInterest` | `true` or `false` | If the installments have interest |
+
+#### `product-price-savings`
+
+Renders the product price savings, if there is any. It can show the percentage of the discount or the value of the absolute saving.
+
+| Message variable | type | Description |
+| --- | --- | --- |
+| `previousPriceValue` | `string` | Previous price value (listPrice) |
+| `newPriceValue` | `string` | New product value (sellingPrice) |
+| `savingsValue` | `string` | Difference in price between previous and new product price |
+| `savingsPercentage` | `string` | Percentage of savings |
+
+#### `product-list-price-range`
+
+Renders the product list price range. It follows the same logic applied to the `ListPrice`: if its value is equal to the product selling price, this block is not rendered.
+
+| Message variable | type | Description |
+| --- | --- | --- |
+| `minPriceValue` | `string` | Value of the cheapest list price SKU |
+| `maxPriceValue` | `string` | Value of the most expensive list price SKU |
+
+#### `product-selling-price-range`
+
+The product selling price range.
+
+| Message variable | type | Description |
+| --- | --- | --- |
+| `minPriceValue` | `string` | Value of the cheapest selling price SKU |
+| `maxPriceValue` | `string` | Value of the most expensive selling price SKU |
 
 All blocks listed above use product price data fetched from the store catalog. In order to understand further, please access the [Pricing Module overview](https://help.vtex.com/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP).
 
 ### Step 2 - Adding the Product Price's blocks to your theme's templates
 
-To add the Product Price's blocks in your theme, you just need to declare them as children of the `product-summary-shelf`, exported by the [Product Summary](https://vtex.io/docs/components/content-blocks/vtex.product-summary@2.52.3) app, or declare them in the theme's Product template (`store.product`).
+To add the Product Price's blocks in your theme, you just need to declare them as children of the `product-summary.shelf`, exported by the [Product Summary](https://vtex.io/docs/components/content-blocks/vtex.product-summary@2.52.3) app, or declare them in the theme's Product template (`store.product`).
 
-Notice the following: these blocks necessarily need a Product context in order to work properly. Therefore, when declaring them as children of the `product-summary-shelf`, be sure that they are in a store template in which this context is available.
+Notice the following: these blocks necessarily need a Product context in order to work properly. Therefore, when declaring them as children of the `product-summary.shelf`, be sure that they are in a store template in which this context is available.
 
 For example:
 
@@ -50,31 +115,18 @@ For example:
 "shelf#home": {
   "blocks": ["product-summary.shelf"]
 },
-
 "product-summary.shelf": {
   "children": [
     "product-list-price",
-    "product-selling-price",
+    "product-selling-price#summary",
     "product-price-savings",
     "product-installments"
   ]
 },
-```
-
-Every block in this app has some props in common:
-
-| Prop name          | Type      |  Description | Default value |
-| --------------------| ----------|--------------|---------------|
-| `markers`           |`[string]` | IDs of your choosing to identify the block's exported messages and customize them using the admin's Site Editor. Learn how to use them below |`[]`|
-|  `blockClass`  |  `string`  |  Block  ID  of your choosing to  be  used  in [CSS  customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization#using-the-blockclass-property)  |  `undefined`  |
-
-For example:
-
-```json
-"product-price-savings#summary": {
+"product-selling-price#summary": {
   "props": {
     "markers": [
-      "discount"
+      "highlight"
     ],
     "blockClass": "summary"
   }
@@ -128,7 +180,7 @@ In the example above, the block was firstly displaying a `Save $224.40` message.
 
 ## Customization
 
-To apply  CSS  customization in this and other blocks, follow the instructions given in the recipe on  [Using  CSS  Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization).
+To apply CSS customization in this and other blocks, follow the instructions given in the recipe on [Using  CSS  Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization).
 
 | CSS Handles |
 | ----------- |
@@ -169,4 +221,4 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome!
