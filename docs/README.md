@@ -37,7 +37,9 @@ Blocks available:
 
 #### `product-list-price`
 
-Renders the product list price. If it is equal to the product selling price, this block will not be rendered.
+Renders the product list price.
+
+This block will not be rendered if list price is equal to the product selling price.
 
 | Message variable | type | Description |
 | --- | --- | --- |
@@ -53,7 +55,9 @@ Renders the product selling price.
 
 #### `product-spot-price`
 
-Renders the product spot price. If it is equal to the product selling price, this block will not be rendered. For more information about how to set this up in your store, check this [document](https://docs.google.com/document/d/1zguIGidi_qFtoX101J7zPsjU7-MyV0qiQvTo_dOR_w0/edit?usp=sharing).
+Renders the product spot price. For more information about how to set this up in your store, check this [document](https://docs.google.com/document/d/1zguIGidi_qFtoX101J7zPsjU7-MyV0qiQvTo_dOR_w0/edit?usp=sharing).
+
+This block will not be rendered if spot price is equal to the product selling price.
 
 | Message variable | type | Description |
 | --- | --- | --- |
@@ -74,7 +78,9 @@ Renders the product installments. If more than one option is available, the one 
 
 #### `product-price-savings`
 
-Renders the product price savings, if there is any. It can show the percentage of the discount or the value of the absolute saving.
+Renders the product price savings. It can show the percentage of the discount or the value of the absolute saving.
+
+This block will not be rendered if list price is equal to the product selling price.
 
 | Message variable | type | Description |
 | --- | --- | --- |
@@ -85,7 +91,9 @@ Renders the product price savings, if there is any. It can show the percentage o
 
 #### `product-list-price-range`
 
-Renders the product list price range. It follows the same logic applied to the `ListPrice`: if its value is equal to the product selling price, this block is not rendered.
+Renders the product list price range.
+
+This block will not be rendered if list price is equal to the product selling price.
 
 | Message variable | type | Description |
 | --- | --- | --- |
