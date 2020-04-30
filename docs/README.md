@@ -30,7 +30,7 @@ Every block in this app have the common props:
 
 | Prop name          | Type      |  Description | Default value |
 | --------------------| ----------|--------------|---------------|
-| `markers`           |`[string]` | IDs of your choosing to identify the block's exported messages and customize them using the admin's Site Editor. Learn how to use them below |`[]`|
+| `markers`           |`string[]` | IDs of your choosing to identify the block's exported messages and customize them using the admin's Site Editor. Learn how to use them below |`[]`|
 |  `blockClass`  |  `string`  |  Block  ID  of your choosing to  be  used  in [CSS  customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization#using-the-blockclass-property)  |  `undefined`  |
 
 Blocks available:
