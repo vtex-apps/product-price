@@ -93,13 +93,17 @@ Once editing their messages, bear in mind the message variables exported by each
 
 | Message variable | Type | Description |
 | --- | --- | --- |
-| `listPriceValue` | `string` | List price value.
+| `listPriceValue` | `string` | List price value. |
+| `listPriceWithTax` | `string` | List price value with tax. |
+| `taxPercentage` | `string` | Tax percentage. |
 
 -  **`product-selling-price`**
 
 | Message variable | Type | Description |
 | --- | --- | --- |
 | `sellingPriceValue` | `string` | Selling price value. |
+| `sellingPriceWithTax` | `string` | Selling price with tax. |
+| `taxPercentage` | `string` | Tax percentage |
 
 - **`product-spot-price`**
 
@@ -125,6 +129,7 @@ Once editing their messages, bear in mind the message variables exported by each
 | `previousPriceValue` | `string` | Previous price value (list price). |
 | `newPriceValue` | `string` | New price value (selling price). |
 | `savingsValue` | `string` | Difference between previous product price and the new one. |
+| `savingsWithTax` | `string` | Difference between previous product price and the new one with taxes. |
 | `savingsPercentage` | `string` | Percentage of savings. |
 
 - **`product-list-price-range`**
@@ -133,6 +138,10 @@ Once editing their messages, bear in mind the message variables exported by each
 | --- | --- | --- |
 | `minPriceValue` | `string` | Value of the cheapest list price SKU. |
 | `maxPriceValue` | `string` | Value of the most expensive list price SKU. |
+| `minPriceWithTax` | `string` | Value of the cheapest list price SKU with tax. |
+| `maxPriceWithTax` | `string` | Value of the most expensive list price SKU with tax. |
+| `listPriceValue` | `string` | Value of the list price of the only SKU available. |
+| `listPriceWithTax` | `string` | Value of the list price of the only SKU available with tax. |
 
 - **`product-selling-price-range`**
 
@@ -140,6 +149,10 @@ Once editing their messages, bear in mind the message variables exported by each
 | --- | --- | --- |
 | `minPriceValue` | `string` | Value of the cheapest selling price SKU. |
 | `maxPriceValue` | `string` | Value of the most expensive selling price SKU. |
+| `minPriceWithTax` | `string` | Value of the cheapest selling price SKU with tax. |
+| `maxPriceWithTax` | `string` | Value of the most expensive selling price SKU with tax. |
+| `sellingPriceValue` | `string` | Value of the selling price of the only SKU available. |
+| `sellingPriceWithTax` | `string` | Value of the selling price of the only SKU available with tax. |
 
 In the gif example above, the block was firstly displaying a `Save $224.40` message. By editing the message exported, it now renders a `You are saving: $224.40 (37%)` message thanks to the changes performed through the admin's Site Editor.
 
@@ -159,24 +172,34 @@ To apply CSS customization in this and other blocks, follow the instructions giv
 | `interestRate` |
 | `listPrice'` |
 | `listPriceRangeMaxValue` |
+| `listPriceRangeMaxWithTax` |
 | `listPriceRangeMinValue` |
+| `listPriceRangeMinWithTax` |
 | `listPriceRangeUniqueValue` |
+| `listPriceRangeUniqueWithTax` |
 | `listPriceRange` |
 | `listPriceValue` |
+| `listPriceWithTax` | 
 | `newPriceValue` |
 | `previousPriceValue` |
 | `savingsPercentage` |
 | `savingsValue` |
+| `savingsWithTax` |
 | `savings` |
 | `sellingPrice--hasListPrice` |
 | `sellingPriceRangeMaxValue` |
+| `sellingPriceRangeMaxWithTax` |
 | `sellingPriceRangeMinValue` |
+| `sellingPriceRangeMinWithTax` |
 | `sellingPriceRangeUniqueValue` |
+| `sellingPriceRangeUniqueWithTax` |
 | `sellingPriceRange` |
 | `sellingPriceValue` |
+| `sellingPriceWithTax` | 
 | `sellingPrice` |
 | `spotPriceValue` |
 | `spotPrice` |
+| `taxPercentage` |
 
 <!-- DOCS-IGNORE:start -->
 

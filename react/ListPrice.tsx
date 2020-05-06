@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { defineMessages } from 'react-intl'
+import { defineMessages, FormattedNumber } from 'react-intl'
 import { ProductContext } from 'vtex.product-context'
 import { FormattedCurrency } from 'vtex.format-currency'
 import { useCssHandles } from 'vtex.css-handles'
@@ -7,7 +7,12 @@ import { IOMessageWithMarkers } from 'vtex.native-types'
 
 import { StorefrontFC, BasicPriceProps } from './types'
 
-const CSS_HANDLES = ['listPrice', 'listPriceValue'] as const
+const CSS_HANDLES = [
+  'listPrice',
+  'listPriceValue',
+  'listPriceWithTax',
+  'taxPercentage',
+] as const
 
 const ListPrice: StorefrontFC<BasicPriceProps> = props => {
   const { message, markers } = props
@@ -19,8 +24,10 @@ const ListPrice: StorefrontFC<BasicPriceProps> = props => {
     return null
   }
 
-  const listPriceValue = commercialOffer.ListPrice
+  const listPriceValue: number = commercialOffer.ListPrice
   const sellingPriceValue = commercialOffer.Price
+  const { taxPercentage } = commercialOffer
+  const listPriceWithTax = listPriceValue + listPriceValue * taxPercentage
 
   if (listPriceValue === sellingPriceValue) {
     return null
@@ -39,6 +46,19 @@ const ListPrice: StorefrontFC<BasicPriceProps> = props => {
               className={`${handles.listPriceValue} strike`}
             >
               <FormattedCurrency value={listPriceValue} />
+            </span>
+          ),
+          listPriceWithTax: (
+            <span
+              key="listPriceWithTax"
+              className={`${handles.listPriceWithTax} strike`}
+            >
+              <FormattedCurrency value={listPriceWithTax} />
+            </span>
+          ),
+          taxPercentage: (
+            <span key="taxPercentage" className={handles.taxPercentage}>
+              <FormattedNumber value={taxPercentage} style="percent" />
             </span>
           ),
         }}
