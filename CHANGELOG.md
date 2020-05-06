@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- `README.md`
+
 ## [1.2.2] - 2020-04-22
 ### Fixed
 - Missing defaults on `defineMessages`.
