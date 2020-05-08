@@ -103,7 +103,7 @@ Once editing their messages, bear in mind the message variables exported by each
 | --- | --- | --- |
 | `sellingPriceValue` | `string` | Selling price value. |
 | `sellingPriceWithTax` | `string` | Selling price with tax. |
-| `taxPercentage` | `string` | Tax percentage |
+| `taxPercentage` | `string` | Tax percentage. |
 
 - **`product-spot-price`**
 
