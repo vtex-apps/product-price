@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { defineMessages } from 'react-intl'
+import { defineMessages, FormattedNumber } from 'react-intl'
 import { ProductContext } from 'vtex.product-context'
 import { FormattedCurrency } from 'vtex.format-currency'
 import { IOMessageWithMarkers } from 'vtex.native-types'
@@ -7,7 +7,12 @@ import { useCssHandles, applyModifiers } from 'vtex.css-handles'
 
 import { StorefrontFC, BasicPriceProps } from './types'
 
-const CSS_HANDLES = ['sellingPrice', 'sellingPriceValue'] as const
+const CSS_HANDLES = [
+  'sellingPrice',
+  'sellingPriceValue',
+  'sellingPriceWithTax',
+  'taxPercentage',
+] as const
 
 const SellingPrice: StorefrontFC<BasicPriceProps> = props => {
   const { message, markers } = props
@@ -18,8 +23,11 @@ const SellingPrice: StorefrontFC<BasicPriceProps> = props => {
   if (!commercialOffer) {
     return null
   }
-  const sellingPriceValue = commercialOffer.Price
+  const sellingPriceValue: number = commercialOffer.Price
   const listPriceValue = commercialOffer.ListPrice
+  const { taxPercentage } = commercialOffer
+  const sellingPriceWithTax =
+    sellingPriceValue + sellingPriceValue * taxPercentage
 
   const hasListPrice = sellingPriceValue !== listPriceValue
 
@@ -38,6 +46,19 @@ const SellingPrice: StorefrontFC<BasicPriceProps> = props => {
           sellingPriceValue: (
             <span key="sellingPriceValue" className={handles.sellingPriceValue}>
               <FormattedCurrency value={sellingPriceValue} />
+            </span>
+          ),
+          sellingPriceWithTax: (
+            <span
+              key="sellingPriceWithTax"
+              className={handles.sellingPriceWithTax}
+            >
+              <FormattedCurrency value={sellingPriceWithTax} />
+            </span>
+          ),
+          taxPercentage: (
+            <span key="taxPercentage" className={handles.taxPercentage}>
+              <FormattedNumber value={taxPercentage} style="percent" />
             </span>
           ),
         }}

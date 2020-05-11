@@ -12,6 +12,7 @@ const CSS_HANDLES = [
   'previousPriceValue',
   'newPriceValue',
   'savingsValue',
+  'savingsWithTax',
   'savingsPercentage',
 ] as const
 
@@ -28,6 +29,8 @@ const Savings: StorefrontFC<BasicPriceProps> = props => {
   const previousPriceValue = commercialOffer.ListPrice
   const newPriceValue = commercialOffer.Price
   const savingsValue = previousPriceValue - newPriceValue
+  const savingsWithTax =
+    savingsValue + savingsValue * commercialOffer.taxPercentage
   const savingsPercentage = savingsValue / previousPriceValue
   if (savingsValue === 0) {
     return null
@@ -56,6 +59,11 @@ const Savings: StorefrontFC<BasicPriceProps> = props => {
           savingsValue: (
             <span key="savingsValue" className={handles.savingsValue}>
               <FormattedCurrency value={savingsValue} />
+            </span>
+          ),
+          savingsWithTax: (
+            <span key="savingsWithTax" className={handles.savingsWithTax}>
+              <FormattedCurrency value={savingsWithTax} />
             </span>
           ),
           savingsPercentage: (

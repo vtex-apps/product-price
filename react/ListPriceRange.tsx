@@ -10,14 +10,17 @@ import { StorefrontFC, PriceRangeProps } from './types'
 const CSS_HANDLES = [
   'listPriceRange',
   'listPriceRangeMinValue',
+  'listPriceRangeMinWithTax',
   'listPriceRangeMaxValue',
+  'listPriceRangeMaxWithTax',
   'listPriceRangeUniqueValue',
+  'listPriceRangeUniqueWithTax',
 ] as const
 
 const ListPriceRange: StorefrontFC<PriceRangeProps> = props => {
   const { message, noRangeMessage, markers } = props
   const handles = useCssHandles(CSS_HANDLES)
-  const { product } = useContext(ProductContext)
+  const { product, selectedItem } = useContext(ProductContext)
 
   const priceRange = product?.priceRange
   if (!priceRange) {
@@ -31,9 +34,16 @@ const ListPriceRange: StorefrontFC<PriceRangeProps> = props => {
     return null
   }
 
-  const minPrice = priceRange.listPrice.lowPrice
-  const maxPrice = priceRange.listPrice.highPrice
+  const commercialOffer = selectedItem?.sellers[0]?.commertialOffer
+  if (!commercialOffer) {
+    return null
+  }
+
+  const minPrice: number = priceRange.listPrice.lowPrice
+  const maxPrice: number = priceRange.listPrice.highPrice
   const hasRange = minPrice !== maxPrice
+  const minPriceWithTax = minPrice + minPrice * commercialOffer.taxPercentage
+  const maxPriceWithTax = maxPrice + maxPrice * commercialOffer.taxPercentage
 
   if (hasRange) {
     return (
@@ -59,6 +69,22 @@ const ListPriceRange: StorefrontFC<PriceRangeProps> = props => {
                 <FormattedCurrency value={maxPrice} />
               </span>
             ),
+            minPriceWithTax: (
+              <span
+                key="minPriceWithTax"
+                className={`${handles.listPriceRangeMinWithTax} strike`}
+              >
+                <FormattedCurrency value={minPriceWithTax} />
+              </span>
+            ),
+            maxPriceWithTax: (
+              <span
+                key="maxPriceWithTax"
+                className={`${handles.listPriceRangeMaxWithTax} strike`}
+              >
+                <FormattedCurrency value={maxPriceWithTax} />
+              </span>
+            ),
           }}
         />
       </span>
@@ -78,6 +104,14 @@ const ListPriceRange: StorefrontFC<PriceRangeProps> = props => {
               className={`${handles.listPriceRangeUniqueValue} strike`}
             >
               <FormattedCurrency value={maxPrice} />
+            </span>
+          ),
+          listPriceWithTax: (
+            <span
+              key="listPriceWithTax"
+              className={`${handles.listPriceRangeUniqueWithTax} strike`}
+            >
+              <FormattedCurrency value={maxPriceWithTax} />
             </span>
           ),
         }}
