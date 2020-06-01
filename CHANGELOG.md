@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Updated the README.md file with a disclaimer regarding the deprecation of Product Summary Price and Product Price block. 
+
 ## [1.3.0] - 2020-05-11
 ### Added
 - More variables that can be interpolated on the components that can change with taxes.
