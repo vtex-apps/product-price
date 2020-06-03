@@ -28,7 +28,7 @@ const SellingPriceRange: StorefrontFC<PriceRangeProps> = props => {
   }
 
   const commercialOffer = selectedItem?.sellers[0]?.commertialOffer
-  if (!commercialOffer) {
+  if (!commercialOffer || commercialOffer?.AvailableQuantity <= 0) {
     return null
   }
 
