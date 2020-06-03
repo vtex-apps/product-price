@@ -22,7 +22,7 @@ const Savings: StorefrontFC<BasicPriceProps> = props => {
   const { selectedItem } = useContext(ProductContext)
 
   const commercialOffer = selectedItem?.sellers[0]?.commertialOffer
-  if (!commercialOffer) {
+  if (!commercialOffer || commercialOffer?.AvailableQuantity <= 0) {
     return null
   }
 
