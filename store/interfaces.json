@@ -34,10 +34,9 @@
       "$ref": "app:vtex.product-price#/definitions/Installments"
     }
   },
-  "product-installments.list": {
+  "product-installments-list": {
     "component": "InstallmentsList",
     "composition": "children",
-    "overrideContentRule": "self",
     "content": {
       "$ref": "app:vtex.product-price#/definitions/InstallmentsList"
     }

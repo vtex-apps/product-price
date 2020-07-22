@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-- `product-installments.list` block.
+- `product-installments-list` block.
 
 ### Security
 - Bump dependencies versions.

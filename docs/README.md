@@ -32,7 +32,7 @@ Now, you can use all the blocks exported by the `product-price` app. Check out t
 | `product-selling-price`      | Renders the product selling price.|
 | `product-spot-price`         | Renders the product spot price. If it is equal to the product selling price, this block will not be rendered. This component finds the spot price by looking for the cheapest price of all installments options of count 1. For more information about how to set this up in your store, check this [document](https://docs.google.com/document/d/1zguIGidi_qFtoX101J7zPsjU7-MyV0qiQvTo_dOR_w0/edit?usp=sharing).|
 | `product-installments`      | Renders the product installments. If more than one option is available, the one with the biggest number of installments will be displayed. |
-| `product-installments.list` | Renders all the product installments ordered by number of installments. |
+| `product-installments-list` | Renders all the product installments ordered by number of installments. |
 | `product-price-savings`           | Renders the product price savings, if there is any. It can show the percentage of the discount or the value of the absolute saving. | 
 | `product-list-price-range`    | Renders the product list price range. It follows the same logic applied to the `ListPrice`: if its value is equal to the product selling price, this block is not rendered. | 
 | `product-selling-price-range` | The product selling price range. | 
@@ -114,7 +114,7 @@ Once editing their messages, bear in mind the message variables exported by each
 | --- | --- | --- |
 | `spotPriceValue` | `string` | Spot price value. |
 
-- **`product-installments` and `product-installments.list`**
+- **`product-installments` and `product-installments-list`**
 
 | Message variables | Type | Description |
 | --- | --- | --- |
