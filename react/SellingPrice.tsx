@@ -61,6 +61,7 @@ const SellingPrice: StorefrontFC<BasicPriceProps> = props => {
               <FormattedNumber value={taxPercentage} style="percent" />
             </span>
           ),
+          hasListPrice,
         }}
       />
     </span>

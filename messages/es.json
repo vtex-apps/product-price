@@ -11,7 +11,7 @@
 
   "admin/list-price.description": "Valores disponibles para interpolación: '{listPriceValue}, {listPriceWithTax}, {taxPercentage}'",
   "admin/list-price.title": "Precio de Lista",
-  "admin/selling-price.description": "Valores disponibles para interpolación: '{sellingPriceValue}, {sellingPriceWithTax}, {taxPercentage}'",
+  "admin/selling-price.description": "Valores disponibles para interpolación: '{sellingPriceValue}, {sellingPriceWithTax}, {taxPercentage}, {hasListPrice}'",
   "admin/selling-price.title": "Precio de Venta",
   "admin/spot-price.description": "Valores disponibles para interpolación: '{spotPrice}'",
   "admin/spot-price.title": "Precio en Efectivo",
