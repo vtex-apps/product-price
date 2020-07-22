@@ -35,6 +35,7 @@ function InstallmentsRenderer(props: Props) {
     InterestRate,
     TotalValuePlusInterestRate,
   } = installments
+
   const hasInterest = InterestRate !== 0
 
   return (

@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - `product-installments.list` block.
 
+### Security
+- Bump dependencies versions.
+
 ## [1.3.2] - 2020-06-03
 ### Fixed
 - The blocks won't be rendered if there are no available products.
