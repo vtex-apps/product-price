@@ -8,7 +8,6 @@
   "store/list-price-range-no-range-message.default": "{listPriceValue}",
   "store/selling-price-range-message.default": "{minPriceValue} - {maxPriceValue}",
   "store/selling-price-range-no-range-message.default": "{sellingPriceValue}",
-
   "admin/list-price.description": "Valores disponiveis para interpolação: '{listPriceValue}, {listPriceWithTax}, {taxPercentage}'",
   "admin/list-price.title": "Preço de Tabela",
   "admin/selling-price.description": "Valores disponiveis para interpolação: '{sellingPriceValue}, {sellingPriceWithTax}, {taxPercentage}'",
@@ -19,6 +18,7 @@
   "admin/savings.title": "Economias",
   "admin/installments.description": "Valores disponiveis para interpolação: '{installmentsNumber}, {installmentValue}, {installmentsTotalValue}, {interestRate}, {hasInterest}'",
   "admin/installments.title": "Parcelamento",
+  "admin/installments-list.title": "Lista de Parcelamentos",
   "admin/list-price-range.title": "Faixa de Preço de Tabela",
   "admin/list-price-range-message.description": "Mensagem a ser mostrada quando houver diferença de preço entre SKUs.\nValores disponiveis para interpolação: '{minPriceValue}, {maxPriceValue}, {minPriceWithTax}, {maxPriceWithTax}'",
   "admin/list-price-range-message.title": "Preço de Tabela (Faixa)",
