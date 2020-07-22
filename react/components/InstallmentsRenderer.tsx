@@ -5,13 +5,7 @@ import { FormattedCurrency } from 'vtex.format-currency'
 import { IOMessageWithMarkers } from 'vtex.native-types'
 
 import { BasicPriceProps } from '../types'
-
-export interface Installments {
-  Value: number
-  InterestRate: number
-  TotalValuePlusInterestRate: number
-  NumberOfInstallments: number
-}
+import { Installments } from './InstallmentsContext'
 
 const CSS_HANDLES = [
   'installments',

@@ -36,7 +36,10 @@
   },
   "product-installments-list": {
     "component": "InstallmentsList",
-    "composition": "children",
+    "composition": "children"
+  },
+  "product-installments-list-item": {
+    "component": "InstallmentsListItem",
     "content": {
       "$ref": "app:vtex.product-price#/definitions/InstallmentsList"
     }
