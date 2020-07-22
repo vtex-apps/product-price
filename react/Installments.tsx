@@ -15,15 +15,16 @@ interface Installment {
 const Installments: StorefrontFC<BasicPriceProps> = props => {
   const { message, markers } = props
   const { selectedItem } = useContext(ProductContext)
-  const commertialOffer = selectedItem?.sellers[0]?.commertialOffer
+  const commercialOffer = selectedItem?.sellers[0]?.commertialOffer
+
   if (
-    !commertialOffer?.Installments ||
-    commertialOffer?.Installments?.length === 0
+    !commercialOffer?.Installments ||
+    commercialOffer?.Installments?.length === 0
   ) {
     return null
   }
 
-  const installments = commertialOffer.Installments.reduce(
+  const installments = commercialOffer.Installments.reduce(
     (previous: Installment, current: Installment) =>
       previous.NumberOfInstallments > current.NumberOfInstallments
         ? previous
