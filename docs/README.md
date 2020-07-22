@@ -106,7 +106,7 @@ Once editing their messages, bear in mind the message variables exported by each
 | `sellingPriceValue` | `string` | Selling price value. |
 | `sellingPriceWithTax` | `string` | Selling price with tax. |
 | `taxPercentage` | `string` | Tax percentage. |
-| `hasListPrice` | `boolean` | If it has list price. |
+| `hasListPrice` | `boolean` | Whether the product has a list price (`true`) or not (`false`). |
 
 - **`product-spot-price`**
 
