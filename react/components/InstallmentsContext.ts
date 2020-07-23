@@ -1,4 +1,4 @@
-import { createContext } from 'react'
+import { createContext, useContext } from 'react'
 
 export interface Installments {
   Value: number
@@ -12,4 +12,8 @@ const InstallmentsContext = createContext<
   { installments: Installments } | undefined
 >(undefined)
 
-export default InstallmentsContext
+export const InstallmentsContextProvider = InstallmentsContext.Provider
+
+export function useInstallments() {
+  return useContext(InstallmentsContext)
+}

@@ -1,12 +1,12 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { defineMessages } from 'react-intl'
 
 import { BasicPriceProps } from './types'
-import InstallmentsContext from './components/InstallmentsContext'
+import { useInstallments } from './components/InstallmentsContext'
 import InstallmentsRenderer from './components/InstallmentsRenderer'
 
 function InstallmentsListItem(props: BasicPriceProps) {
-  const { installments } = useContext(InstallmentsContext) ?? {}
+  const { installments } = useInstallments() ?? {}
 
   if (!installments) {
     return null
