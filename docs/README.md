@@ -83,7 +83,7 @@ For example:
 },
 ```
 
-### Step 3 - Editing the block's message on Site Editor or in the message prop
+### Step 3 - Editing the block's messages
 
 Every Product Price's block uses the [ICU Message Format](https://format-message.github.io/icu-message-format-for-translators/), making it possible to fully edit the text messages and the variables displayed by each block.
 
