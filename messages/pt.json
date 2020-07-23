@@ -18,7 +18,7 @@
   "admin/savings.title": "Economias",
   "admin/installments.description": "Valores disponiveis para interpolação: '{installmentsNumber}, {installmentValue}, {installmentsTotalValue}, {interestRate}, {hasInterest} e {paymentSystemName}'",
   "admin/installments.title": "Parcelamento",
-  "admin/installments-list.title": "Lista de Parcelamentos",
+  "admin/installments-list-item.title": "Parcelamentos",
   "admin/list-price-range.title": "Faixa de Preço de Tabela",
   "admin/list-price-range-message.description": "Mensagem a ser mostrada quando houver diferença de preço entre SKUs.\nValores disponiveis para interpolação: '{minPriceValue}, {maxPriceValue}, {minPriceWithTax}, {maxPriceWithTax}'",
   "admin/list-price-range-message.title": "Preço de Tabela (Faixa)",

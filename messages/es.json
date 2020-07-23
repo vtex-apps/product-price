@@ -18,7 +18,7 @@
   "admin/savings.title": "Ahorros",
   "admin/installments.description": "Valores disponibles para interpolación: '{installmentsNumber}, {installmentValue}, {installmentsTotalValue}, {interestRate}, {hasInterest} y {paymentSystemName}'",
   "admin/installments.title": "Cuotas",
-  "admin/installments-list.title": "Lista de Cuotas",
+  "admin/installments-list-item.title": "Cuotas",
   "admin/list-price-range.title": "Rango de Precio de Lista",
   "admin/list-price-range-message.description": "Mensaje que se mostrará cuando haya una diferencia de precio entre los SKU.\nValores disponibles para interpolación: '{minPriceValue}, {maxPriceValue}, {minPriceWithTax}, {maxPriceWithTax}'",
   "admin/list-price-range-message.title": "Precio de Lista (Rango)",

@@ -17,7 +17,7 @@ function InstallmentsListItem(props: BasicPriceProps) {
 
 defineMessages({
   title: {
-    id: 'admin/installments-list.title',
+    id: 'admin/installments-list-item.title',
   },
   titleMessage: {
     id: 'admin/installments.title',
@@ -31,7 +31,7 @@ defineMessages({
 })
 
 InstallmentsListItem.schema = {
-  title: 'admin/installments-list.title',
+  title: 'admin/installments-list-item.title',
 }
 
 export default InstallmentsListItem

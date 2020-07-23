@@ -18,7 +18,7 @@
   "admin/savings.title": "Savings",
   "admin/installments.description": "Values available for interpolation: '{installmentsNumber}, {installmentValue}, {installmentsTotalValue}, {interestRate}, {hasInterest} and {paymentSystemName}'",
   "admin/installments.title": "Installments",
-  "admin/installments-list.title": "Installments List",
+  "admin/installments-list-item.title": "Installments",
   "admin/list-price-range.title": "List Price Range",
   "admin/list-price-range-message.description": "Message to be shown when there is a difference in price between the SKUs.\nValues available for interpolation: '{minPriceValue}, {maxPriceValue}, {minPriceWithTax}, {maxPriceWithTax}'",
   "admin/list-price-range-message.title": "List Price (Range)",

@@ -55,8 +55,8 @@
         }
       }
     },
-    "InstallmentsList": {
-      "title": "admin/installments-list.title",
+    "InstallmentsListItem": {
+      "title": "admin/installments-list-item.title",
       "type": "object",
       "properties": {
         "$ref": "app:vtex.product-price#/definitions/Installments/properties"

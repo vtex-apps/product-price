@@ -41,7 +41,7 @@
   "product-installments-list-item": {
     "component": "InstallmentsListItem",
     "content": {
-      "$ref": "app:vtex.product-price#/definitions/InstallmentsList"
+      "$ref": "app:vtex.product-price#/definitions/InstallmentsListItem"
     }
   },
   "product-list-price-range": {
