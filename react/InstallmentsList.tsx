@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useMemo } from 'react'
 import { useCssHandles } from 'vtex.css-handles'
 import { ProductContext } from 'vtex.product-context'
 
@@ -34,17 +34,31 @@ function InstallmentsList(props: Props) {
   )
 
   return (
-    <div
-      className={`${handles.installmentsListContainer} flex flex-column items-center`}
-    >
+    <div className={handles.installmentsListContainer}>
       {pickedInstallments.map((inst: Installments, i: number) => {
         return (
-          <InstallmentsContextProvider value={{ installments: inst }} key={i}>
+          <InstallmentsItem installments={inst} key={i}>
             {children}
-          </InstallmentsContextProvider>
+          </InstallmentsItem>
         )
       })}
     </div>
+  )
+}
+
+interface InstallmentsItemProps {
+  children: React.ReactNode
+  installments: Installments
+}
+
+function InstallmentsItem(props: InstallmentsItemProps) {
+  const { installments, children } = props
+  const contextValue = useMemo(() => ({ installments }), [installments])
+
+  return (
+    <InstallmentsContextProvider value={contextValue}>
+      {children}
+    </InstallmentsContextProvider>
   )
 }
 
