@@ -65,7 +65,7 @@ Every block in this app only has three props in common:
 
 | Prop name          | Type      |  Description | Default value |
 | --------------------| ----------|--------------|---------------|
-| `markers`           |`[string]` | IDs of your choosing to identify the block's exported messages and customize them using the admin's Site Editor. Learn how to use them accessing the documentation on [Using the Markers prop to customize a block's message](https://vtex.io/docs/recipes/style/using-the-markers-prop-to-customize-a-blocks-message). |`[]`|
+| `markers`           |`array` | IDs of your choosing to identify the block's rendered message and customize it using the admin's Site Editor. Learn how to use them accessing the documentation on [Using the Markers prop to customize a block's message](https://vtex.io/docs/recipes/style/using-the-markers-prop-to-customize-a-blocks-message). Notice the following: a block's message can also be customized in the Store Theme source code using the `message` prop. |`undefined`|
 |  `blockClass`  |  `string`  |  Block  ID  of your choosing to  be  used  in [CSS  customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization#using-the-blockclass-property).  |  `undefined`  |
 |  `message`  |  `string`  |  Message variables exported by each block that can be edited in Site Editor as well  |  `undefined`  |
 
