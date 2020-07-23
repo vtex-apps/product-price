@@ -5,6 +5,7 @@ export interface Installments {
   InterestRate: number
   TotalValuePlusInterestRate: number
   NumberOfInstallments: number
+  PaymentSystemName: string
 }
 
 const InstallmentsContext = createContext<

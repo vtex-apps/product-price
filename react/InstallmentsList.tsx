@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
-import { defineMessages } from 'react-intl'
 import { useCssHandles } from 'vtex.css-handles'
 import { ProductContext } from 'vtex.product-context'
 
 import InstallmentsContext, {
   Installments,
 } from './components/InstallmentsContext'
+import pickInstallments from './modules/pickInstallments'
 
 const CSS_HANDLES = ['installmentsListContainer'] as const
 
@@ -18,18 +18,18 @@ function InstallmentsList(props: Props) {
   const { selectedItem } = useContext(ProductContext)
   const handles = useCssHandles(CSS_HANDLES)
 
-  const commertialOffer = selectedItem?.sellers[0]?.commertialOffer
+  const commercialOffer = selectedItem?.sellers[0]?.commertialOffer
 
   if (
-    !commertialOffer?.Installments ||
-    commertialOffer.Installments?.length === 0
+    !commercialOffer?.Installments ||
+    commercialOffer.Installments?.length === 0
   ) {
     return null
   }
 
-  const sortedInstallments = commertialOffer.Installments.concat().sort(
-    (a: Installments, b: Installments) =>
-      a.NumberOfInstallments - b.NumberOfInstallments
+  const pickedInstallments = pickInstallments(
+    commercialOffer.Installments,
+    'PaymentSystemName'
   )
 
   if (React.Children.toArray(children).length !== 1) {
@@ -44,7 +44,7 @@ function InstallmentsList(props: Props) {
     <div
       className={`${handles.installmentsListContainer} flex flex-column items-center`}
     >
-      {sortedInstallments.map((inst: Installments, i: number) => {
+      {pickedInstallments.map((inst: Installments, i: number) => {
         return (
           <InstallmentsContext.Provider value={{ installments: inst }} key={i}>
             {React.cloneElement(children[0])}
@@ -53,25 +53,6 @@ function InstallmentsList(props: Props) {
       })}
     </div>
   )
-}
-
-defineMessages({
-  title: {
-    id: 'admin/installments-list.title',
-  },
-  titleMessage: {
-    id: 'admin/installments.title',
-  },
-  description: {
-    id: 'admin/installments.description',
-  },
-  default: {
-    id: 'store/installments.default',
-  },
-})
-
-InstallmentsList.schema = {
-  title: 'admin/installments-list.title',
 }
 
 export default InstallmentsList

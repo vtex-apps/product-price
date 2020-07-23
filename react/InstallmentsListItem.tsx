@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
+import { defineMessages } from 'react-intl'
 
 import { BasicPriceProps } from './types'
-import InstallmentsRenderer from './components/InstallmentsRenderer'
 import InstallmentsContext from './components/InstallmentsContext'
+import InstallmentsRenderer from './components/InstallmentsRenderer'
 
 function InstallmentsListItem(props: BasicPriceProps) {
   const { installments } = useContext(InstallmentsContext) ?? {}
@@ -12,6 +13,25 @@ function InstallmentsListItem(props: BasicPriceProps) {
   }
 
   return <InstallmentsRenderer {...props} installments={installments} />
+}
+
+defineMessages({
+  title: {
+    id: 'admin/installments-list.title',
+  },
+  titleMessage: {
+    id: 'admin/installments.title',
+  },
+  description: {
+    id: 'admin/installments.description',
+  },
+  default: {
+    id: 'store/installments.default',
+  },
+})
+
+InstallmentsListItem.schema = {
+  title: 'admin/installments-list.title',
 }
 
 export default InstallmentsListItem
