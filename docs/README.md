@@ -61,12 +61,13 @@ For example:
 },
 ```
 
-Every block in this app only has two props in common:
+Every block in this app only has three props in common:
 
 | Prop name          | Type      |  Description | Default value |
 | --------------------| ----------|--------------|---------------|
 | `markers`           |`[string]` | IDs of your choosing to identify the block's exported messages and customize them using the admin's Site Editor. Learn how to use them accessing the documentation on [Using the Markers prop to customize a block's message](https://vtex.io/docs/recipes/style/using-the-markers-prop-to-customize-a-blocks-message). |`[]`|
 |  `blockClass`  |  `string`  |  Block  ID  of your choosing to  be  used  in [CSS  customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization#using-the-blockclass-property).  |  `undefined`  |
+|  `message`  |  `string`  |  Message variables exported by each block that can be edited in Site Editor as well  |  `undefined`  |
 
 For example:
 
@@ -76,16 +77,19 @@ For example:
     "markers": [
       "highlight"
     ],
-    "blockClass": "summary"
+    "blockClass": "summary",
+    "message": "{sellingPriceValue}"
   }
 },
 ```
 
-### Step 3 - Editing the block's message  on Site Editor
+### Step 3 - Editing the block's message on Site Editor or in the message prop
 
 Every Product Price's block uses the [ICU Message Format](https://format-message.github.io/icu-message-format-for-translators/), making it possible to fully edit the text messages and the variables displayed by each block.
 
-Access your VTEX account's admin, open the Site Editor and look for the Product Price's blocks. 
+To edit the messages with the block message prop follow the exemple in the above section using the avalible variables bellow. 
+
+To edit the messages in the Site Editor access your VTEX account's admin, open the Site Editor and look for the Product Price's blocks. 
 
 ![Product-Price-Site-Editor-gif](https://user-images.githubusercontent.com/52087100/78073694-bdbffd80-7377-11ea-9262-40854dccdd53.gif)
 
