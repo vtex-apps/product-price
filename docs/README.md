@@ -87,9 +87,17 @@ For example:
 
 Every Product Price's block uses the [ICU Message Format](https://format-message.github.io/icu-message-format-for-translators/), making it possible to fully edit the text message variables displayed by each block.
 
-To edit the messages with the block message prop follow the exemple in the above section using the avalible variables bellow. 
+The variable values are rendered according to the context wrapping the block, meaning that this last one uses product data to render the price accordingly. 
 
-To edit the messages in the Site Editor access your VTEX account's admin, open the Site Editor and look for the Product Price's blocks. 
+It is possible, however, to define which message texts a block should render on the UI using the `markers` or the `message` props, as explained previously. 
+
+The text value passed to the `message` prop will be automatically taken into account when the block is rendered. 
+
+The `markers` prop, in turn, needs an extra configuration in the admin's Site Editor to properly work. When using it, do not forget to access the [Using the Markers prop to customize a block's message](https://vtex.io/docs/recipes/style/using-the-markers-prop-to-customize-a-blocks-message/) documentation. 
+
+![Product-Price-Site-Editor-gif](https://user-images.githubusercontent.com/52087100/78073694-bdbffd80-7377-11ea-9262-40854dccdd53.gif)
+
+In addition to that, keep in mind the message variables for each block since you will need them to edit the desired messages using the admin's Site Editor:
 
 ![Product-Price-Site-Editor-gif](https://user-images.githubusercontent.com/52087100/78073694-bdbffd80-7377-11ea-9262-40854dccdd53.gif)
 
