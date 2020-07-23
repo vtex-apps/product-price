@@ -99,10 +99,6 @@ The `markers` prop, in turn, needs an extra configuration in the admin's Site Ed
 
 In addition to that, keep in mind the message variables for each block since you will need them to edit the desired messages using the admin's Site Editor:
 
-![Product-Price-Site-Editor-gif](https://user-images.githubusercontent.com/52087100/78073694-bdbffd80-7377-11ea-9262-40854dccdd53.gif)
-
-Once editing their messages, bear in mind the message variables exported by each block (stated below) and the documentation on [how to use the Markers prop](https://vtex.io/docs/recipes/style/using-the-markers-prop-to-customize-a-blocks-message/).
-
 -  **`product-list-price`**
 
 | Message variable | Type | Description |
