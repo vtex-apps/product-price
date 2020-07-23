@@ -8,7 +8,6 @@
   "store/list-price-range-no-range-message.default": "{listPriceValue}",
   "store/selling-price-range-message.default": "{minPriceValue} - {maxPriceValue}",
   "store/selling-price-range-no-range-message.default": "{sellingPriceValue}",
-
   "admin/list-price.description": "Values available for interpolation: '{listPriceValue}, {listPriceWithTax}, {taxPercentage}'",
   "admin/list-price.title": "List Price",
   "admin/selling-price.description": "Values available for interpolation: '{sellingPriceValue}, {sellingPriceWithTax}, {taxPercentage}, {hasListPrice}'",
@@ -17,8 +16,9 @@
   "admin/spot-price.title": "Spot Price",
   "admin/savings.description": "Values available for interpolation: '{newPriceValue}, {previousPriceValue}, {savingsValue}, {savingsPercentage}, {savingsWithTax}'",
   "admin/savings.title": "Savings",
-  "admin/installments.description": "Values available for interpolation: '{installmentsNumber}, {installmentValue}, {installmentsTotalValue}, {interestRate} {hasInterest}'",
+  "admin/installments.description": "Values available for interpolation: '{installmentsNumber}, {installmentValue}, {installmentsTotalValue}, {interestRate}, {hasInterest}, {paymentSystemName}'",
   "admin/installments.title": "Installments",
+  "admin/installments-list-item.title": "Installments",
   "admin/list-price-range.title": "List Price Range",
   "admin/list-price-range-message.description": "Message to be shown when there is a difference in price between the SKUs.\nValues available for interpolation: '{minPriceValue}, {maxPriceValue}, {minPriceWithTax}, {maxPriceWithTax}'",
   "admin/list-price-range-message.title": "List Price (Range)",

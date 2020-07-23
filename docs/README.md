@@ -31,7 +31,9 @@ Now, you can use all the blocks exported by the `product-price` app. Check out t
 | `product-list-price`         | Renders the product list price. If it is equal to the product selling price, this block will not be rendered. | 
 | `product-selling-price`      | Renders the product selling price.|
 | `product-spot-price`         | Renders the product spot price. If it is equal to the product selling price, this block will not be rendered. This component finds the spot price by looking for the cheapest price of all installments options of count 1. For more information about how to set this up in your store, check this [document](https://docs.google.com/document/d/1zguIGidi_qFtoX101J7zPsjU7-MyV0qiQvTo_dOR_w0/edit?usp=sharing).|
-| `product-installments`      | Renders the product installments. If more than one option is available, the one with the biggest number of installments will be displayed. | 
+| `product-installments`      | Renders the product installments. If more than one option is available, the one with the biggest number of installments will be displayed. |
+| `product-installments-list` | Renders all the installments of the payment system with the biggest amount of installments options. |
+| `product-instlalments-list-item` | Renders an installments option of the `product-installments-list-item` |
 | `product-price-savings`           | Renders the product price savings, if there is any. It can show the percentage of the discount or the value of the absolute saving. | 
 | `product-list-price-range`    | Renders the product list price range. It follows the same logic applied to the `ListPrice`: if its value is equal to the product selling price, this block is not rendered. | 
 | `product-selling-price-range` | The product selling price range. | 
@@ -114,7 +116,7 @@ Once editing their messages, bear in mind the message variables exported by each
 | --- | --- | --- |
 | `spotPriceValue` | `string` | Spot price value. |
 
-- **`product-installments`**
+- **`product-installments` and `product-installments-list-item`**
 
 | Message variables | Type | Description |
 | --- | --- | --- |
@@ -123,6 +125,7 @@ Once editing their messages, bear in mind the message variables exported by each
 | `installmentValue` | `string` | Value of each installment. |
 | `installmentsTotalValue` | `string` | Total value of installments. |
 | `interestRate` | `string` | Interest rate. |
+| `paymentSystemName` | `string` | Payment System of the installments. |
 | `hasInterest` | `boolean` | Whether the installments have interest (`true`) or not (`false`). |
 
 - **`product-price-savings`**
@@ -168,40 +171,42 @@ To apply CSS customization in this and other blocks, follow the instructions giv
 
 | CSS Handles |
 | ----------- |
-| `installmentValue` |
+| `installments` |
+| `installmentsListContainer` |
 | `installmentsNumber` |
 | `installmentsTotalValue` |
-| `installments` |
+| `installmentValue` |
 | `interestRate` |
 | `listPrice'` |
+| `listPriceRange` |
 | `listPriceRangeMaxValue` |
 | `listPriceRangeMaxWithTax` |
 | `listPriceRangeMinValue` |
 | `listPriceRangeMinWithTax` |
 | `listPriceRangeUniqueValue` |
 | `listPriceRangeUniqueWithTax` |
-| `listPriceRange` |
 | `listPriceValue` |
 | `listPriceWithTax` | 
 | `newPriceValue` |
+| `paymentSystemName` |
 | `previousPriceValue` |
+| `savings` |
 | `savingsPercentage` |
 | `savingsValue` |
 | `savingsWithTax` |
-| `savings` |
 | `sellingPrice--hasListPrice` |
+| `sellingPrice` |
+| `sellingPriceRange` |
 | `sellingPriceRangeMaxValue` |
 | `sellingPriceRangeMaxWithTax` |
 | `sellingPriceRangeMinValue` |
 | `sellingPriceRangeMinWithTax` |
 | `sellingPriceRangeUniqueValue` |
 | `sellingPriceRangeUniqueWithTax` |
-| `sellingPriceRange` |
 | `sellingPriceValue` |
 | `sellingPriceWithTax` | 
-| `sellingPrice` |
-| `spotPriceValue` |
 | `spotPrice` |
+| `spotPriceValue` |
 | `taxPercentage` |
 
 <!-- DOCS-IGNORE:start -->
