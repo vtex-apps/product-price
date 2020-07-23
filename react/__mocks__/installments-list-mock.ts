@@ -31,15 +31,7 @@ export const visaInstallments: Installments[] = [
   },
 ]
 
-export const installmentsList: Installments[] = [
-  {
-    Value: 44,
-    InterestRate: 0,
-    TotalValuePlusInterestRate: 44,
-    NumberOfInstallments: 1,
-    PaymentSystemName: 'American Express',
-  },
-  ...visaInstallments,
+export const masterCardInstallments: Installments[] = [
   {
     Value: 44,
     InterestRate: 0,
@@ -68,6 +60,18 @@ export const installmentsList: Installments[] = [
     NumberOfInstallments: 4,
     PaymentSystemName: 'Mastercard',
   },
+]
+
+export const installmentsList: Installments[] = [
+  {
+    Value: 44,
+    InterestRate: 0,
+    TotalValuePlusInterestRate: 44,
+    NumberOfInstallments: 1,
+    PaymentSystemName: 'American Express',
+  },
+  ...visaInstallments,
+  ...masterCardInstallments,
   {
     Value: 40.5,
     InterestRate: 0,
@@ -116,5 +120,24 @@ export const installmentsList: Installments[] = [
     TotalValuePlusInterestRate: 44,
     NumberOfInstallments: 1,
     PaymentSystemName: 'Free',
+  },
+]
+
+export const installmentsListMastercardMax = [
+  ...visaInstallments,
+  ...masterCardInstallments,
+  {
+    Value: 44,
+    InterestRate: 0,
+    TotalValuePlusInterestRate: 44,
+    NumberOfInstallments: 14,
+    PaymentSystemName: 'Visa',
+  },
+  {
+    Value: 44,
+    InterestRate: 0,
+    TotalValuePlusInterestRate: 44,
+    NumberOfInstallments: 15,
+    PaymentSystemName: 'Mastercard',
   },
 ]

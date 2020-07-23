@@ -3,4 +3,6 @@ declare module 'installments-list-mock' {
 
   export const installmentsList: Installments[]
   export const visaInstallments: Installments[]
+  export const installmentsListMastercardMax: Installments[]
+  export const masterCardInstallments: Installments[]
 }
