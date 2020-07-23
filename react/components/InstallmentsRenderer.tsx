@@ -13,6 +13,7 @@ const CSS_HANDLES = [
   'installmentValue',
   'installmentsTotalValue',
   'interestRate',
+  'paymentSystemName',
 ] as const
 
 interface Props extends BasicPriceProps {
@@ -27,6 +28,7 @@ function InstallmentsRenderer(props: Props) {
     Value,
     NumberOfInstallments,
     InterestRate,
+    PaymentSystemName,
     TotalValuePlusInterestRate,
   } = installments
 
@@ -63,6 +65,11 @@ function InstallmentsRenderer(props: Props) {
           interestRate: (
             <span key="interestRate" className={handles.interestRate}>
               <FormattedNumber value={InterestRate} style="percent" />
+            </span>
+          ),
+          paymentSystemName: (
+            <span key="paymentSystemName" className={handles.paymentSystemName}>
+              {PaymentSystemName}
             </span>
           ),
           hasInterest,

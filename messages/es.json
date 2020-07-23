@@ -16,7 +16,7 @@
   "admin/spot-price.title": "Precio en Efectivo",
   "admin/savings.description": "Valores disponibles para interpolación: '{newPriceValue}, {previousPriceValue}, {savingsValue}, {savingsPercentage}, {savingsWithTax}'",
   "admin/savings.title": "Ahorros",
-  "admin/installments.description": "Valores disponibles para interpolación: '{installmentsNumber}, {installmentValue}, {installmentsTotalValue}, {interestRate}, {hasInterest}'",
+  "admin/installments.description": "Valores disponibles para interpolación: '{installmentsNumber}, {installmentValue}, {installmentsTotalValue}, {interestRate}, {hasInterest} y {paymentSystemName}'",
   "admin/installments.title": "Cuotas",
   "admin/installments-list.title": "Lista de Cuotas",
   "admin/list-price-range.title": "Rango de Precio de Lista",
