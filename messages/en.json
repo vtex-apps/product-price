@@ -16,7 +16,7 @@
   "admin/spot-price.title": "Spot Price",
   "admin/savings.description": "Values available for interpolation: '{newPriceValue}, {previousPriceValue}, {savingsValue}, {savingsPercentage}, {savingsWithTax}'",
   "admin/savings.title": "Savings",
-  "admin/installments.description": "Values available for interpolation: '{installmentsNumber}, {installmentValue}, {installmentsTotalValue}, {interestRate}, {hasInterest} and {paymentSystemName}'",
+  "admin/installments.description": "Values available for interpolation: '{installmentsNumber}, {installmentValue}, {installmentsTotalValue}, {interestRate}, {hasInterest}, {paymentSystemName}'",
   "admin/installments.title": "Installments",
   "admin/installments-list-item.title": "Installments",
   "admin/list-price-range.title": "List Price Range",

@@ -16,7 +16,7 @@
   "admin/spot-price.title": "Preço a Vista",
   "admin/savings.description": "Valores disponiveis para interpolação: '{newPriceValue}, {previousPriceValue}, {savingsValue}, {savingsPercentage}, {savingsWithTax}'",
   "admin/savings.title": "Economias",
-  "admin/installments.description": "Valores disponiveis para interpolação: '{installmentsNumber}, {installmentValue}, {installmentsTotalValue}, {interestRate}, {hasInterest} e {paymentSystemName}'",
+  "admin/installments.description": "Valores disponiveis para interpolação: '{installmentsNumber}, {installmentValue}, {installmentsTotalValue}, {interestRate}, {hasInterest}, {paymentSystemName}'",
   "admin/installments.title": "Parcelamento",
   "admin/installments-list-item.title": "Parcelamentos",
   "admin/list-price-range.title": "Faixa de Preço de Tabela",
