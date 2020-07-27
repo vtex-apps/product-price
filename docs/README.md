@@ -78,7 +78,7 @@ For example:
       "highlight"
     ],
     "blockClass": "summary",
-    "message": "{sellingPriceValue}"
+    "message": "Selling price: {sellingPriceValue}"
   }
 },
 ```
