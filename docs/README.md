@@ -91,8 +91,6 @@ The variable values are rendered according to the context wrapping the block, me
 
 It is possible, however, to define which message texts a block will render on the UI using the `message` prop, as explained previously. 
 
-The text value passed to the `message` prop will be automatically taken into account when the block is rendered. 
-
 The `markers` prop, in turn, needs an extra configuration in the admin's Site Editor to properly work. When using it, do not forget to access the [Using the Markers prop to customize a block's message](https://vtex.io/docs/recipes/style/using-the-markers-prop-to-customize-a-blocks-message/) documentation. 
 
 ![Product-Price-Site-Editor-gif](https://user-images.githubusercontent.com/52087100/78073694-bdbffd80-7377-11ea-9262-40854dccdd53.gif)
