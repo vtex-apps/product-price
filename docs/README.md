@@ -85,7 +85,7 @@ For example:
 
 ### Step 3 - Editing the block's messages
 
-Every Product Price's block uses the [ICU Message Format](https://format-message.github.io/icu-message-format-for-translators/), making it possible to fully edit the text message variables displayed by each block.
+Every Product Price's block uses the [ICU Message Format](https://format-message.github.io/icu-message-format-for-translators/), making it possible to fully edit the text message and variables displayed by each block.
 
 The variable values are rendered according to the context wrapping the block, meaning that this last one uses product data to render the price accordingly. 
 
