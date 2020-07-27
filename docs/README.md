@@ -89,7 +89,7 @@ Every Product Price's block uses the [ICU Message Format](https://format-message
 
 The variable values are rendered according to the context wrapping the block, meaning that this last one uses product data to render the price accordingly. 
 
-It is possible, however, to define which message texts a block should render on the UI using the `markers` or the `message` props, as explained previously. 
+It is possible, however, to define which message texts a block will render on the UI using the `message` prop, as explained previously. 
 
 The text value passed to the `message` prop will be automatically taken into account when the block is rendered. 
 
