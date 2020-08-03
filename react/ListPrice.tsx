@@ -30,7 +30,6 @@ const ListPrice: StorefrontFC<BasicPriceProps> = props => {
   const listPriceWithTax = listPriceValue + listPriceValue * taxPercentage
 
   if (
-    listPriceValue === sellingPriceValue ||
     listPriceValue <= sellingPriceValue
   ) {
     return null
