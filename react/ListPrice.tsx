@@ -29,7 +29,9 @@ const ListPrice: StorefrontFC<BasicPriceProps> = props => {
   const { taxPercentage } = commercialOffer
   const listPriceWithTax = listPriceValue + listPriceValue * taxPercentage
 
-  if (listPriceValue === sellingPriceValue) {
+  if (
+    listPriceValue <= sellingPriceValue
+  ) {
     return null
   }
 

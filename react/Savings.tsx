@@ -32,7 +32,7 @@ const Savings: StorefrontFC<BasicPriceProps> = props => {
   const savingsWithTax =
     savingsValue + savingsValue * commercialOffer.taxPercentage
   const savingsPercentage = savingsValue / previousPriceValue
-  if (savingsValue === 0) {
+  if (savingsValue <= 0) {
     return null
   }
 
