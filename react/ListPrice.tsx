@@ -14,8 +14,12 @@ const CSS_HANDLES = [
   'taxPercentage',
 ] as const
 
-const ListPrice: StorefrontFC<BasicPriceProps> = props => {
-  const { message, markers } = props
+interface ListPriceProps {
+  usingSpotPrice?: boolean
+}
+
+const ListPrice: StorefrontFC<BasicPriceProps & ListPriceProps> = props => {
+  const { message, markers, usingSpotPrice } = props
   const handles = useCssHandles(CSS_HANDLES)
   const { selectedItem } = useContext(ProductContext)
 
@@ -25,7 +29,8 @@ const ListPrice: StorefrontFC<BasicPriceProps> = props => {
   }
 
   const listPriceValue: number = commercialOffer.ListPrice
-  const sellingPriceValue = commercialOffer.Price
+  const spotPriceValue = commercialOffer.spotPrice ?? 0
+  const sellingPriceValue = spotPriceValue < commercialOffer.Price && usingSpotPrice ? spotPriceValue : commercialOffer.Price
   const { taxPercentage } = commercialOffer
   const listPriceWithTax = listPriceValue + listPriceValue * taxPercentage
 
