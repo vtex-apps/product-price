@@ -16,8 +16,12 @@ const CSS_HANDLES = [
   'savingsPercentage',
 ] as const
 
-const Savings: StorefrontFC<BasicPriceProps> = props => {
-  const { message, markers } = props
+interface SavingsProps {
+  usingSpotPrice?: boolean
+}
+
+const Savings: StorefrontFC<BasicPriceProps & SavingsProps> = props => {
+  const { message, markers, usingSpotPrice } = props
   const handles = useCssHandles(CSS_HANDLES)
   const { selectedItem } = useContext(ProductContext)
 
@@ -27,7 +31,9 @@ const Savings: StorefrontFC<BasicPriceProps> = props => {
   }
 
   const previousPriceValue = commercialOffer.ListPrice
-  const newPriceValue = commercialOffer.Price
+  const spotPriceValue = commercialOffer.spotPrice ?? 0
+	const newPriceValue = spotPriceValue < commercialOffer.Price && usingSpotPrice ? spotPriceValue : commercialOffer.Price
+
   const savingsValue = previousPriceValue - newPriceValue
   const savingsWithTax =
     savingsValue + savingsValue * commercialOffer.taxPercentage
