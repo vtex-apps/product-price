@@ -147,7 +147,7 @@ In addition to that, keep in mind the message variables for each block since you
 | `savingsValue` | `string` | Difference between previous product price and the new one. |
 | `savingsWithTax` | `string` | Difference between previous product price and the new one with taxes. |
 | `savingsPercentage` | `string` | Percentage of savings. |
-
+ 
 - **`product-list-price-range`**
 
 | Message variables | Type | Description |
