@@ -107,6 +107,10 @@ In addition to that, keep in mind the message variables for each block since you
 | `listPriceWithTax` | `string` | List price value with tax. |
 | `taxPercentage` | `string` | Tax percentage. |
 
+| Prop name | Type | Description | Default value |
+| --- | --- | --- | --- |
+| `shouldAlwaysShow` | `boolean` | Whether the product list price should always show | `false` |
+
 -  **`product-selling-price`**
 
 | Message variable | Type | Description |
@@ -143,10 +147,6 @@ In addition to that, keep in mind the message variables for each block since you
 | `savingsValue` | `string` | Difference between previous product price and the new one. |
 | `savingsWithTax` | `string` | Difference between previous product price and the new one with taxes. |
 | `savingsPercentage` | `string` | Percentage of savings. |
-
-| Prop name | Type | Description | Default value |
-| --- | --- | --- | --- |
-| `usingSpotPrice` | `boolean` | Calculate discounts based on the Spot Price | `false` |
 
 - **`product-list-price-range`**
 
