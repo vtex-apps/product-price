@@ -106,9 +106,6 @@ In addition to that, keep in mind the message variables for each block since you
 | `listPriceValue` | `string` | List price value. |
 | `listPriceWithTax` | `string` | List price value with tax. |
 | `taxPercentage` | `string` | Tax percentage. |
-
-| Prop name | Type | Description | Default value |
-| --- | --- | --- | --- |
 | `shouldAlwaysShow` | `boolean` | Whether the product list price should always be displayed (`true`) or not (`false`). | `false` |
 
 -  **`product-selling-price`**
