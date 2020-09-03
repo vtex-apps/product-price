@@ -28,16 +28,17 @@ Now, you can use all the blocks exported by the `product-price` app. Check out t
 
 | Block name          |  Description |
 | --------------------| -------- |
-| `product-list-price`         | Renders the product list price. If it is equal or lower than the product selling price, this block will not be rendered. | 
+| `product-list-price`         | Renders the product list price. If it is equal or lower than the product selling price, this block will not be rendered. |
 | `product-selling-price`      | Renders the product selling price.|
 | `product-spot-price`         | Renders the product spot price. If it is equal to the product selling price, this block will not be rendered. This component finds the spot price by looking for the cheapest price of all installments options of count 1. For more information about how to set this up in your store, check this [document](https://docs.google.com/document/d/1zguIGidi_qFtoX101J7zPsjU7-MyV0qiQvTo_dOR_w0/edit?usp=sharing).|
 | `product-installments`      | Renders the product installments. If more than one option is available, the one with the biggest number of installments will be displayed. |
 | `product-installments-list` | Renders all the installments of the payment system with the biggest amount of installments options. |
-| `product-instlalments-list-item` | Renders an installments option of the `product-installments-list-item` |
+| `product-installments-list-item` | Renders an installments option of the `product-installments-list-item` |
 | `product-price-savings`           | Renders the product price savings, if there is any. It can show the percentage of the discount or the value of the absolute saving. | 
 | `product-spot-price-savings`           | Renders the product spot price savings, if there is any. It can show the percentage of the discount or the value of the absolute saving. | 
 | `product-list-price-range`    | Renders the product list price range. It follows the same logic applied to the `ListPrice`: if its value is equal to the product selling price, this block is not rendered. | 
 | `product-selling-price-range` | The product selling price range. | 
+| `product-seller-name` | Renders the name of the product's seller. |
 
 All blocks listed above use product price data fetched from the store catalog. In order to understand further, please access the [Pricing Module overview](https://help.vtex.com/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP).
 
@@ -100,7 +101,7 @@ The `markers` prop, in turn, needs an extra configuration in the admin's Site Ed
 
 In addition to that, keep in mind the message variables for each block since you will need them to edit the desired messages using the admin's Site Editor:
 
--  **`product-list-price`**
+- **`product-list-price`**
 
 | Message variable | Type | Description |
 | --- | --- | --- |
@@ -108,7 +109,7 @@ In addition to that, keep in mind the message variables for each block since you
 | `listPriceWithTax` | `string` | List price value with tax. |
 | `taxPercentage` | `string` | Tax percentage. |
 
--  **`product-selling-price`**
+- **`product-selling-price`**
 
 | Message variable | Type | Description |
 | --- | --- | --- |
@@ -177,10 +178,15 @@ In addition to that, keep in mind the message variables for each block since you
 | `sellingPriceValue` | `string` | Value of the selling price of the only SKU available. |
 | `sellingPriceWithTax` | `string` | Value of the selling price of the only SKU available with tax. |
 
+- **`product-seller-name`**
+
+| Message variable | Type | Description |
+| --- | --- | --- |
+| `sellerName` | `string` | The name of the product's seller. |
+
 In the gif example above, the block was firstly displaying a `Save $224.40` message. By editing the message exported, it now renders a `You are saving: $224.40 (37%)` message thanks to the changes performed through the admin's Site Editor.
 
 ![product-price-edited-img](https://user-images.githubusercontent.com/52087100/78073688-bc8ed080-7377-11ea-9a7a-53c36d9a9fe2.png)
-
 
 ## Customization
 
@@ -212,6 +218,8 @@ To apply CSS customization in this and other blocks, follow the instructions giv
 | `savingsValue` |
 | `savingsWithTax` |
 | `savings` |
+| `sellerName` |
+| `sellerNameContainer` |
 | `sellingPrice--hasListPrice` |
 | `sellingPriceRangeMaxValue` |
 | `sellingPriceRangeMaxWithTax` |
