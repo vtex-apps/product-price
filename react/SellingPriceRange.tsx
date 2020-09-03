@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { defineMessages } from 'react-intl'
-import { ProductContext } from 'vtex.product-context'
+import { useProduct } from 'vtex.product-context'
 import { FormattedCurrency } from 'vtex.format-currency'
 import { useCssHandles } from 'vtex.css-handles'
 import { IOMessageWithMarkers } from 'vtex.native-types'
@@ -20,14 +20,17 @@ const CSS_HANDLES = [
 const SellingPriceRange: StorefrontFC<PriceRangeProps> = props => {
   const { message, noRangeMessage, markers } = props
   const handles = useCssHandles(CSS_HANDLES)
-  const { product, selectedItem } = useContext(ProductContext)
+  const productContextValue = useProduct()
 
-  const priceRange = product?.priceRange
+  const priceRange = productContextValue?.product?.priceRange
+
   if (!priceRange) {
     return null
   }
 
-  const commercialOffer = selectedItem?.sellers[0]?.commertialOffer
+  const commercialOffer =
+    productContextValue?.selectedItem?.sellers[0]?.commertialOffer
+
   if (!commercialOffer || commercialOffer?.AvailableQuantity <= 0) {
     return null
   }

@@ -3,9 +3,9 @@ import { FormattedNumber } from 'react-intl'
 import { useCssHandles } from 'vtex.css-handles'
 import { FormattedCurrency } from 'vtex.format-currency'
 import { IOMessageWithMarkers } from 'vtex.native-types'
+import { ProductTypes } from 'vtex.product-context'
 
 import { BasicPriceProps } from '../types'
-import { Installments } from './InstallmentsContext'
 
 const CSS_HANDLES = [
   'installments',
@@ -17,7 +17,7 @@ const CSS_HANDLES = [
 ] as const
 
 interface Props extends BasicPriceProps {
-  installments: Installments
+  installments: Partial<ProductTypes.Installment>
 }
 
 function InstallmentsRenderer(props: Props) {
@@ -46,7 +46,7 @@ function InstallmentsRenderer(props: Props) {
               key="installmentsNumber"
               className={handles.installmentsNumber}
             >
-              <FormattedNumber value={NumberOfInstallments} />
+              <FormattedNumber value={NumberOfInstallments!} />
             </span>
           ),
           installmentValue: (
@@ -64,7 +64,7 @@ function InstallmentsRenderer(props: Props) {
           ),
           interestRate: (
             <span key="interestRate" className={handles.interestRate}>
-              <FormattedNumber value={InterestRate} style="percent" />
+              <FormattedNumber value={InterestRate!} style="percent" />
             </span>
           ),
           paymentSystemName: (

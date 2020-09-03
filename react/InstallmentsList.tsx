@@ -1,6 +1,6 @@
-import React, { useContext, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import { useCssHandles } from 'vtex.css-handles'
-import { ProductContext } from 'vtex.product-context'
+import { useProduct } from 'vtex.product-context'
 
 import {
   Installments,
@@ -16,10 +16,11 @@ interface Props {
 
 function InstallmentsList(props: Props) {
   const { children } = props
-  const { selectedItem } = useContext(ProductContext)
+  const productContextValue = useProduct()
   const handles = useCssHandles(CSS_HANDLES)
 
-  const commercialOffer = selectedItem?.sellers[0]?.commertialOffer
+  const commercialOffer =
+    productContextValue?.selectedItem?.sellers[0]?.commertialOffer
 
   if (
     !commercialOffer?.Installments ||

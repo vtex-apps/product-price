@@ -1,21 +1,15 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { defineMessages } from 'react-intl'
-import { ProductContext } from 'vtex.product-context'
+import { useProduct, ProductTypes } from 'vtex.product-context'
 
 import { StorefrontFC, BasicPriceProps } from './types'
 import InstallmentsRenderer from './components/InstallmentsRenderer'
 
-interface Installment {
-  Value: number
-  InterestRate: number
-  TotalValuePlusInterestRate: number
-  NumberOfInstallments: number
-}
-
 const Installments: StorefrontFC<BasicPriceProps> = props => {
   const { message, markers } = props
-  const { selectedItem } = useContext(ProductContext)
-  const commercialOffer = selectedItem?.sellers[0]?.commertialOffer
+  const productContextValue = useProduct()
+  const commercialOffer =
+    productContextValue?.selectedItem?.sellers[0]?.commertialOffer
 
   if (
     !commercialOffer?.Installments ||
@@ -24,19 +18,26 @@ const Installments: StorefrontFC<BasicPriceProps> = props => {
     return null
   }
 
-  const installments = commercialOffer.Installments.reduce(
-    (previous: Installment, current: Installment) =>
-      previous.NumberOfInstallments > current.NumberOfInstallments
-        ? previous
-        : current,
-    {}
-  )
+  let maxInstallments: ProductTypes.Installment | undefined
+
+  commercialOffer.Installments.forEach(installmentOption => {
+    const currentValueIsEmpty =
+      !maxInstallments || Object.keys(maxInstallments).length === 0
+
+    if (
+      currentValueIsEmpty ||
+      installmentOption.NumberOfInstallments >
+        (maxInstallments?.NumberOfInstallments ?? 0)
+    ) {
+      maxInstallments = installmentOption
+    }
+  })
 
   return (
     <InstallmentsRenderer
       message={message}
       markers={markers}
-      installments={installments}
+      installments={maxInstallments ?? {}}
     />
   )
 }
