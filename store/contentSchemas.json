@@ -106,6 +106,17 @@
           "default": "store/selling-price-range-no-range-message.default"
         }
       }
+    },
+    "SellerName": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "title": "admin/seller-name.title",
+          "description": "admin/seller-name.description",
+          "$ref": "app:vtex.native-types#/definitions/text",
+          "default": "store/seller-name.default"
+        }
+      }
     }
   }
 }
