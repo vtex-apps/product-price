@@ -2,7 +2,7 @@ import React from 'react'
 import { defineMessages } from 'react-intl'
 import { IOMessageWithMarkers } from 'vtex.native-types'
 import { useProduct } from 'vtex.product-context'
-import { useCssHandles } from 'vtex.css-handles'
+import { useCssHandles, applyModifiers } from 'vtex.css-handles'
 
 import { StorefrontFC, BasicPriceProps } from './types'
 
@@ -21,8 +21,13 @@ const ProductSellerName: StorefrontFC<Partial<BasicPriceProps>> = ({
     return null
   }
 
+  const containerClasses = applyModifiers(
+    handles.sellerNameContainer,
+    productSeller.sellerDefault ? 'isDefaultSeller' : ''
+  )
+
   return (
-    <span className={handles.sellerNameContainer}>
+    <span className={containerClasses}>
       <IOMessageWithMarkers
         message={message}
         markers={markers}

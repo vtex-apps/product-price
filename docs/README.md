@@ -220,6 +220,7 @@ To apply CSS customization in this and other blocks, follow the instructions giv
 | `savings` |
 | `sellerName` |
 | `sellerNameContainer` |
+| `sellerNameContainer--isDefaultSeller` |
 | `sellingPrice--hasListPrice` |
 | `sellingPriceRangeMaxValue` |
 | `sellingPriceRangeMaxWithTax` |
