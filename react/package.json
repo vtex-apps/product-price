@@ -22,7 +22,11 @@
     "apollo-cache-inmemory": "^1.6.5",
     "graphql": "^14.5.8",
     "typescript": "3.8.3",
-    "vtex.css-handles": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.css-handles@0.4.2/public/@types/vtex.css-handles"
+    "vtex.css-handles": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.css-handles@0.4.4/public/@types/vtex.css-handles",
+    "vtex.format-currency": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.format-currency@0.1.4/public/@types/vtex.format-currency",
+    "vtex.native-types": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.native-types@0.7.1/public/@types/vtex.native-types",
+    "vtex.product-context": "https://sellername--storecomponents.myvtex.com/_v/private/typings/linked/v1/vtex.product-context@0.8.1+build1599136488/public/@types/vtex.product-context",
+    "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.112.0/public/@types/vtex.render-runtime"
   },
   "version": "1.6.0"
 }
