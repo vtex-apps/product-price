@@ -109,7 +109,7 @@ In addition to that, keep in mind the message variables for each block since you
 
 | Prop name | Type | Description | Default value |
 | --- | --- | --- | --- |
-| `shouldAlwaysShow` | `boolean` | Whether the product list price should always show | `false` |
+| `shouldAlwaysShow` | `boolean` | Whether the product list price should always be displayed (`true`) or not (`false`). | `false` |
 
 -  **`product-selling-price`**
 
