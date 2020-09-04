@@ -14,6 +14,9 @@ const CSS_HANDLES = [
   'savingsValue',
   'savingsWithTax',
   'savingsPercentage',
+  'spotPriceSavingsValue',
+  'spotPriceSavingsWithTax',
+  'spotPriceSavingsPercentage',
 ] as const
 
 const Savings: StorefrontFC<BasicPriceProps> = props => {
@@ -27,12 +30,21 @@ const Savings: StorefrontFC<BasicPriceProps> = props => {
   }
 
   const previousPriceValue = commercialOffer.ListPrice
+  const spotPriceValue = commercialOffer.spotPrice
   const newPriceValue = commercialOffer.Price
+
   const savingsValue = previousPriceValue - newPriceValue
   const savingsWithTax =
     savingsValue + savingsValue * commercialOffer.taxPercentage
   const savingsPercentage = savingsValue / previousPriceValue
-  if (savingsValue <= 0) {
+
+  const spotPriceSavingsValue = previousPriceValue - spotPriceValue
+  const spotPriceSavingsWithTax =
+    spotPriceSavingsValue +
+    spotPriceSavingsValue * commercialOffer.taxPercentage
+  const spotPriceSavingsPercentage = spotPriceSavingsValue / previousPriceValue
+
+  if (savingsValue <= 0 && spotPriceSavingsValue <= 0) {
     return null
   }
 
@@ -69,6 +81,33 @@ const Savings: StorefrontFC<BasicPriceProps> = props => {
           savingsPercentage: (
             <span key="savingsPercentage" className={handles.savingsPercentage}>
               <FormattedNumber value={savingsPercentage} style="percent" />
+            </span>
+          ),
+          spotPriceSavingsValue: (
+            <span
+              key="spotPriceSavingsValue"
+              className={handles.spotPriceSavingsValue}
+            >
+              <FormattedNumber value={spotPriceSavingsValue} />
+            </span>
+          ),
+          spotPriceSavingsWithTax: (
+            <span
+              key="spotPriceSavingsWithTax"
+              className={handles.spotPriceSavingsWithTax}
+            >
+              <FormattedNumber value={spotPriceSavingsWithTax} />
+            </span>
+          ),
+          spotPriceSavingsPercentage: (
+            <span
+              key="spotPriceSavingsPercentage"
+              className={handles.spotPriceSavingsPercentage}
+            >
+              <FormattedNumber
+                value={spotPriceSavingsPercentage}
+                style="percent"
+              />
             </span>
           ),
         }}
