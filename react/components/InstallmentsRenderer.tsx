@@ -46,7 +46,9 @@ function InstallmentsRenderer(props: Props) {
               key="installmentsNumber"
               className={handles.installmentsNumber}
             >
-              <FormattedNumber value={NumberOfInstallments!} />
+              {NumberOfInstallments && (
+                <FormattedNumber value={NumberOfInstallments} />
+              )}
             </span>
           ),
           installmentValue: (
@@ -64,7 +66,9 @@ function InstallmentsRenderer(props: Props) {
           ),
           interestRate: (
             <span key="interestRate" className={handles.interestRate}>
-              <FormattedNumber value={InterestRate!} style="percent" />
+              {InterestRate && (
+                <FormattedNumber value={InterestRate} style="percent" />
+              )}
             </span>
           ),
           paymentSystemName: (
