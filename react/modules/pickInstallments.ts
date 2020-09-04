@@ -1,4 +1,3 @@
-// import { Installments } from '../components/InstallmentsContext'
 import { ProductTypes } from 'vtex.product-context'
 
 type ClusterBy = keyof ProductTypes.Installment
