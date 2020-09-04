@@ -20,6 +20,13 @@
       "$ref": "app:vtex.product-price#/definitions/SpotPrice"
     }
   },
+  "product-spot-price-savings": {
+    "component": "SpotPriceSavings",
+    "composition": "children",
+    "content": {
+      "$ref": "app:vtex.product-price#/definitions/SpotPriceSavings"
+    }
+  },
   "product-price-savings": {
     "component": "Savings",
     "composition": "children",

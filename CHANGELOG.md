@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- `product-spot-price-savings` component
+
+### Removed
+- Spot price logic from `product-price-savings` since it was causing "0%" to appear as savings on some stores. 
 
 ## [1.6.1] - 2020-09-09
 ### Removed

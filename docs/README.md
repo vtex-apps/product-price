@@ -35,6 +35,7 @@ Now, you can use all the blocks exported by the `product-price` app. Check out t
 | `product-installments-list` | Renders all the installments of the payment system with the biggest amount of installments options. |
 | `product-instlalments-list-item` | Renders an installments option of the `product-installments-list-item` |
 | `product-price-savings`           | Renders the product price savings, if there is any. It can show the percentage of the discount or the value of the absolute saving. | 
+| `product-spot-price-savings`           | Renders the product spot price savings, if there is any. It can show the percentage of the discount or the value of the absolute saving. | 
 | `product-list-price-range`    | Renders the product list price range. It follows the same logic applied to the `ListPrice`: if its value is equal to the product selling price, this block is not rendered. | 
 | `product-selling-price-range` | The product selling price range. | 
 
@@ -144,6 +145,16 @@ In addition to that, keep in mind the message variables for each block since you
 | `savingsWithTax` | `string` | Difference between previous product price and the new one with taxes. |
 | `savingsPercentage` | `string` | Percentage of savings. |
 
+- **`product-spot-price-savings`**
+
+| Message variables | Type | Description |
+| --- | --- | --- |
+| `previousPriceValue` | `string` | Previous price value (list price). |
+| `newSpotPriceValue` | `string` | New price value (spot price). |
+| `spotPriceSavingsValue` | `string` | Difference between previous product price and the spot price. |
+| `spotPriceSavingsWithTax` | `string` | Difference between previous product price and the spot price with taxes. |
+| `spotPriceSavingsPercentage` | `string` | Percentage of savings. |
+ 
 - **`product-list-price-range`**
 
 | Message variables | Type | Description |
@@ -177,42 +188,47 @@ To apply CSS customization in this and other blocks, follow the instructions giv
 
 | CSS Handles |
 | ----------- |
-| `installments` |
+| `installmentValue` |
 | `installmentsListContainer` |
 | `installmentsNumber` |
 | `installmentsTotalValue` |
-| `installmentValue` |
+| `installments` |
 | `interestRate` |
 | `listPrice'` |
-| `listPriceRange` |
 | `listPriceRangeMaxValue` |
 | `listPriceRangeMaxWithTax` |
 | `listPriceRangeMinValue` |
 | `listPriceRangeMinWithTax` |
 | `listPriceRangeUniqueValue` |
 | `listPriceRangeUniqueWithTax` |
+| `listPriceRange` |
 | `listPriceValue` |
 | `listPriceWithTax` | 
 | `newPriceValue` |
+| `newSpotPriceValue` | 
 | `paymentSystemName` |
 | `previousPriceValue` |
-| `savings` |
 | `savingsPercentage` |
 | `savingsValue` |
 | `savingsWithTax` |
+| `savings` |
 | `sellingPrice--hasListPrice` |
-| `sellingPrice` |
-| `sellingPriceRange` |
 | `sellingPriceRangeMaxValue` |
 | `sellingPriceRangeMaxWithTax` |
 | `sellingPriceRangeMinValue` |
 | `sellingPriceRangeMinWithTax` |
 | `sellingPriceRangeUniqueValue` |
 | `sellingPriceRangeUniqueWithTax` |
+| `sellingPriceRange` |
 | `sellingPriceValue` |
 | `sellingPriceWithTax` | 
-| `spotPrice` |
+| `sellingPrice` |
+| `spotPriceSavingsPercentage` | 
+| `spotPriceSavingsValue` | 
+| `spotPriceSavingsWithTax` | 
+| `spotPriceSavings` | 
 | `spotPriceValue` |
+| `spotPrice` |
 | `taxPercentage` |
 
 <!-- DOCS-IGNORE:start -->
