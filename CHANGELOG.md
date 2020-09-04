@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.6.0] - 2020-09-04
+## [1.6.0] - 2020-09-04 [YANKED]
 ### Added
 - Calculate discounts based on the Spot Price
 

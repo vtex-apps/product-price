@@ -14,28 +14,22 @@ const CSS_HANDLES = [
   'taxPercentage',
 ] as const
 
-interface Props {
-  shouldAlwaysShow?: boolean
-}
-
-const ListPrice: StorefrontFC<BasicPriceProps & Props> = props => {
-  const { message, markers, shouldAlwaysShow } = props
+const ListPrice: StorefrontFC<BasicPriceProps> = props => {
+  const { message, markers } = props
   const handles = useCssHandles(CSS_HANDLES)
   const { selectedItem } = useContext(ProductContext)
 
   const commercialOffer = selectedItem?.sellers[0]?.commertialOffer
-
   if (!commercialOffer || commercialOffer?.AvailableQuantity <= 0) {
     return null
   }
 
   const listPriceValue: number = commercialOffer.ListPrice
   const sellingPriceValue = commercialOffer.Price
-
   const { taxPercentage } = commercialOffer
   const listPriceWithTax = listPriceValue + listPriceValue * taxPercentage
 
-  if (listPriceValue <= sellingPriceValue && !shouldAlwaysShow) {
+  if (listPriceValue <= sellingPriceValue) {
     return null
   }
 
