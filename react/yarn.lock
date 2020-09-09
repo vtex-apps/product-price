@@ -4855,9 +4855,25 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
-"vtex.css-handles@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.css-handles@0.4.2/public/@types/vtex.css-handles":
-  version "0.4.2"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.css-handles@0.4.2/public/@types/vtex.css-handles#62ee61d1bb9efdc919e5cf4bb44fabcf9050d255"
+"vtex.css-handles@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.css-handles@0.4.4/public/@types/vtex.css-handles":
+  version "0.4.4"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.css-handles@0.4.4/public/@types/vtex.css-handles#8c45c6decf9acd2b944e07261686decff93d6422"
+
+"vtex.format-currency@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.format-currency@0.1.4/public/@types/vtex.format-currency":
+  version "0.1.4"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.format-currency@0.1.4/public/@types/vtex.format-currency#a36aa61ff95701388c0c793b8a7539b0c3d9dcf3"
+
+"vtex.native-types@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.native-types@0.7.1/public/@types/vtex.native-types":
+  version "0.7.1"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.native-types@0.7.1/public/@types/vtex.native-types#a197484a2fdcee5c61a6d20ad6c994faa58380f5"
+
+"vtex.product-context@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-context@0.8.2/public/@types/vtex.product-context":
+  version "0.8.2"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-context@0.8.2/public/@types/vtex.product-context#e149c4f680faf1bfdc2b30a136f6597bf9ef37b7"
+
+"vtex.render-runtime@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.112.0/public/@types/vtex.render-runtime":
+  version "8.112.0"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.112.0/public/@types/vtex.render-runtime#d24f7d970497a80e1e38864db09bbe5da61e0696"
 
 w3c-hr-time@^1.0.1:
   version "1.0.2"

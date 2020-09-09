@@ -1,6 +1,6 @@
-import { Installments } from '../components/InstallmentsContext'
+import { ProductTypes } from 'vtex.product-context'
 
-type ClusterBy = keyof Installments
+type ClusterBy = keyof ProductTypes.Installment
 
 /**
  * Pick which installments should be used, first it cluster all installments
@@ -10,7 +10,7 @@ type ClusterBy = keyof Installments
  * @param clusterBy
  */
 export default function pickInstallments(
-  installmentsList: Installments[],
+  installmentsList: ProductTypes.Installment[],
   clusterBy: ClusterBy
 ) {
   const clusteredInstallments = clusterInstallments(installmentsList, clusterBy)
@@ -28,10 +28,10 @@ export default function pickInstallments(
  * @param clusterBy Key to be clustered by
  */
 function clusterInstallments(
-  installmentsList: Installments[],
-  clusterBy: keyof Installments
+  installmentsList: ProductTypes.Installment[],
+  clusterBy: keyof ProductTypes.Installment
 ) {
-  const clusteredInstallments: Record<string, Installments[]> = {}
+  const clusteredInstallments: Record<string, ProductTypes.Installment[]> = {}
 
   for (const installment of installmentsList) {
     if (!clusteredInstallments[installment[clusterBy]]) {
@@ -52,7 +52,7 @@ function clusterInstallments(
  * @param clusterBy
  */
 function pickMaxOption(
-  clusteredInstallments: Record<string, Installments[]>,
+  clusteredInstallments: Record<string, ProductTypes.Installment[]>,
   clusterBy: ClusterBy
 ) {
   const clusterKeys = Object.keys(clusteredInstallments)
