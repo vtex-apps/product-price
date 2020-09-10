@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "product-price",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "title": "VTEX Product Price",
   "description": "Components used to show everything price related in the context of the product",
   "builders": {
