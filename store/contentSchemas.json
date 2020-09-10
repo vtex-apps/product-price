@@ -33,6 +33,17 @@
         }
       }
     },
+    "SpotPriceSavings": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "title": "admin/spot-price-savings.title",
+          "description": "admin/spot-price-savings.description",
+          "$ref": "app:vtex.native-types#/definitions/text",
+          "default": "store/spot-price-savings.default"
+        }
+      }
+    },
     "Savings": {
       "type": "object",
       "properties": {
