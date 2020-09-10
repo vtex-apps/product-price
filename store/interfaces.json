@@ -64,5 +64,11 @@
     "content": {
       "$ref": "app:vtex.product-price#/definitions/SellingPriceRange"
     }
+  },
+  "product-seller-name": {
+    "component": "SellerName",
+    "content": {
+      "$ref": "app:vtex.product-price#/definitions/SellerName"
+    }
   }
 }
