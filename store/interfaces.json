@@ -70,5 +70,9 @@
     "content": {
       "$ref": "app:vtex.product-price#/definitions/SellerName"
     }
+  },
+  "product-price-suspense": {
+    "component": "PriceSuspense",
+    "composition": "children"
   }
 }

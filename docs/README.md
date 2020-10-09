@@ -39,6 +39,7 @@ Now, you can use all the blocks exported by the `product-price` app. Check out t
 | `product-list-price-range`    | Renders the product list price range. It follows the same logic applied to the `ListPrice`: if its value is equal to the product selling price, this block is not rendered. | 
 | `product-selling-price-range` | The product selling price range. | 
 | `product-seller-name` | Renders the name of the product's seller. |
+| `product-price-suspense` | When the price is loading, it will render a loading spinner; otherwise, it will render its children. It is useful when you have async price. |
 
 All blocks listed above use product price data fetched from the store catalog. In order to understand further, please access the [Pricing Module overview](https://help.vtex.com/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP).
 
@@ -65,7 +66,7 @@ For example:
 },
 ```
 
-Every block in this app only has three props in common:
+Every block in this app (except the `product-price-suspense`) only has three props in common:
 
 | Prop name          | Type      |  Description | Default value |
 | --------------------| ----------|--------------|---------------|
@@ -183,6 +184,33 @@ In addition to that, keep in mind the message variables for each block since you
 | Message variable | Type | Description |
 | --- | --- | --- |
 | `sellerName` | `string` | The name of the product's seller. |
+
+- **`product-price-suspense`**
+
+You only need to pass the children you want to render.
+
+For example:
+```json
+{
+  "product-price-suspense": {
+    "children": [
+      "product-list-price#summary",
+      "flex-layout.row#selling-price-savings",
+      "product-installments#summary",
+      "add-to-cart-button"
+    ]
+  },
+  "product-summary.shelf": {
+    "children": [
+      "stack-layout#prodsum",
+      "product-summary-name",
+      "product-rating-inline",
+      "product-summary-space",
+      "product-price-suspense"
+    ]
+  }
+}
+```
 
 In the gif example above, the block was firstly displaying a `Save $224.40` message. By editing the message exported, it now renders a `You are saving: $224.40 (37%)` message thanks to the changes performed through the admin's Site Editor.
 
