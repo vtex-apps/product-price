@@ -15,7 +15,7 @@ const CSS_HANDLES = [
 ] as const
 
 const SellingPrice: StorefrontFC<BasicPriceProps> = props => {
-  const { message, markers, multiplyQuantity = false } = props
+  const { message, markers, multiplyBySelectedQuantity = false } = props
   const handles = useCssHandles(CSS_HANDLES)
   const productContextValue = useProduct()
 
@@ -28,11 +28,11 @@ const SellingPrice: StorefrontFC<BasicPriceProps> = props => {
     return null
   }
 
-  const listPriceValue: number = multiplyQuantity
+  const listPriceValue: number = multiplyBySelectedQuantity
     ? commercialOffer.ListPrice * selectedQuantity
     : commercialOffer.ListPrice
 
-  const sellingPriceValue = multiplyQuantity
+  const sellingPriceValue = multiplyBySelectedQuantity
     ? commercialOffer.Price * selectedQuantity
     : commercialOffer.Price
 

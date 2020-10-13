@@ -26,7 +26,7 @@ function InstallmentsRenderer(props: Props) {
     message,
     markers,
     installments,
-    multiplyQuantity = false,
+    multiplyBySelectedQuantity = false,
     selectedQuantity = 1,
   } = props
   const handles = useCssHandles(CSS_HANDLES)
@@ -40,7 +40,7 @@ function InstallmentsRenderer(props: Props) {
   } = installments
 
   const installmentValue =
-    multiplyQuantity && Value ? Value * selectedQuantity : Value
+    multiplyBySelectedQuantity && Value ? Value * selectedQuantity : Value
 
   const hasInterest = InterestRate !== 0
 
