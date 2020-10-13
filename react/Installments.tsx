@@ -6,10 +6,11 @@ import { StorefrontFC, BasicPriceProps } from './types'
 import InstallmentsRenderer from './components/InstallmentsRenderer'
 
 const Installments: StorefrontFC<BasicPriceProps> = props => {
-  const { message, markers } = props
+  const { message, markers, multiplyQuantity = false } = props
   const productContextValue = useProduct()
   const commercialOffer =
     productContextValue?.selectedItem?.sellers[0]?.commertialOffer
+  const selectedQuantity = productContextValue?.selectedQuantity ?? 1
 
   if (
     !commercialOffer?.Installments ||
@@ -38,6 +39,8 @@ const Installments: StorefrontFC<BasicPriceProps> = props => {
       message={message}
       markers={markers}
       installments={maxInstallments ?? {}}
+      multiplyQuantity={multiplyQuantity}
+      selectedQuantity={selectedQuantity}
     />
   )
 }

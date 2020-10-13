@@ -18,10 +18,17 @@ const CSS_HANDLES = [
 
 interface Props extends BasicPriceProps {
   installments: Partial<ProductTypes.Installment>
+  selectedQuantity?: number
 }
 
 function InstallmentsRenderer(props: Props) {
-  const { message, markers, installments } = props
+  const {
+    message,
+    markers,
+    installments,
+    multiplyQuantity = false,
+    selectedQuantity = 1,
+  } = props
   const handles = useCssHandles(CSS_HANDLES)
 
   const {
@@ -31,6 +38,9 @@ function InstallmentsRenderer(props: Props) {
     PaymentSystemName,
     TotalValuePlusInterestRate,
   } = installments
+
+  const installmentValue =
+    multiplyQuantity && Value ? Value * selectedQuantity : Value
 
   const hasInterest = InterestRate !== 0
 
@@ -53,7 +63,7 @@ function InstallmentsRenderer(props: Props) {
           ),
           installmentValue: (
             <span key="installmentValue" className={handles.installmentValue}>
-              <FormattedCurrency value={Value} />
+              <FormattedCurrency value={installmentValue} />
             </span>
           ),
           installmentsTotalValue: (
