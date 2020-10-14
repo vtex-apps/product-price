@@ -88,6 +88,30 @@ For example:
 },
 ```
 
+The `product-price-suspense` block, in turn, does not receive any props - when declared, it automatically renders a loading spinner. However, you can also pass to it children blocks you want to render instead. For example:
+
+```json
+{
+  "product-price-suspense": {
+    "children": [
+      "product-list-price#summary",
+      "flex-layout.row#selling-price-savings",
+      "product-installments#summary",
+      "add-to-cart-button"
+    ]
+  },
+  "product-summary.shelf": {
+    "children": [
+      "stack-layout#prodsum",
+      "product-summary-name",
+      "product-rating-inline",
+      "product-summary-space",
+      "product-price-suspense"
+    ]
+  }
+}
+```
+
 ### Step 3 - Editing the block's messages
 
 Every Product Price's block uses the [ICU Message Format](https://format-message.github.io/icu-message-format-for-translators/), making it possible to fully edit the text message and variables displayed by each block.
@@ -185,34 +209,7 @@ In addition to that, keep in mind the message variables for each block since you
 | --- | --- | --- |
 | `sellerName` | `string` | The name of the product's seller. |
 
-- **`product-price-suspense`**
-
-You only need to pass the children you want to render.
-
-For example:
-```json
-{
-  "product-price-suspense": {
-    "children": [
-      "product-list-price#summary",
-      "flex-layout.row#selling-price-savings",
-      "product-installments#summary",
-      "add-to-cart-button"
-    ]
-  },
-  "product-summary.shelf": {
-    "children": [
-      "stack-layout#prodsum",
-      "product-summary-name",
-      "product-rating-inline",
-      "product-summary-space",
-      "product-price-suspense"
-    ]
-  }
-}
-```
-
-In the gif example above, the block was firstly displaying a `Save $224.40` message. By editing the message exported, it now renders a `You are saving: $224.40 (37%)` message thanks to the changes performed through the admin's Site Editor.
+In the gif example above, the block was firstly displaying a `Save $224.40` message. By editing the message exported, it now renders a `You are saving: $224.40 (37%)` message thanks to the changes performed through the admin's Site Editor:
 
 ![product-price-edited-img](https://user-images.githubusercontent.com/52087100/78073688-bc8ed080-7377-11ea-9a7a-53c36d9a9fe2.png)
 
@@ -272,7 +269,7 @@ To apply CSS customization in this and other blocks, follow the instructions giv
 
 ## Contributors ✨
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks goes to these wonderful people:
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
