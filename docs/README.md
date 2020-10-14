@@ -72,7 +72,7 @@ Every block in this app only has four props in common:
 | `markers`           |`[string]` | IDs of your choosing to identify the block's rendered message and customize it using the admin's Site Editor. Learn how to use them accessing the documentation on [Using the Markers prop to customize a block's message](https://vtex.io/docs/recipes/style/using-the-markers-prop-to-customize-a-blocks-message). Notice the following: a block's message can also be customized in the Store Theme source code using the `message` prop. |`[]`|
 |  `blockClass`  |  `string`  |  Block  ID  of your choosing to  be  used  in [CSS  customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization#using-the-blockclass-property).  |  `undefined`  |
 |  `message`  |  `string`  |  Defines the block's default text i.e. the block message. You can also define which text message a block will render on the UI using the admin's Site Editor.  |  `undefined`  |
-|  `multiplyBySelectedQuantity`  |  `boolean`  |  Displays the price multiplied by the selected quantity eg `vtex.quantity-selector` |  `false`  |
+|  `multiplyBySelectedQuantity`  |  `boolean`  |  Displays the price multiplied by selected quantity value eg `vtex.quantity-selector`. ⚠️ Warning: this will not look up in to Promotions and Taxes module. |  `false`  |
 
 For example:
 
