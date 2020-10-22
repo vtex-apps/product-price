@@ -66,7 +66,7 @@ For example:
 },
 ```
 
-Every block in this app (except the `product-price-suspense`) only has three props in common:
+Except for the `product-price-suspense`, every block in this app only has three props in common:
 
 | Prop name          | Type      |  Description | Default value |
 | --------------------| ----------|--------------|---------------|
