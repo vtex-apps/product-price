@@ -39,7 +39,7 @@ Now, you can use all the blocks exported by the `product-price` app. Check out t
 | `product-list-price-range`    | Renders the product list price range. It follows the same logic applied to the `ListPrice`: if its value is equal to the product selling price, this block is not rendered. | 
 | `product-selling-price-range` | The product selling price range. | 
 | `product-seller-name` | Renders the name of the product's seller. |
-| `product-price-suspense` | When the price is loading, it will render a loading spinner; otherwise, it will render its children. It is useful when you have async price. |
+| `product-price-suspense` | Renders a loading spinner or its children blocks when the product price is loading. It is extremely useful when the store works with async prices. |
 
 All blocks listed above use product price data fetched from the store catalog. In order to understand further, please access the [Pricing Module overview](https://help.vtex.com/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP).
 
