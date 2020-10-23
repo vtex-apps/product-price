@@ -3,7 +3,7 @@ import { useCssHandles } from 'vtex.css-handles'
 
 import styles from './styles.css'
 
-const CSS_HANDLES = ['priceLoading']
+const CSS_HANDLES = ['priceLoading'] as const
 
 const PriceLoadingSpinner = () => {
   const handles = useCssHandles(CSS_HANDLES)

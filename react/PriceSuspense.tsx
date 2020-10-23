@@ -9,8 +9,8 @@ import { StorefrontFC } from './types'
 const CSS_HANDLES = [
   'priceSuspense',
   'priceSuspenseFallbackWrapper',
-  'priceSuspenseCotentWrapper',
-]
+  'priceSuspenseContentWrapper',
+] as const
 
 interface PriceSuspenseProps {
   Fallback?: StorefrontFC
@@ -23,9 +23,12 @@ const PriceSuspense: StorefrontFC<PriceSuspenseProps> = ({
   const { isPriceLoading } = useProductSummary()
   const handles = useCssHandles(CSS_HANDLES)
 
-  const contentWrapperClasses = classNames(handles.priceSuspenseCotentWrapper, {
-    dn: isPriceLoading,
-  })
+  const contentWrapperClasses = classNames(
+    handles.priceSuspenseContentWrapper,
+    {
+      dn: isPriceLoading,
+    }
+  )
 
   return (
     <div className={`relative ${handles.priceSuspense}`}>
