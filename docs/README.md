@@ -39,7 +39,7 @@ Now, you can use all the blocks exported by the `product-price` app. Check out t
 | `product-list-price-range`    | Renders the product list price range. It follows the same logic applied to the `ListPrice`: if its value is equal to the product selling price, this block is not rendered. | 
 | `product-selling-price-range` | The product selling price range. | 
 | `product-seller-name` | Renders the name of the product's seller. |
-| `product-price-suspense` | Renders a loading spinner or its children blocks when the product price is loading. It is extremely useful when the store works with async prices. |
+| `product-price-suspense` | When the price is loading, it will render a fallback component; otherwise, it will render its children. It is extremely useful when the store works with async prices. |
 
 All blocks listed above use product price data fetched from the store catalog. In order to understand further, please access the [Pricing Module overview](https://help.vtex.com/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP).
 
@@ -88,11 +88,25 @@ For example:
 },
 ```
 
-The `product-price-suspense` block, in turn, does not receive any props - when declared, it automatically renders a loading spinner. However, you can also pass to it children blocks you want to render instead. For example:
+If you are using the asynchronous price feature, you can take advantage of the `product-price-suspense` component. When the price is loading, it will render the Fallback component (or a loading spinner by default); otherwise, it will render its children.
+
+| Prop name  | Type     | Description                                            | Default value     |
+| ---------- | -------- | ------------------------------------------------------ | ----------------- |
+| `Fallback` | `string` | Block that will be rendered when the price is loading. | Loading spinner   |
+
+For example:
 
 ```json
 {
+  "rich-text#loading": {
+    "props": {
+      "text": "Loading..."
+    }
+  },
   "product-price-suspense": {
+    "props": {
+      "Fallback": "rich-text#loading"
+    },
     "children": [
       "product-list-price#summary",
       "flex-layout.row#selling-price-savings",
@@ -111,6 +125,8 @@ The `product-price-suspense` block, in turn, does not receive any props - when d
   }
 }
 ```
+
+![9SOSUdfAVa](https://user-images.githubusercontent.com/40380674/97020006-69ed4f80-1527-11eb-8165-ff12389c7c81.gif)
 
 ### Step 3 - Editing the block's messages
 
