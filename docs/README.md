@@ -145,6 +145,7 @@ In addition to that, keep in mind the message variables for each block since you
 | `savingsValue` | `string` | Difference between previous product price and the new one. |
 | `savingsWithTax` | `string` | Difference between previous product price and the new one with taxes. |
 | `savingsPercentage` | `string` | Percentage of savings. |
+| `compactMode` | `boolean` | Set to `true` if you want to remove the white space between the number and the percent sign. Default value: `false` |
 
 - **`product-spot-price-savings`**
 

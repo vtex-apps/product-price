@@ -6,7 +6,7 @@ import { useCssHandles } from 'vtex.css-handles'
 import { IOMessageWithMarkers } from 'vtex.native-types'
 import { useProductSummary } from 'vtex.product-summary-context/ProductSummaryContext'
 
-import { StorefrontFC, BasicPriceProps } from './types'
+import { StorefrontFC, BasicPriceProps, SavingsProps } from './types'
 
 const CSS_HANDLES = [
   'savings',
@@ -17,8 +17,12 @@ const CSS_HANDLES = [
   'savingsPercentage',
 ] as const
 
-const Savings: StorefrontFC<BasicPriceProps> = props => {
-  const { message, markers } = props
+const Savings: StorefrontFC<BasicPriceProps & SavingsProps> = props => {
+  const { message, markers, compactMode } = props
+  const compacted = !!(
+    typeof compactMode !== 'undefined' && compactMode === true
+  )
+
   const handles = useCssHandles(CSS_HANDLES)
   const productContextValue = useProduct()
   const productSummaryValue = useProductSummary()
@@ -78,7 +82,13 @@ const Savings: StorefrontFC<BasicPriceProps> = props => {
           ),
           savingsPercentage: (
             <span key="savingsPercentage" className={handles.savingsPercentage}>
-              <FormattedNumber value={savingsPercentage} style="percent" />
+              {compacted ? (
+                <span>
+                  <FormattedNumber value={savingsPercentage * 100} />%
+                </span>
+              ) : (
+                <FormattedNumber value={savingsPercentage} style="percent" />
+              )}
             </span>
           ),
         }}

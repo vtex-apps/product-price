@@ -5,6 +5,10 @@ export interface BasicPriceProps {
   markers: string[]
 }
 
+export interface SavingsProps {
+  compactMode: boolean
+}
+
 export interface PriceRangeProps {
   message: string
   noRangeMessage: string
