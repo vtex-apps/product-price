@@ -39,6 +39,7 @@ Now, you can use all the blocks exported by the `product-price` app. Check out t
 | `product-list-price-range`    | Renders the product list price range. It follows the same logic applied to the `ListPrice`: if its value is equal to the product selling price, this block is not rendered. | 
 | `product-selling-price-range` | The product selling price range. | 
 | `product-seller-name` | Renders the name of the product's seller. |
+| `product-price-suspense` | Renders a fallback component when the price is loading and its children blocks when the price is not loading. This block is extremely useful when the store works with asynchronous prices. |
 
 All blocks listed above use product price data fetched from the store catalog. In order to understand further, please access the [Pricing Module overview](https://help.vtex.com/tracks/precos-101--6f8pwCns3PJHqMvQSugNfP).
 
@@ -65,7 +66,7 @@ For example:
 },
 ```
 
-Every block in this app only has three props in common:
+Except for the `product-price-suspense`, every block in this app only has three props in common:
 
 | Prop name          | Type      |  Description | Default value |
 | --------------------| ----------|--------------|---------------|
@@ -86,6 +87,46 @@ For example:
   }
 },
 ```
+
+If you are using the asynchronous price feature, you can take advantage of the `product-price-suspense` and its props:
+
+| Prop name    | Type       | Description                                              | Default value       |
+| :----------: | :--------: | :------------------------------------------------------: | :-----------------: |
+| `Fallback`   | `block`    | Name of the block that will be rendered when the price is loading. | `rich-text#loading`  |
+
+For example:
+
+```json
+{
+  "rich-text#loading": {
+    "props": {
+      "text": "Loading..."
+    }
+  },
+  "product-price-suspense": {
+    "props": {
+      "Fallback": "rich-text#loading"
+    },
+    "children": [
+      "product-list-price#summary",
+      "flex-layout.row#selling-price-savings",
+      "product-installments#summary",
+      "add-to-cart-button"
+    ]
+  },
+  "product-summary.shelf": {
+    "children": [
+      "stack-layout#prodsum",
+      "product-summary-name",
+      "product-rating-inline",
+      "product-summary-space",
+      "product-price-suspense"
+    ]
+  }
+}
+```
+
+![9SOSUdfAVa](https://user-images.githubusercontent.com/40380674/97020006-69ed4f80-1527-11eb-8165-ff12389c7c81.gif)
 
 ### Step 3 - Editing the block's messages
 
@@ -184,7 +225,7 @@ In addition to that, keep in mind the message variables for each block since you
 | --- | --- | --- |
 | `sellerName` | `string` | The name of the product's seller. |
 
-In the gif example above, the block was firstly displaying a `Save $224.40` message. By editing the message exported, it now renders a `You are saving: $224.40 (37%)` message thanks to the changes performed through the admin's Site Editor.
+In the gif example above, the block was firstly displaying a `Save $224.40` message. By editing the message exported, it now renders a `You are saving: $224.40 (37%)` message thanks to the changes performed through the admin's Site Editor:
 
 ![product-price-edited-img](https://user-images.githubusercontent.com/52087100/78073688-bc8ed080-7377-11ea-9a7a-53c36d9a9fe2.png)
 
@@ -244,7 +285,7 @@ To apply CSS customization in this and other blocks, follow the instructions giv
 
 ## Contributors ✨
 
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks goes to these wonderful people:
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
