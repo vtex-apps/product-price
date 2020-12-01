@@ -73,12 +73,6 @@ Every block in this app only has three props in common:
 |  `blockClass`  |  `string`  |  Block  ID  of your choosing to  be  used  in [CSS  customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization#using-the-blockclass-property).  |  `undefined`  |
 |  `message`  |  `string`  |  Defines the block's default text i.e. the block message. You can also define which text message a block will render on the UI using the admin's Site Editor.  |  `undefined`  |
 
-The `product-price-savings` block, in turn, also has following prop (in addition to the 3 props stated above):
-
-| Prop name          | Type      |  Description | Default value |
-| --------------------| ----------|--------------|---------------|
-| `compactMode` | `boolean` | Whether the white space between the number and the percent sign should be removed from the UI (`true`) or not (`false`). | `false` | 
-
 For example:
 
 ```json
