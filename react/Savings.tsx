@@ -4,9 +4,10 @@ import { useProduct } from 'vtex.product-context'
 import { FormattedCurrency } from 'vtex.format-currency'
 import { useCssHandles } from 'vtex.css-handles'
 import { IOMessageWithMarkers } from 'vtex.native-types'
-import { useProductSummary } from 'vtex.product-summary-context/ProductSummaryContext'
+import { ProductSummaryContext } from 'vtex.product-summary-context'
 
 import { StorefrontFC, BasicPriceProps } from './types'
+import { getFirstAvailableSeller } from './modules/seller'
 
 const CSS_HANDLES = [
   'savings',
@@ -21,10 +22,13 @@ const Savings: StorefrontFC<BasicPriceProps> = props => {
   const { message, markers } = props
   const handles = useCssHandles(CSS_HANDLES)
   const productContextValue = useProduct()
-  const productSummaryValue = useProductSummary()
+  const productSummaryValue = ProductSummaryContext.useProductSummary()
 
-  const commercialOffer =
-    productContextValue?.selectedItem?.sellers[0]?.commertialOffer
+  const availableSeller = getFirstAvailableSeller(
+    productContextValue?.selectedItem?.sellers
+  )
+
+  const commercialOffer = availableSeller?.commertialOffer
 
   if (
     !commercialOffer ||

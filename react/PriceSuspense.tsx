@@ -1,6 +1,6 @@
 import React from 'react'
 import { useCssHandles } from 'vtex.css-handles'
-import { useProductSummary } from 'vtex.product-summary-context/ProductSummaryContext'
+import { ProductSummaryContext } from 'vtex.product-summary-context'
 import classNames from 'classnames'
 
 import PriceLoadingSpinner from './components/PriceLoadingSpinner'
@@ -20,7 +20,7 @@ const PriceSuspense: StorefrontFC<PriceSuspenseProps> = ({
   children,
   Fallback,
 }) => {
-  const { isPriceLoading } = useProductSummary()
+  const { isPriceLoading } = ProductSummaryContext.useProductSummary()
   const handles = useCssHandles(CSS_HANDLES)
 
   const contentWrapperClasses = classNames(
