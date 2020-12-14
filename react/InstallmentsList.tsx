@@ -7,6 +7,7 @@ import {
   InstallmentsContextProvider,
 } from './components/InstallmentsContext'
 import pickInstallments from './modules/pickInstallments'
+import { getFirstAvailableSeller } from './modules/seller'
 
 const CSS_HANDLES = ['installmentsListContainer'] as const
 
@@ -19,8 +20,11 @@ function InstallmentsList(props: Props) {
   const productContextValue = useProduct()
   const handles = useCssHandles(CSS_HANDLES)
 
-  const commercialOffer =
-    productContextValue?.selectedItem?.sellers[0]?.commertialOffer
+  const availableSeller = getFirstAvailableSeller(
+    productContextValue?.selectedItem?.sellers
+  )
+
+  const commercialOffer = availableSeller?.commertialOffer
 
   if (
     !commercialOffer?.Installments ||

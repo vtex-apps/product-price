@@ -5,6 +5,7 @@ import { useProduct } from 'vtex.product-context'
 import { useCssHandles, applyModifiers } from 'vtex.css-handles'
 
 import { StorefrontFC, BasicPriceProps } from './types'
+import { getFirstAvailableSeller } from './modules/seller'
 
 const CSS_HANDLES = ['sellerNameContainer', 'sellerName'] as const
 
@@ -15,7 +16,9 @@ const ProductSellerName: StorefrontFC<Partial<BasicPriceProps>> = ({
   const handles = useCssHandles(CSS_HANDLES)
   const productContextValue = useProduct()
 
-  const productSeller = productContextValue?.selectedItem?.sellers[0]
+  const productSeller = getFirstAvailableSeller(
+    productContextValue?.selectedItem?.sellers
+  )
 
   if (!productSeller) {
     return null

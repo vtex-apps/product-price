@@ -6,6 +6,7 @@ import { useCssHandles } from 'vtex.css-handles'
 import { IOMessageWithMarkers } from 'vtex.native-types'
 
 import { StorefrontFC, BasicPriceProps } from './types'
+import { getFirstAvailableSeller } from './modules/seller'
 
 const CSS_HANDLES = [
   'spotPriceSavings',
@@ -21,8 +22,11 @@ const SpotPriceSavings: StorefrontFC<BasicPriceProps> = props => {
   const handles = useCssHandles(CSS_HANDLES)
   const productContextValue = useProduct()
 
-  const commercialOffer =
-    productContextValue?.selectedItem?.sellers[0]?.commertialOffer
+  const availableSeller = getFirstAvailableSeller(
+    productContextValue?.selectedItem?.sellers
+  )
+
+  const commercialOffer = availableSeller?.commertialOffer
 
   if (!commercialOffer || commercialOffer?.AvailableQuantity <= 0) {
     return null

@@ -4,12 +4,16 @@ import { useProduct, ProductTypes } from 'vtex.product-context'
 
 import { StorefrontFC, BasicPriceProps } from './types'
 import InstallmentsRenderer from './components/InstallmentsRenderer'
+import { getFirstAvailableSeller } from './modules/seller'
 
 const Installments: StorefrontFC<BasicPriceProps> = props => {
   const { message, markers } = props
   const productContextValue = useProduct()
-  const commercialOffer =
-    productContextValue?.selectedItem?.sellers[0]?.commertialOffer
+  const availableSeller = getFirstAvailableSeller(
+    productContextValue?.selectedItem?.sellers
+  )
+
+  const commercialOffer = availableSeller?.commertialOffer
 
   if (
     !commercialOffer?.Installments ||
