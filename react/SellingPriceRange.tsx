@@ -14,6 +14,8 @@ const CSS_HANDLES = [
   'sellingPriceRangeMinWithTax',
   'sellingPriceRangeMaxValue',
   'sellingPriceRangeMaxWithTax',
+  'sellingPriceRangeValue',
+  'sellingPriceRangeWithTax',
   'sellingPriceRangeUniqueValue',
   'sellingPriceRangeUniqueWithTax',
 ] as const
@@ -44,6 +46,9 @@ const SellingPriceRange: StorefrontFC<PriceRangeProps> = props => {
   const hasRange = minPrice !== maxPrice
   const minPriceWithTax = minPrice + minPrice * commercialOffer.taxPercentage
   const maxPriceWithTax = maxPrice + maxPrice * commercialOffer.taxPercentage
+  const sellingPrice = commercialOffer.PriceWithoutDiscount
+  const sellingPriceWithTax = commercialOffer.PriceWithoutDiscount + commercialOffer.PriceWithoutDiscount * commercialOffer.taxPercentage
+
 
   if (hasRange) {
     return (
@@ -83,6 +88,22 @@ const SellingPriceRange: StorefrontFC<PriceRangeProps> = props => {
                 className={handles.sellingPriceRangeMaxWithTax}
               >
                 <FormattedCurrency value={maxPriceWithTax} />
+              </span>
+            ),
+            sellingPriceValue: (
+              <span
+                key="sellingPriceValue"
+                className={handles.sellingPriceRangeValue}
+              >
+                <FormattedCurrency value={sellingPrice} />
+              </span>
+            ),
+            sellingPriceWithTax: (
+              <span
+                key="sellingPriceWithTax"
+                className={handles.sellingPriceRangeWithTax}
+              >
+                <FormattedCurrency value={sellingPriceWithTax} />
               </span>
             ),
           }}

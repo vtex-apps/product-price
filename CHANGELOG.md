@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Add `sellingPriceValue` and `sellingPriceWithTax` to "product-selling-price-range" block
+
 ## [1.10.1] - 2020-12-14
 ### Fixed
 - Use the first available seller data.
