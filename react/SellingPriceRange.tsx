@@ -101,7 +101,7 @@ const SellingPriceRange: StorefrontFC<PriceRangeProps> = props => {
             sellingPriceWithTax: (
               <span
                 key="sellingPriceWithTax"
-                className={handles.sellingPriceRangeValue}
+                className={handles.sellingPriceRangeWithTax}
               >
                 <FormattedCurrency value={sellingPriceWithTax} />
               </span>
