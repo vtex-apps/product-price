@@ -5,8 +5,6 @@ import { FormattedCurrency } from 'vtex.format-currency'
 import { IOMessageWithMarkers } from 'vtex.native-types'
 import { ProductTypes } from 'vtex.product-context'
 
-import { BasicPriceProps } from '../types'
-
 const CSS_HANDLES = [
   'installments',
   'installmentsNumber',
@@ -16,12 +14,13 @@ const CSS_HANDLES = [
   'paymentSystemName',
 ] as const
 
-interface Props extends BasicPriceProps {
-  installments: Partial<ProductTypes.Installment>
+interface Props {
+  message: string
+  markers: string[]
+  installment: ProductTypes.Installment
 }
 
-function InstallmentsRenderer(props: Props) {
-  const { message, markers, installments } = props
+function InstallmentsRenderer({ message, markers, installment }: Props) {
   const handles = useCssHandles(CSS_HANDLES)
 
   const {
@@ -30,7 +29,7 @@ function InstallmentsRenderer(props: Props) {
     InterestRate,
     PaymentSystemName,
     TotalValuePlusInterestRate,
-  } = installments
+  } = installment
 
   const hasInterest = InterestRate !== 0
 

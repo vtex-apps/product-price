@@ -1,22 +1,14 @@
-import React, { useMemo } from 'react'
+import React, { PropsWithChildren, useMemo } from 'react'
 import { useCssHandles } from 'vtex.css-handles'
-import { useProduct } from 'vtex.product-context'
+import { ProductTypes, useProduct } from 'vtex.product-context'
 
-import {
-  Installments,
-  InstallmentsContextProvider,
-} from './components/InstallmentsContext'
+import { InstallmentsContextProvider } from './components/InstallmentsContext'
 import pickInstallments from './modules/pickInstallments'
 import { getFirstAvailableSeller } from './modules/seller'
 
 const CSS_HANDLES = ['installmentsListContainer'] as const
 
-interface Props {
-  children: React.ReactElement[]
-}
-
-function InstallmentsList(props: Props) {
-  const { children } = props
+function InstallmentsList({ children }: PropsWithChildren<{}>) {
   const productContextValue = useProduct()
   const handles = useCssHandles(CSS_HANDLES)
 
@@ -40,9 +32,9 @@ function InstallmentsList(props: Props) {
 
   return (
     <div className={handles.installmentsListContainer}>
-      {pickedInstallments.map((inst: Installments, i: number) => {
+      {pickedInstallments.map((inst, i: number) => {
         return (
-          <InstallmentsItem installments={inst} key={i}>
+          <InstallmentsItem installment={inst} key={i}>
             {children}
           </InstallmentsItem>
         )
@@ -51,14 +43,13 @@ function InstallmentsList(props: Props) {
   )
 }
 
-interface InstallmentsItemProps {
-  children: React.ReactNode
-  installments: Installments
+interface Props {
+  installment: ProductTypes.Installment
 }
 
-function InstallmentsItem(props: InstallmentsItemProps) {
-  const { installments, children } = props
-  const contextValue = useMemo(() => ({ installments }), [installments])
+function InstallmentsItem(props: PropsWithChildren<Props>) {
+  const { installment, children } = props
+  const contextValue = useMemo(() => ({ installment }), [installment])
 
   return (
     <InstallmentsContextProvider value={contextValue}>

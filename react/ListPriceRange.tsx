@@ -5,7 +5,6 @@ import { FormattedCurrency } from 'vtex.format-currency'
 import { useCssHandles } from 'vtex.css-handles'
 import { IOMessageWithMarkers } from 'vtex.native-types'
 
-import { StorefrontFC, PriceRangeProps } from './types'
 import { getFirstAvailableSeller } from './modules/seller'
 
 const CSS_HANDLES = [
@@ -18,8 +17,41 @@ const CSS_HANDLES = [
   'listPriceRangeUniqueWithTax',
 ] as const
 
-const ListPriceRange: StorefrontFC<PriceRangeProps> = props => {
-  const { message, noRangeMessage, markers } = props
+interface Props {
+  message?: string
+  noRangeMessage?: string
+  markers?: string[]
+}
+
+const messages = defineMessages({
+  title: {
+    id: 'admin/list-price-range.title',
+  },
+  messageTitle: {
+    id: 'admin/list-price-range-message.title',
+  },
+  messageDescription: {
+    id: 'admin/list-price-range-message.description',
+  },
+  messageDefault: {
+    id: 'store/list-price-range-message.default',
+  },
+  noRangeMessageTitle: {
+    id: 'admin/list-price-range-no-range-message.title',
+  },
+  noRangeMessageDescription: {
+    id: 'admin/list-price-range-no-range-message.description',
+  },
+  noRangeMessageDefault: {
+    id: 'store/list-price-range-no-range-message.default',
+  },
+})
+
+function ListPriceRange({
+  message = messages.messageDefault.id,
+  noRangeMessage = messages.noRangeMessageTitle.id,
+  markers = [],
+}: Props) {
   const handles = useCssHandles(CSS_HANDLES)
   const productContextValue = useProduct()
 
@@ -126,30 +158,6 @@ const ListPriceRange: StorefrontFC<PriceRangeProps> = props => {
     </span>
   )
 }
-
-const messages = defineMessages({
-  title: {
-    id: 'admin/list-price-range.title',
-  },
-  messageTitle: {
-    id: 'admin/list-price-range-message.title',
-  },
-  messageDescription: {
-    id: 'admin/list-price-range-message.description',
-  },
-  messageDefault: {
-    id: 'store/list-price-range-message.default',
-  },
-  noRangeMessageTitle: {
-    id: 'admin/list-price-range-no-range-message.title',
-  },
-  noRangeMessageDescription: {
-    id: 'admin/list-price-range-no-range-message.description',
-  },
-  noRangeMessageDefault: {
-    id: 'store/list-price-range-no-range-message.default',
-  },
-})
 
 ListPriceRange.schema = {
   title: messages.title.id,

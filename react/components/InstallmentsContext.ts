@@ -1,15 +1,8 @@
 import { createContext, useContext } from 'react'
-
-export interface Installments {
-  Value: number
-  InterestRate: number
-  TotalValuePlusInterestRate: number
-  NumberOfInstallments: number
-  PaymentSystemName: string
-}
+import { ProductTypes } from 'vtex.product-context'
 
 const InstallmentsContext = createContext<
-  { installments: Installments } | undefined
+  { installment: ProductTypes.Installment } | undefined
 >(undefined)
 
 export const InstallmentsContextProvider = InstallmentsContext.Provider

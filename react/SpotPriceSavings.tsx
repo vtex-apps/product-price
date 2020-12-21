@@ -5,7 +5,6 @@ import { FormattedCurrency } from 'vtex.format-currency'
 import { useCssHandles } from 'vtex.css-handles'
 import { IOMessageWithMarkers } from 'vtex.native-types'
 
-import { StorefrontFC, BasicPriceProps } from './types'
 import { getFirstAvailableSeller } from './modules/seller'
 
 const CSS_HANDLES = [
@@ -17,8 +16,27 @@ const CSS_HANDLES = [
   'spotPriceSavingsPercentage',
 ] as const
 
-const SpotPriceSavings: StorefrontFC<BasicPriceProps> = props => {
-  const { message, markers } = props
+const messages = defineMessages({
+  title: {
+    id: 'admin/spot-price-savings.title',
+  },
+  description: {
+    id: 'admin/spot-price-savings.description',
+  },
+  default: {
+    id: 'store/spot-price-savings.default',
+  },
+})
+
+interface Props {
+  message?: string
+  markers?: string[]
+}
+
+function SpotPriceSavings({
+  message = messages.default.id,
+  markers = [],
+}: Props) {
   const handles = useCssHandles(CSS_HANDLES)
   const productContextValue = useProduct()
 
@@ -98,18 +116,6 @@ const SpotPriceSavings: StorefrontFC<BasicPriceProps> = props => {
     </span>
   )
 }
-
-const messages = defineMessages({
-  title: {
-    id: 'admin/spot-price-savings.title',
-  },
-  description: {
-    id: 'admin/spot-price-savings.description',
-  },
-  default: {
-    id: 'store/spot-price-savings.default',
-  },
-})
 
 SpotPriceSavings.schema = {
   title: messages.title.id,

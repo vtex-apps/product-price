@@ -4859,25 +4859,25 @@ verror@1.10.0:
   version "0.4.4"
   resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.css-handles@0.4.4/public/@types/vtex.css-handles#8c45c6decf9acd2b944e07261686decff93d6422"
 
-"vtex.format-currency@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.format-currency@0.2.0/public/@types/vtex.format-currency":
-  version "0.2.0"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.format-currency@0.2.0/public/@types/vtex.format-currency#764e70df27af6a2e2b2a828c5870a5008b5ef28e"
+"vtex.format-currency@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.format-currency@0.3.0/public/@types/vtex.format-currency":
+  version "0.3.0"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.format-currency@0.3.0/public/@types/vtex.format-currency#1cb7360452552301237c16d32037bbac61798f20"
 
-"vtex.native-types@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.native-types@0.7.3/public/@types/vtex.native-types":
-  version "0.7.3"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.native-types@0.7.3/public/@types/vtex.native-types#8b32238685324687995052e8c746449bcc00985c"
+"vtex.native-types@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.native-types@0.7.5/public/@types/vtex.native-types":
+  version "0.7.5"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.native-types@0.7.5/public/@types/vtex.native-types#52d8c0b675fcdf2b6b1ca93f6a99a630519f618f"
 
-"vtex.product-context@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-context@0.9.2/public/@types/vtex.product-context":
-  version "0.9.2"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-context@0.9.2/public/@types/vtex.product-context#f4387e4b4ec59cf7e63b8f68202426a279693dd1"
+"vtex.product-context@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-context@0.9.6/public/@types/vtex.product-context":
+  version "0.9.6"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-context@0.9.6/public/@types/vtex.product-context#0d516252cdd7a4e66b422e4784206999afb53e0d"
 
-"vtex.product-summary-context@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-summary-context@0.6.0/public/@types/vtex.product-summary-context":
-  version "0.6.0"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-summary-context@0.6.0/public/@types/vtex.product-summary-context#653154fe985a37b0e030b7b729f77a7ca33c02c4"
+"vtex.product-summary-context@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-summary-context@0.7.0/public/@types/vtex.product-summary-context":
+  version "0.7.0"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-summary-context@0.7.0/public/@types/vtex.product-summary-context#e4e8d6a83c4bc99ceaac9d93ec360d40c619a190"
 
-"vtex.render-runtime@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.125.0/public/@types/vtex.render-runtime":
-  version "8.125.0"
-  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.125.0/public/@types/vtex.render-runtime#9cef678d3abf4e84c6aeabf266530882a3a3cfd7"
+"vtex.render-runtime@http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.126.4/public/@types/vtex.render-runtime":
+  version "8.126.4"
+  resolved "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.126.4/public/@types/vtex.render-runtime#40d7ad8a7b04c50e61ff84a1089dcf7045efd548"
 
 w3c-hr-time@^1.0.1:
   version "1.0.2"

@@ -6,7 +6,6 @@ import { useCssHandles } from 'vtex.css-handles'
 import { IOMessageWithMarkers } from 'vtex.native-types'
 import { ProductSummaryContext } from 'vtex.product-summary-context'
 
-import { StorefrontFC, BasicPriceProps } from './types'
 import { getFirstAvailableSeller } from './modules/seller'
 
 const CSS_HANDLES = [
@@ -18,8 +17,24 @@ const CSS_HANDLES = [
   'savingsPercentage',
 ] as const
 
-const Savings: StorefrontFC<BasicPriceProps> = props => {
-  const { message, markers } = props
+interface Props {
+  message?: string
+  markers?: string[]
+}
+
+const messages = defineMessages({
+  title: {
+    id: 'admin/savings.title',
+  },
+  description: {
+    id: 'admin/savings.description',
+  },
+  default: {
+    id: 'store/savings.default',
+  },
+})
+
+function Savings({ message = messages.default.id, markers = [] }: Props) {
   const handles = useCssHandles(CSS_HANDLES)
   const productContextValue = useProduct()
   const productSummaryValue = ProductSummaryContext.useProductSummary()
@@ -90,18 +105,6 @@ const Savings: StorefrontFC<BasicPriceProps> = props => {
     </span>
   )
 }
-
-const messages = defineMessages({
-  title: {
-    id: 'admin/savings.title',
-  },
-  description: {
-    id: 'admin/savings.description',
-  },
-  default: {
-    id: 'store/savings.default',
-  },
-})
 
 Savings.schema = {
   title: messages.title.id,
