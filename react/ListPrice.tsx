@@ -14,11 +14,6 @@ const CSS_HANDLES = [
   'taxPercentage',
 ] as const
 
-interface Props {
-  message?: string
-  markers?: string[]
-}
-
 const messages = defineMessages({
   title: {
     id: 'admin/list-price.title',
@@ -30,6 +25,11 @@ const messages = defineMessages({
     id: 'store/list-price.default',
   },
 })
+
+interface Props {
+  message?: string
+  markers?: string[]
+}
 
 function ListPrice({ message = messages.default.id, markers = [] }: Props) {
   const handles = useCssHandles(CSS_HANDLES)

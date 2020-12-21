@@ -8,11 +8,6 @@ import { getFirstAvailableSeller } from './modules/seller'
 
 const CSS_HANDLES = ['sellerNameContainer', 'sellerName'] as const
 
-interface Props {
-  message?: string
-  markers?: string[]
-}
-
 const messages = defineMessages({
   title: {
     id: 'admin/seller-name.title',
@@ -24,6 +19,11 @@ const messages = defineMessages({
     id: 'store/seller-name.default',
   },
 })
+
+interface Props {
+  message?: string
+  markers?: string[]
+}
 
 function ProductSellerName({
   message = messages.default.id,

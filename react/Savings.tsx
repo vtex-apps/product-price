@@ -17,11 +17,6 @@ const CSS_HANDLES = [
   'savingsPercentage',
 ] as const
 
-interface Props {
-  message?: string
-  markers?: string[]
-}
-
 const messages = defineMessages({
   title: {
     id: 'admin/savings.title',
@@ -33,6 +28,11 @@ const messages = defineMessages({
     id: 'store/savings.default',
   },
 })
+
+interface Props {
+  message?: string
+  markers?: string[]
+}
 
 function Savings({ message = messages.default.id, markers = [] }: Props) {
   const handles = useCssHandles(CSS_HANDLES)

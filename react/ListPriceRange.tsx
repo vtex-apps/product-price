@@ -17,12 +17,6 @@ const CSS_HANDLES = [
   'listPriceRangeUniqueWithTax',
 ] as const
 
-interface Props {
-  message?: string
-  noRangeMessage?: string
-  markers?: string[]
-}
-
 const messages = defineMessages({
   title: {
     id: 'admin/list-price-range.title',
@@ -46,6 +40,12 @@ const messages = defineMessages({
     id: 'store/list-price-range-no-range-message.default',
   },
 })
+
+interface Props {
+  message?: string
+  noRangeMessage?: string
+  markers?: string[]
+}
 
 function ListPriceRange({
   message = messages.messageDefault.id,
