@@ -49,7 +49,7 @@ interface Props {
 
 function ListPriceRange({
   message = messages.messageDefault.id,
-  noRangeMessage = messages.noRangeMessageTitle.id,
+  noRangeMessage = messages.noRangeMessageDefault.id,
   markers = [],
 }: Props) {
   const handles = useCssHandles(CSS_HANDLES)
