@@ -37,14 +37,14 @@ function Installments({ message = messages.default.id, markers = [] }: Props) {
     return null
   }
 
-  let [maxInstallment] = commercialOffer.Installments
+  let [maxInstallmentOption] = commercialOffer.Installments
 
   commercialOffer.Installments.forEach(installmentOption => {
     if (
       installmentOption.NumberOfInstallments >
-      maxInstallment.NumberOfInstallments
+      maxInstallmentOption.NumberOfInstallments
     ) {
-      maxInstallment = installmentOption
+      maxInstallmentOption = installmentOption
     }
   })
 
@@ -52,7 +52,7 @@ function Installments({ message = messages.default.id, markers = [] }: Props) {
     <InstallmentsRenderer
       message={message}
       markers={markers}
-      installment={maxInstallment}
+      installment={maxInstallmentOption}
     />
   )
 }
