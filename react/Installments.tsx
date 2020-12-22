@@ -1,13 +1,28 @@
 import React from 'react'
 import { defineMessages } from 'react-intl'
-import { useProduct, ProductTypes } from 'vtex.product-context'
+import { useProduct } from 'vtex.product-context'
 
-import { StorefrontFC, BasicPriceProps } from './types'
 import InstallmentsRenderer from './components/InstallmentsRenderer'
 import { getFirstAvailableSeller } from './modules/seller'
 
-const Installments: StorefrontFC<BasicPriceProps> = props => {
-  const { message, markers } = props
+const messages = defineMessages({
+  title: {
+    id: 'admin/installments.title',
+  },
+  description: {
+    id: 'admin/installments.description',
+  },
+  default: {
+    id: 'store/installments.default',
+  },
+})
+
+interface Props {
+  message?: string
+  markers?: string[]
+}
+
+function Installments({ message = messages.default.id, markers = [] }: Props) {
   const productContextValue = useProduct()
   const availableSeller = getFirstAvailableSeller(
     productContextValue?.selectedItem?.sellers
@@ -22,18 +37,14 @@ const Installments: StorefrontFC<BasicPriceProps> = props => {
     return null
   }
 
-  let maxInstallments: ProductTypes.Installment | undefined
+  let [maxInstallmentOption] = commercialOffer.Installments
 
   commercialOffer.Installments.forEach(installmentOption => {
-    const currentValueIsEmpty =
-      !maxInstallments || Object.keys(maxInstallments).length === 0
-
     if (
-      currentValueIsEmpty ||
       installmentOption.NumberOfInstallments >
-        (maxInstallments?.NumberOfInstallments ?? 0)
+      maxInstallmentOption.NumberOfInstallments
     ) {
-      maxInstallments = installmentOption
+      maxInstallmentOption = installmentOption
     }
   })
 
@@ -41,22 +52,10 @@ const Installments: StorefrontFC<BasicPriceProps> = props => {
     <InstallmentsRenderer
       message={message}
       markers={markers}
-      installments={maxInstallments ?? {}}
+      installment={maxInstallmentOption}
     />
   )
 }
-
-const messages = defineMessages({
-  title: {
-    id: 'admin/installments.title',
-  },
-  description: {
-    id: 'admin/installments.description',
-  },
-  default: {
-    id: 'store/installments.default',
-  },
-})
 
 Installments.schema = {
   title: messages.title.id,

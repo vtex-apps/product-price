@@ -1,21 +1,10 @@
 import React from 'react'
 import { defineMessages } from 'react-intl'
 
-import { BasicPriceProps } from './types'
 import { useInstallments } from './components/InstallmentsContext'
 import InstallmentsRenderer from './components/InstallmentsRenderer'
 
-function InstallmentsListItem(props: BasicPriceProps) {
-  const { installments } = useInstallments() ?? {}
-
-  if (!installments) {
-    return null
-  }
-
-  return <InstallmentsRenderer {...props} installments={installments} />
-}
-
-defineMessages({
+const messages = defineMessages({
   title: {
     id: 'admin/installments-list-item.title',
   },
@@ -29,6 +18,30 @@ defineMessages({
     id: 'store/installments.default',
   },
 })
+
+interface Props {
+  message?: string
+  markers?: string[]
+}
+
+function InstallmentsListItem({
+  message = messages.default.id,
+  markers = [],
+}: Props) {
+  const { installment } = useInstallments() ?? {}
+
+  if (!installment) {
+    return null
+  }
+
+  return (
+    <InstallmentsRenderer
+      message={message}
+      markers={markers}
+      installment={installment}
+    />
+  )
+}
 
 InstallmentsListItem.schema = {
   title: 'admin/installments-list-item.title',

@@ -5,7 +5,6 @@ import { FormattedCurrency } from 'vtex.format-currency'
 import { useCssHandles } from 'vtex.css-handles'
 import { IOMessageWithMarkers } from 'vtex.native-types'
 
-import { StorefrontFC, PriceRangeProps } from './types'
 import { getFirstAvailableSeller } from './modules/seller'
 
 const CSS_HANDLES = [
@@ -20,8 +19,41 @@ const CSS_HANDLES = [
   'sellingPriceRangeUniqueWithTax',
 ] as const
 
-const SellingPriceRange: StorefrontFC<PriceRangeProps> = props => {
-  const { message, noRangeMessage, markers } = props
+const messages = defineMessages({
+  title: {
+    id: 'admin/selling-price-range.title',
+  },
+  messageTitle: {
+    id: 'admin/selling-price-range-message.title',
+  },
+  messageDescription: {
+    id: 'admin/selling-price-range-message.description',
+  },
+  messageDefault: {
+    id: 'store/selling-price-range-message.default',
+  },
+  noRangeMessageTitle: {
+    id: 'admin/selling-price-range-no-range-message.title',
+  },
+  noRangeMessageDescription: {
+    id: 'admin/selling-price-range-no-range-message.description',
+  },
+  noRangeMessageDefault: {
+    id: 'store/selling-price-range-no-range-message.default',
+  },
+})
+
+interface Props {
+  message?: string
+  noRangeMessage?: string
+  markers?: string[]
+}
+
+function SellingPriceRange({
+  message = messages.messageDefault.id,
+  noRangeMessage = messages.noRangeMessageDefault.id,
+  markers = [],
+}: Props) {
   const handles = useCssHandles(CSS_HANDLES)
   const productContextValue = useProduct()
 
@@ -47,8 +79,9 @@ const SellingPriceRange: StorefrontFC<PriceRangeProps> = props => {
   const minPriceWithTax = minPrice + minPrice * commercialOffer.taxPercentage
   const maxPriceWithTax = maxPrice + maxPrice * commercialOffer.taxPercentage
   const sellingPrice = commercialOffer.PriceWithoutDiscount
-  const sellingPriceWithTax = commercialOffer.PriceWithoutDiscount + commercialOffer.PriceWithoutDiscount * commercialOffer.taxPercentage
-
+  const sellingPriceWithTax =
+    commercialOffer.PriceWithoutDiscount +
+    commercialOffer.PriceWithoutDiscount * commercialOffer.taxPercentage
 
   if (hasRange) {
     return (
@@ -140,30 +173,6 @@ const SellingPriceRange: StorefrontFC<PriceRangeProps> = props => {
     </span>
   )
 }
-
-const messages = defineMessages({
-  title: {
-    id: 'admin/selling-price-range.title',
-  },
-  messageTitle: {
-    id: 'admin/selling-price-range-message.title',
-  },
-  messageDescription: {
-    id: 'admin/selling-price-range-message.description',
-  },
-  messageDefault: {
-    id: 'store/selling-price-range-message.default',
-  },
-  noRangeMessageTitle: {
-    id: 'admin/selling-price-range-no-range-message.title',
-  },
-  noRangeMessageDescription: {
-    id: 'admin/selling-price-range-no-range-message.description',
-  },
-  noRangeMessageDefault: {
-    id: 'store/selling-price-range-no-range-message.default',
-  },
-})
 
 SellingPriceRange.schema = {
   title: messages.title.id,

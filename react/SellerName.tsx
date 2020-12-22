@@ -4,15 +4,31 @@ import { IOMessageWithMarkers } from 'vtex.native-types'
 import { useProduct } from 'vtex.product-context'
 import { useCssHandles, applyModifiers } from 'vtex.css-handles'
 
-import { StorefrontFC, BasicPriceProps } from './types'
 import { getFirstAvailableSeller } from './modules/seller'
 
 const CSS_HANDLES = ['sellerNameContainer', 'sellerName'] as const
 
-const ProductSellerName: StorefrontFC<Partial<BasicPriceProps>> = ({
-  message,
-  markers,
-}) => {
+const messages = defineMessages({
+  title: {
+    id: 'admin/seller-name.title',
+  },
+  description: {
+    id: 'admin/seller-name.description',
+  },
+  default: {
+    id: 'store/seller-name.default',
+  },
+})
+
+interface Props {
+  message?: string
+  markers?: string[]
+}
+
+function ProductSellerName({
+  message = messages.default.id,
+  markers = [],
+}: Partial<Props>) {
   const handles = useCssHandles(CSS_HANDLES)
   const productContextValue = useProduct()
 
@@ -46,18 +62,6 @@ const ProductSellerName: StorefrontFC<Partial<BasicPriceProps>> = ({
     </span>
   )
 }
-
-const messages = defineMessages({
-  title: {
-    id: 'admin/seller-name.title',
-  },
-  description: {
-    id: 'admin/seller-name.description',
-  },
-  default: {
-    id: 'store/seller-name.default',
-  },
-})
 
 ProductSellerName.schema = {
   title: messages.title.id,

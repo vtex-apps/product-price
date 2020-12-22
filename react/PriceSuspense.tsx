@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 import { useCssHandles } from 'vtex.css-handles'
 import { ProductSummaryContext } from 'vtex.product-summary-context'
 import classNames from 'classnames'
 
 import PriceLoadingSpinner from './components/PriceLoadingSpinner'
-import { StorefrontFC } from './types'
 
 const CSS_HANDLES = [
   'priceSuspense',
@@ -13,13 +12,13 @@ const CSS_HANDLES = [
 ] as const
 
 interface PriceSuspenseProps {
-  Fallback?: StorefrontFC
+  Fallback?: React.ComponentType
 }
 
-const PriceSuspense: StorefrontFC<PriceSuspenseProps> = ({
+function PriceSuspense({
   children,
   Fallback,
-}) => {
+}: PropsWithChildren<PriceSuspenseProps>) {
   const { isPriceLoading } = ProductSummaryContext.useProductSummary()
   const handles = useCssHandles(CSS_HANDLES)
 
