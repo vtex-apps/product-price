@@ -32,7 +32,7 @@ function InstallmentsList({ children }: PropsWithChildren<{}>) {
 
   return (
     <div className={handles.installmentsListContainer}>
-      {pickedInstallments.map((inst, i: number) => {
+      {pickedInstallments.map((inst, i) => {
         return (
           <InstallmentsItem installment={inst} key={i}>
             {children}

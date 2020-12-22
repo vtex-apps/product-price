@@ -40,13 +40,9 @@ function Installments({ message = messages.default.id, markers = [] }: Props) {
   let [maxInstallment] = commercialOffer.Installments
 
   commercialOffer.Installments.forEach(installmentOption => {
-    const currentValueIsEmpty =
-      !maxInstallment || Object.keys(maxInstallment).length === 0
-
     if (
-      currentValueIsEmpty ||
       installmentOption.NumberOfInstallments >
-        (maxInstallment?.NumberOfInstallments ?? 0)
+      maxInstallment.NumberOfInstallments
     ) {
       maxInstallment = installmentOption
     }
