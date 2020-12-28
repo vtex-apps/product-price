@@ -2,7 +2,7 @@ import React from 'react'
 import { defineMessages } from 'react-intl'
 import { useProduct } from 'vtex.product-context'
 import { FormattedCurrency } from 'vtex.format-currency'
-import { useCssHandles } from 'vtex.css-handles'
+import { useCssHandles, CssHandlesTypes } from 'vtex.css-handles'
 import { IOMessageWithMarkers } from 'vtex.native-types'
 
 import { getFirstAvailableSeller } from './modules/seller'
@@ -45,14 +45,17 @@ interface Props {
   message?: string
   noRangeMessage?: string
   markers?: string[]
+  /** Used to override default CSS handles */
+  classes?: CssHandlesTypes.CustomClasses<typeof CSS_HANDLES>
 }
 
 function ListPriceRange({
   message = messages.messageDefault.id,
   noRangeMessage = messages.noRangeMessageDefault.id,
   markers = [],
+  classes,
 }: Props) {
-  const { handles } = useCssHandles(CSS_HANDLES)
+  const { handles } = useCssHandles(CSS_HANDLES, { classes })
   const productContextValue = useProduct()
 
   const priceRange = productContextValue?.product?.priceRange

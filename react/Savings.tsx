@@ -2,7 +2,7 @@ import React from 'react'
 import { defineMessages, FormattedNumber } from 'react-intl'
 import { useProduct } from 'vtex.product-context'
 import { FormattedCurrency } from 'vtex.format-currency'
-import { useCssHandles } from 'vtex.css-handles'
+import { useCssHandles, CssHandlesTypes } from 'vtex.css-handles'
 import { IOMessageWithMarkers } from 'vtex.native-types'
 import { ProductSummaryContext } from 'vtex.product-summary-context'
 
@@ -32,10 +32,16 @@ const messages = defineMessages({
 interface Props {
   message?: string
   markers?: string[]
+  /** Used to override default CSS handles */
+  classes?: CssHandlesTypes.CustomClasses<typeof CSS_HANDLES>
 }
 
-function Savings({ message = messages.default.id, markers = [] }: Props) {
-  const { handles } = useCssHandles(CSS_HANDLES)
+function Savings({
+  message = messages.default.id,
+  markers = [],
+  classes,
+}: Props) {
+  const { handles } = useCssHandles(CSS_HANDLES, { classes })
   const productContextValue = useProduct()
   const productSummaryValue = ProductSummaryContext.useProductSummary()
 

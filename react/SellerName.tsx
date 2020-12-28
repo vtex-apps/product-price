@@ -2,7 +2,7 @@ import React from 'react'
 import { defineMessages } from 'react-intl'
 import { IOMessageWithMarkers } from 'vtex.native-types'
 import { useProduct } from 'vtex.product-context'
-import { useCssHandles } from 'vtex.css-handles'
+import { useCssHandles, CssHandlesTypes } from 'vtex.css-handles'
 
 import { getFirstAvailableSeller } from './modules/seller'
 
@@ -23,13 +23,16 @@ const messages = defineMessages({
 interface Props {
   message?: string
   markers?: string[]
+  /** Used to override default CSS handles */
+  classes?: CssHandlesTypes.CustomClasses<typeof CSS_HANDLES>
 }
 
 function ProductSellerName({
   message = messages.default.id,
   markers = [],
+  classes,
 }: Partial<Props>) {
-  const { handles, withModifiers } = useCssHandles(CSS_HANDLES)
+  const { handles, withModifiers } = useCssHandles(CSS_HANDLES, { classes })
   const productContextValue = useProduct()
 
   const productSeller = getFirstAvailableSeller(

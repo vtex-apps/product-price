@@ -1,11 +1,11 @@
 import React from 'react'
 import { FormattedNumber } from 'react-intl'
-import { useCssHandles } from 'vtex.css-handles'
+import { CssHandlesTypes } from 'vtex.css-handles'
 import { FormattedCurrency } from 'vtex.format-currency'
 import { IOMessageWithMarkers } from 'vtex.native-types'
 import { ProductTypes } from 'vtex.product-context'
 
-const CSS_HANDLES = [
+export const CSS_HANDLES = [
   'installments',
   'installmentsNumber',
   'installmentValue',
@@ -18,11 +18,15 @@ interface Props {
   message: string
   markers: string[]
   installment: ProductTypes.Installment
+  handles: CssHandlesTypes.CssHandlesBag<typeof CSS_HANDLES>['handles']
 }
 
-function InstallmentsRenderer({ message, markers, installment }: Props) {
-  const { handles } = useCssHandles(CSS_HANDLES)
-
+function InstallmentsRenderer({
+  message,
+  markers,
+  installment,
+  handles,
+}: Props) {
   const {
     Value,
     NumberOfInstallments,
