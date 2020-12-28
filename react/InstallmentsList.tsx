@@ -10,7 +10,7 @@ const CSS_HANDLES = ['installmentsListContainer'] as const
 
 function InstallmentsList({ children }: PropsWithChildren<{}>) {
   const productContextValue = useProduct()
-  const handles = useCssHandles(CSS_HANDLES)
+  const { handles } = useCssHandles(CSS_HANDLES)
 
   const availableSeller = getFirstAvailableSeller(
     productContextValue?.selectedItem?.sellers

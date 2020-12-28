@@ -54,7 +54,7 @@ function SellingPriceRange({
   noRangeMessage = messages.noRangeMessageDefault.id,
   markers = [],
 }: Props) {
-  const handles = useCssHandles(CSS_HANDLES)
+  const { handles } = useCssHandles(CSS_HANDLES)
   const productContextValue = useProduct()
 
   const priceRange = productContextValue?.product?.priceRange

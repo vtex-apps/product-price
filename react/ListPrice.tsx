@@ -32,7 +32,7 @@ interface Props {
 }
 
 function ListPrice({ message = messages.default.id, markers = [] }: Props) {
-  const handles = useCssHandles(CSS_HANDLES)
+  const { handles } = useCssHandles(CSS_HANDLES)
   const productContextValue = useProduct()
 
   const availableSeller = getFirstAvailableSeller(

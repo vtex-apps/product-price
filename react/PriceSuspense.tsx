@@ -20,7 +20,7 @@ function PriceSuspense({
   Fallback,
 }: PropsWithChildren<PriceSuspenseProps>) {
   const { isPriceLoading } = ProductSummaryContext.useProductSummary()
-  const handles = useCssHandles(CSS_HANDLES)
+  const { handles } = useCssHandles(CSS_HANDLES)
 
   const contentWrapperClasses = classNames(
     handles.priceSuspenseContentWrapper,

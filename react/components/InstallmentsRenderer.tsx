@@ -21,7 +21,7 @@ interface Props {
 }
 
 function InstallmentsRenderer({ message, markers, installment }: Props) {
-  const handles = useCssHandles(CSS_HANDLES)
+  const { handles } = useCssHandles(CSS_HANDLES)
 
   const {
     Value,

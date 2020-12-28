@@ -3,7 +3,7 @@ import { defineMessages, FormattedNumber } from 'react-intl'
 import { useProduct } from 'vtex.product-context'
 import { FormattedCurrency } from 'vtex.format-currency'
 import { IOMessageWithMarkers } from 'vtex.native-types'
-import { useCssHandles, applyModifiers } from 'vtex.css-handles'
+import { useCssHandles } from 'vtex.css-handles'
 
 import { getFirstAvailableSeller } from './modules/seller'
 
@@ -32,7 +32,7 @@ interface Props {
 }
 
 function SellingPrice({ message = messages.default.id, markers = [] }: Props) {
-  const handles = useCssHandles(CSS_HANDLES)
+  const { handles, withModifiers } = useCssHandles(CSS_HANDLES)
   const productContextValue = useProduct()
 
   const availableSeller = getFirstAvailableSeller(
@@ -53,8 +53,8 @@ function SellingPrice({ message = messages.default.id, markers = [] }: Props) {
 
   const hasListPrice = sellingPriceValue !== listPriceValue
 
-  const containerClasses = applyModifiers(
-    handles.sellingPrice,
+  const containerClasses = withModifiers(
+    'sellingPrice',
     hasListPrice ? 'hasListPrice' : ''
   )
 

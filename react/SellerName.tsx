@@ -2,7 +2,7 @@ import React from 'react'
 import { defineMessages } from 'react-intl'
 import { IOMessageWithMarkers } from 'vtex.native-types'
 import { useProduct } from 'vtex.product-context'
-import { useCssHandles, applyModifiers } from 'vtex.css-handles'
+import { useCssHandles } from 'vtex.css-handles'
 
 import { getFirstAvailableSeller } from './modules/seller'
 
@@ -29,7 +29,7 @@ function ProductSellerName({
   message = messages.default.id,
   markers = [],
 }: Partial<Props>) {
-  const handles = useCssHandles(CSS_HANDLES)
+  const { handles, withModifiers } = useCssHandles(CSS_HANDLES)
   const productContextValue = useProduct()
 
   const productSeller = getFirstAvailableSeller(
@@ -40,8 +40,8 @@ function ProductSellerName({
     return null
   }
 
-  const containerClasses = applyModifiers(
-    handles.sellerNameContainer,
+  const containerClasses = withModifiers(
+    'sellerNameContainer',
     productSeller.sellerDefault ? 'isDefaultSeller' : ''
   )
 
