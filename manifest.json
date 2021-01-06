@@ -14,7 +14,7 @@
     "vtex.native-types": "0.x",
     "vtex.product-context": "0.x",
     "vtex.format-currency": "0.x",
-    "vtex.css-handles": "0.x",
+    "vtex.css-handles": "1.x",
     "vtex.product-summary-context": "0.x"
   },
   "registries": [

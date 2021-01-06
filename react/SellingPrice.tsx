@@ -3,7 +3,7 @@ import { defineMessages, FormattedNumber } from 'react-intl'
 import { useProduct } from 'vtex.product-context'
 import { FormattedCurrency } from 'vtex.format-currency'
 import { IOMessageWithMarkers } from 'vtex.native-types'
-import { useCssHandles, applyModifiers } from 'vtex.css-handles'
+import { useCssHandles, CssHandlesTypes } from 'vtex.css-handles'
 
 import { getFirstAvailableSeller } from './modules/seller'
 
@@ -29,10 +29,16 @@ const messages = defineMessages({
 interface Props {
   message?: string
   markers?: string[]
+  /** Used to override default CSS handles */
+  classes?: CssHandlesTypes.CustomClasses<typeof CSS_HANDLES>
 }
 
-function SellingPrice({ message = messages.default.id, markers = [] }: Props) {
-  const handles = useCssHandles(CSS_HANDLES)
+function SellingPrice({
+  message = messages.default.id,
+  markers = [],
+  classes,
+}: Props) {
+  const { handles, withModifiers } = useCssHandles(CSS_HANDLES, { classes })
   const productContextValue = useProduct()
 
   const availableSeller = getFirstAvailableSeller(
@@ -53,8 +59,8 @@ function SellingPrice({ message = messages.default.id, markers = [] }: Props) {
 
   const hasListPrice = sellingPriceValue !== listPriceValue
 
-  const containerClasses = applyModifiers(
-    handles.sellingPrice,
+  const containerClasses = withModifiers(
+    'sellingPrice',
     hasListPrice ? 'hasListPrice' : ''
   )
 

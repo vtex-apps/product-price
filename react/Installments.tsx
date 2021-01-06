@@ -1,8 +1,11 @@
 import React from 'react'
 import { defineMessages } from 'react-intl'
+import { useCssHandles, CssHandlesTypes } from 'vtex.css-handles'
 import { useProduct } from 'vtex.product-context'
 
-import InstallmentsRenderer from './components/InstallmentsRenderer'
+import InstallmentsRenderer, {
+  CSS_HANDLES,
+} from './components/InstallmentsRenderer'
 import { getFirstAvailableSeller } from './modules/seller'
 
 const messages = defineMessages({
@@ -20,10 +23,17 @@ const messages = defineMessages({
 interface Props {
   message?: string
   markers?: string[]
+  /** Used to override default CSS handles */
+  classes?: CssHandlesTypes.CustomClasses<typeof CSS_HANDLES>
 }
 
-function Installments({ message = messages.default.id, markers = [] }: Props) {
+function Installments({
+  message = messages.default.id,
+  markers = [],
+  classes,
+}: Props) {
   const productContextValue = useProduct()
+  const { handles } = useCssHandles(CSS_HANDLES, { classes })
   const availableSeller = getFirstAvailableSeller(
     productContextValue?.selectedItem?.sellers
   )
@@ -53,6 +63,7 @@ function Installments({ message = messages.default.id, markers = [] }: Props) {
       message={message}
       markers={markers}
       installment={maxInstallmentOption}
+      handles={handles}
     />
   )
 }

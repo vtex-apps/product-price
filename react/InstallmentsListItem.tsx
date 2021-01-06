@@ -1,8 +1,11 @@
 import React from 'react'
 import { defineMessages } from 'react-intl'
+import { useCssHandles, CssHandlesTypes } from 'vtex.css-handles'
 
 import { useInstallments } from './components/InstallmentsContext'
-import InstallmentsRenderer from './components/InstallmentsRenderer'
+import InstallmentsRenderer, {
+  CSS_HANDLES,
+} from './components/InstallmentsRenderer'
 
 const messages = defineMessages({
   title: {
@@ -22,12 +25,16 @@ const messages = defineMessages({
 interface Props {
   message?: string
   markers?: string[]
+  /** Used to override default CSS handles */
+  classes?: CssHandlesTypes.CustomClasses<typeof CSS_HANDLES>
 }
 
 function InstallmentsListItem({
   message = messages.default.id,
   markers = [],
+  classes,
 }: Props) {
+  const { handles } = useCssHandles(CSS_HANDLES, { classes })
   const { installment } = useInstallments() ?? {}
 
   if (!installment) {
@@ -39,6 +46,7 @@ function InstallmentsListItem({
       message={message}
       markers={markers}
       installment={installment}
+      handles={handles}
     />
   )
 }

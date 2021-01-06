@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, useMemo } from 'react'
-import { useCssHandles } from 'vtex.css-handles'
+import { useCssHandles, CssHandlesTypes } from 'vtex.css-handles'
 import { ProductTypes, useProduct } from 'vtex.product-context'
 
 import { InstallmentsContextProvider } from './components/InstallmentsContext'
@@ -8,9 +8,14 @@ import { getFirstAvailableSeller } from './modules/seller'
 
 const CSS_HANDLES = ['installmentsListContainer'] as const
 
-function InstallmentsList({ children }: PropsWithChildren<{}>) {
+interface Props {
+  /** Used to override default CSS handles */
+  classes?: CssHandlesTypes.CustomClasses<typeof CSS_HANDLES>
+}
+
+function InstallmentsList({ classes, children }: PropsWithChildren<Props>) {
+  const { handles } = useCssHandles(CSS_HANDLES, { classes })
   const productContextValue = useProduct()
-  const handles = useCssHandles(CSS_HANDLES)
 
   const availableSeller = getFirstAvailableSeller(
     productContextValue?.selectedItem?.sellers
@@ -43,11 +48,11 @@ function InstallmentsList({ children }: PropsWithChildren<{}>) {
   )
 }
 
-interface Props {
+interface ItemProps {
   installment: ProductTypes.Installment
 }
 
-function InstallmentsItem(props: PropsWithChildren<Props>) {
+function InstallmentsItem(props: PropsWithChildren<ItemProps>) {
   const { installment, children } = props
   const contextValue = useMemo(() => ({ installment }), [installment])
 
