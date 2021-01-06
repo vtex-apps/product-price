@@ -12,6 +12,7 @@ const CSS_HANDLES = [
   'listPriceValue',
   'listPriceWithTax',
   'taxPercentage',
+  'taxValue'
 ] as const
 
 const messages = defineMessages({
@@ -55,6 +56,7 @@ function ListPrice({
   const sellingPriceValue = commercialOffer.Price
   const { taxPercentage } = commercialOffer
   const listPriceWithTax = listPriceValue + listPriceValue * taxPercentage
+  const taxValue = commercialOffer.Tax
 
   if (listPriceValue <= sellingPriceValue) {
     return null
@@ -86,6 +88,11 @@ function ListPrice({
           taxPercentage: (
             <span key="taxPercentage" className={handles.taxPercentage}>
               <FormattedNumber value={taxPercentage} style="percent" />
+            </span>
+          ),
+          taxValue: (
+            <span key="taxValue" className={handles.taxValue}>
+              <FormattedCurrency value={taxValue} />
             </span>
           ),
         }}
