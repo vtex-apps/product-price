@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- `FormattedNumber` of `installmentsRate` on `InstallmentsRenderer` duo API response
 ## [1.13.0] - 2021-02-04
 
 ### Added
