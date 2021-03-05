@@ -101,7 +101,7 @@ function SellingPrice({
           ),
           measurementUnit: (
             <span key="measurementUnit" className={handles.measurementUnit}>
-              /{measurementUnit}
+              {`/${measurementUnit}`}
             </span>
           ),
           hasListPrice,
