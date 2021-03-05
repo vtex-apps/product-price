@@ -12,7 +12,8 @@ const CSS_HANDLES = [
   'sellingPriceValue',
   'sellingPriceWithTax',
   'taxPercentage',
-  'taxValue'
+  'taxValue',
+  'measurementUnit'
 ] as const
 
 const messages = defineMessages({
@@ -51,9 +52,11 @@ function SellingPrice({
   if (!commercialOffer || commercialOffer?.AvailableQuantity <= 0) {
     return null
   }
+  const measurementUnit = productContextValue?.selectedItem?.measurementUnit
+  const unitMultiplier = productContextValue?.selectedItem?.unitMultiplier
 
-  const sellingPriceValue: number = commercialOffer.Price
-  const listPriceValue = commercialOffer.ListPrice
+  const sellingPriceValue: number = commercialOffer.Price * Number(unitMultiplier)
+  const listPriceValue = commercialOffer.ListPrice * Number(unitMultiplier)
   const { taxPercentage } = commercialOffer
   const sellingPriceWithTax =
     sellingPriceValue + sellingPriceValue * taxPercentage
@@ -94,6 +97,11 @@ function SellingPrice({
           taxValue: (
             <span key="taxValue" className={handles.taxValue}>
               <FormattedCurrency value={taxValue} />
+            </span>
+          ),
+          measurementUnit: (
+            <span key="measurementUnit" className={handles.measurementUnit}>
+              /{measurementUnit}
             </span>
           ),
           hasListPrice,
