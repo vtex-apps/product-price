@@ -157,7 +157,6 @@ In addition to that, keep in mind the message variables for each block since you
 | `listPriceWithTax` | `string` | List price value with tax. |
 | `taxPercentage` | `string` | Tax percentage. |
 | `taxValue` | `string` | Tax value. |
-| `measurementUnit` | `string` | Measure unit text. |
 
 - **`product-selling-price`**
 
@@ -168,6 +167,7 @@ In addition to that, keep in mind the message variables for each block since you
 | `taxPercentage` | `string` | Tax percentage. |
 | `hasListPrice` | `boolean` | Whether the product has a list price (`true`) or not (`false`). |
 | `taxValue` | `string` | Tax value. |
+| `hasMeasurementUnit` | `boolean` | Whether the product has a measurement unit (`true`) or not (`false`). |
 | `measurementUnit` | `string` | Measure unit text. |
 
 - **`product-spot-price`**
