@@ -13,7 +13,7 @@ const CSS_HANDLES = [
   'sellingPriceWithTax',
   'taxPercentage',
   'taxValue',
-  'measurementUnit'
+  'measurementUnit',
 ] as const
 
 const messages = defineMessages({
@@ -40,7 +40,10 @@ function SellingPrice({
   markers = [],
   classes,
 }: Props) {
-  const { handles, withModifiers } = useCssHandles(CSS_HANDLES, { classes })
+  const { handles, withModifiers } = useCssHandles(CSS_HANDLES, {
+    classes,
+  })
+
   const productContextValue = useProduct()
 
   const availableSeller = getFirstAvailableSeller(
@@ -52,22 +55,29 @@ function SellingPrice({
   if (!commercialOffer || commercialOffer?.AvailableQuantity <= 0) {
     return null
   }
-  const measurementUnit = productContextValue?.selectedItem?.measurementUnit
-  const unitMultiplier = productContextValue?.selectedItem?.unitMultiplier
 
-  const sellingPriceValue: number = commercialOffer.Price * Number(unitMultiplier)
+  const measurementUnit =
+    productContextValue?.selectedItem?.measurementUnit ?? ''
+
+  const unitMultiplier = productContextValue?.selectedItem?.unitMultiplier ?? 1
+
+  const sellingPriceValue: number =
+    commercialOffer.Price * Number(unitMultiplier)
+
   const listPriceValue = commercialOffer.ListPrice * Number(unitMultiplier)
   const { taxPercentage } = commercialOffer
   const sellingPriceWithTax =
     sellingPriceValue + sellingPriceValue * taxPercentage
+
   const taxValue = commercialOffer.Tax
 
   const hasListPrice = sellingPriceValue !== listPriceValue
+  const hasMeasurementUnit = measurementUnit && measurementUnit !== 'un'
 
-  const containerClasses = withModifiers(
-    'sellingPrice',
-    hasListPrice ? 'hasListPrice' : ''
-  )
+  const containerClasses = withModifiers('sellingPrice', [
+    hasListPrice ? 'hasListPrice' : '',
+    hasMeasurementUnit ? 'hasMeasurementUnit' : '',
+  ])
 
   return (
     <span className={containerClasses}>
@@ -99,12 +109,13 @@ function SellingPrice({
               <FormattedCurrency value={taxValue} />
             </span>
           ),
+          hasMeasurementUnit,
+          hasListPrice,
           measurementUnit: (
             <span key="measurementUnit" className={handles.measurementUnit}>
-              {`/${measurementUnit}`}
+              {measurementUnit}
             </span>
           ),
-          hasListPrice,
         }}
       />
     </span>
