@@ -8,7 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 
-- `measurementUnit` text and `unitMultiplier` logic at `product-selling-price` and `product-list-price`.
+- `measurementUnit` and `hasMeasurementUnit` variables to `product-selling-price`.
+
+### Fixed
+
+- Take `unitMultiplier` into account in price logic at `product-selling-price`.
+
+### Changed
+
+- Now `product-selling-price` default message shows the measurement unit if available.
 
 ## [1.15.0] - 2021-03-09
 ### Added
