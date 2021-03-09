@@ -169,6 +169,8 @@ In addition to that, keep in mind the message variables for each block since you
 | `taxValue` | `string` | Tax value. |
 | `hasMeasurementUnit` | `boolean` | Whether the product has a measurement unit (`true`) or not (`false`). |
 | `measurementUnit` | `string` | Measure unit text. |
+| `hasUnitMultiplier` | `booean` | Whether the product has a unit multiplier different than 1 (`true`) or not (`false`). |
+| `unitMultiplier` | `string` | Value of the unit multiplier. |
 
 - **`product-spot-price`**
 

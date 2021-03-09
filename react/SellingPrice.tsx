@@ -14,6 +14,7 @@ const CSS_HANDLES = [
   'taxPercentage',
   'taxValue',
   'measurementUnit',
+  'unitMultiplier',
 ] as const
 
 const messages = defineMessages({
@@ -73,10 +74,12 @@ function SellingPrice({
 
   const hasListPrice = sellingPriceValue !== listPriceValue
   const hasMeasurementUnit = measurementUnit && measurementUnit !== 'un'
+  const hasUnitMultiplier = unitMultiplier !== 1
 
   const containerClasses = withModifiers('sellingPrice', [
     hasListPrice ? 'hasListPrice' : '',
     hasMeasurementUnit ? 'hasMeasurementUnit' : '',
+    hasUnitMultiplier ? 'hasUnitMultiplier' : '',
   ])
 
   return (
@@ -111,6 +114,12 @@ function SellingPrice({
           ),
           hasMeasurementUnit,
           hasListPrice,
+          hasUnitMultiplier,
+          unitMultiplier: (
+            <span key="unitMultiplier" className={handles.unitMultiplier}>
+              <FormattedNumber value={unitMultiplier} />
+            </span>
+          ),
           measurementUnit: (
             <span key="measurementUnit" className={handles.measurementUnit}>
               {measurementUnit}

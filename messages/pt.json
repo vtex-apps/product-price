@@ -1,6 +1,6 @@
 {
   "store/list-price.default": "{listPriceValue}",
-  "store/selling-price.default": "{sellingPriceValue}{hasMeasurementUnit, select, true { / {measurementUnit}} false {}}",
+  "store/selling-price.default": "{sellingPriceValue}{hasMeasurementUnit, select, true { / {hasUnitMultiplier, select, true {{unitMultiplier}} false {}} {measurementUnit}} false {}}",
   "store/spot-price.default": "Preço a vista: {spotPriceValue}",
   "store/spot-price-savings.default": "Economia de preço a vista: {spotPriceSavingsValue}",
   "store/savings.default": "Economize {savingsValue}",
@@ -14,7 +14,7 @@
   "admin/list-price.title": "Preço de Tabela",
   "admin/seller-name.title": "Nome do vendedor",
   "admin/seller-name.description": "Valores disponiveis para interpolação: '{sellerName}'",
-  "admin/selling-price.description": "Valores disponiveis para interpolação: '{sellingPriceValue}, {sellingPriceWithTax}, {taxPercentage}, {hasListPrice}, {hasMeasurementUnit}, {measurementUnit}'",
+  "admin/selling-price.description": "Valores disponiveis para interpolação: '{sellingPriceValue}, {sellingPriceWithTax}, {taxPercentage}, {hasListPrice}, {hasMeasurementUnit}, {measurementUnit}, {hasUnitMultiplier}, {unitMultiplier}'",
   "admin/selling-price.title": "Preço de Venda",
   "admin/spot-price.description": "Valores disponiveis para interpolação: '{spotPrice}'",
   "admin/spot-price.title": "Preço a Vista",
