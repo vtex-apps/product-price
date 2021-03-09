@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 
-- `measurementUnit` and `hasMeasurementUnit` variables to `product-selling-price`.
+- `measurementUnit`, `hasMeasurementUnit`, `unitMultiplier`, and `hasUnitMultiplier` variables to `product-selling-price`.
 
 ### Fixed
 
@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Now `product-selling-price` default message shows the measurement unit if available.
+- Now `product-selling-price` default message shows the measurement unit and unit multiplier if available.
 
 ## [1.15.0] - 2021-03-09
 ### Added
