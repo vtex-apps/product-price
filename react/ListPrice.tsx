@@ -12,7 +12,7 @@ const CSS_HANDLES = [
   'listPriceValue',
   'listPriceWithTax',
   'taxPercentage',
-  'taxValue'
+  'taxValue',
 ] as const
 
 const messages = defineMessages({
