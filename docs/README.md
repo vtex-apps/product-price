@@ -88,26 +88,6 @@ For example:
 },
 ```
 
-Example of using some variables in the `product-selling-price` block to render unit multiplier and measurement unit only on products that have it:
-
-```json
-{
-  "product-selling-price": {
-    "props": {
-      "message": "{sellingPriceValue}{hasMeasurementUnit, select, true { / {hasUnitMultiplier, select, true {{unitMultiplier}} false {}} {measurementUnit}} false {}}"
-    }
-  }
-}
-```
-
-On products that have measurement unit and unit multiplier, it will render something like:
-
-> $24.00 / 2 oz
-
-On products that doesn't, it will render only the price:
-
-> $24.00
-
 The block `product-price-savings` has an additional prop:
 
 | Prop name          | Type      |  Description | Default value |
@@ -197,6 +177,30 @@ In addition to that, keep in mind the message variables for each block since you
 | `measurementUnit` | `string` | Measure unit text. |
 | `hasUnitMultiplier` | `boolean` | Whether the product has a unit multiplier different than 1 (`true`) or not (`false`). |
 | `unitMultiplier` | `string` | Value of the unit multiplier. |
+
+You can use the `product-selling-price`'s `sellingPriceValue`, `hasMeasurementUnit`, `unitMultiplier`, and `measurementUnit` variables together to render measurement unit and unit multiplier on products that have it.
+
+For example:
+
+```json
+{
+  "product-selling-price": {
+    "props": {
+      "message": "{sellingPriceValue}{hasMeasurementUnit, select, true { / {hasUnitMultiplier, select, true {{unitMultiplier}} false {}} {measurementUnit}} false {}}"
+    }
+  }
+}
+```
+
+According to the example above, products sold with measurement units and unit multiplier would be rendered as follows:
+
+`$24.00 / 2 oz`
+
+> ℹ️ *Notice that the measurement unit and unit multiplier would be properly rendered alongside their price*
+
+Still, according to the example, products that are not sold per unit would render only their price:
+
+`$24.00`
 
 - **`product-spot-price`**
 
