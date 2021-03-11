@@ -88,6 +88,18 @@ For example:
 },
 ```
 
+Example using some variables to render unit multiplier and measurement unit only on products that have it:
+
+```json
+{
+  "product-selling-price": {
+    "props": {
+      "message": "{sellingPriceValue}{hasMeasurementUnit, select, true { / {hasUnitMultiplier, select, true {{unitMultiplier}} false {}} {measurementUnit}} false {}}"
+    }
+  }
+}
+```
+
 The block `product-price-savings` has an additional prop:
 
 | Prop name          | Type      |  Description | Default value |
