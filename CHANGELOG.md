@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
-- Example of usage of unit multiplier and measurement unit.
+- Example of usage of unit multiplier and measurement unit on `product-selling-price`.
 
 ## [1.17.0] - 2021-03-17
 ### Added
