@@ -88,7 +88,7 @@ For example:
 },
 ```
 
-Example using some variables to render unit multiplier and measurement unit only on products that have it:
+Example of using some variables in the `product-selling-price` block to render unit multiplier and measurement unit only on products that have it:
 
 ```json
 {
