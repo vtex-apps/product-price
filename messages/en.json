@@ -1,6 +1,6 @@
 {
   "store/list-price.default": "{listPriceValue}",
-  "store/selling-price.default": "{sellingPriceValue}{hasMeasurementUnit, select, true { / {hasUnitMultiplier, select, true {{unitMultiplier}} false {}} {measurementUnit}} false {}}",
+  "store/selling-price.default": "{sellingPriceValue}",
   "store/spot-price.default": "Spot price: {spotPriceValue}",
   "store/spot-price-savings.default": "Spot price savings: {spotPriceSavingsValue}",
   "store/savings.default": "Save {savingsValue}",
