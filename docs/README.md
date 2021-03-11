@@ -100,6 +100,14 @@ Example using some variables to render unit multiplier and measurement unit only
 }
 ```
 
+On products that have measurement unit and unit multiplier, it will render something like:
+
+> $24.00 / 2 oz
+
+On products that doesn't, it will render only the price:
+
+> $24.00
+
 The block `product-price-savings` has an additional prop:
 
 | Prop name          | Type      |  Description | Default value |
