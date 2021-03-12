@@ -164,6 +164,7 @@ In addition to that, keep in mind the message variables for each block since you
 | --- | --- | --- |
 | `sellingPriceValue` | `string` | Selling price value. |
 | `sellingPriceWithTax` | `string` | Selling price with tax. |
+| `sellingPriceWithUnitMultiplier` | `string` | Selling price multiplied by unit multiplier. |
 | `taxPercentage` | `string` | Tax percentage. |
 | `hasListPrice` | `boolean` | Whether the product has a list price (`true`) or not (`false`). |
 | `taxValue` | `string` | Tax value. |

@@ -11,6 +11,7 @@ const CSS_HANDLES = [
   'sellingPrice',
   'sellingPriceValue',
   'sellingPriceWithTax',
+  'sellingPriceWithUnitMultiplier',
   'taxPercentage',
   'taxValue',
   'measurementUnit',
@@ -57,18 +58,17 @@ function SellingPrice({
     return null
   }
 
+  const sellingPriceValue = commercialOffer.Price
+  const listPriceValue = commercialOffer.ListPrice
+  const { taxPercentage } = commercialOffer
+  const sellingPriceWithTax =
+    sellingPriceValue + sellingPriceValue * taxPercentage
+
   const measurementUnit =
     productContextValue?.selectedItem?.measurementUnit ?? ''
 
   const unitMultiplier = productContextValue?.selectedItem?.unitMultiplier ?? 1
-
-  const sellingPriceValue: number =
-    commercialOffer.Price * Number(unitMultiplier)
-
-  const listPriceValue = commercialOffer.ListPrice * Number(unitMultiplier)
-  const { taxPercentage } = commercialOffer
-  const sellingPriceWithTax =
-    sellingPriceValue + sellingPriceValue * taxPercentage
+  const sellingPriceWithUnitMultiplier = commercialOffer.Price * unitMultiplier
 
   const taxValue = commercialOffer.Tax
 
@@ -100,6 +100,14 @@ function SellingPrice({
               className={handles.sellingPriceWithTax}
             >
               <FormattedCurrency value={sellingPriceWithTax} />
+            </span>
+          ),
+          sellingPriceWithUnitMultiplier: (
+            <span
+              key="sellingPriceWithUnitMultiplier"
+              className={handles.sellingPriceWithUnitMultiplier}
+            >
+              <FormattedCurrency value={sellingPriceWithUnitMultiplier} />
             </span>
           ),
           taxPercentage: (
