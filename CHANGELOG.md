@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Create new variable `sellingPriceWithUnitMultiplier` in `product-selling-price` to avoid changing the behavior the component.
+- `measurementUnit`, `hasMeasurementUnit`, `unitMultiplier`, `hasUnitMultiplier`, and `listPriceWithUnitMultiplier` to `product-list-price` component.
 
 ## [1.16.1] - 2021-03-11
 ### Fixed
