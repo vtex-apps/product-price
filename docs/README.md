@@ -186,7 +186,7 @@ For example:
 {
   "product-selling-price": {
     "props": {
-      "message": "{sellingPriceValue}{hasMeasurementUnit, select, true { / {hasUnitMultiplier, select, true {{unitMultiplier}} false {}} {measurementUnit}} false {}}"
+      "message": "{sellingPriceWithUnitMultiplier}{hasMeasurementUnit, select, true { / {hasUnitMultiplier, select, true {{unitMultiplier}} false {}} {measurementUnit}} false {}}"
     }
   }
 }
