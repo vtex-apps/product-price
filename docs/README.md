@@ -178,7 +178,7 @@ In addition to that, keep in mind the message variables for each block since you
 | `hasUnitMultiplier` | `boolean` | Whether the product has a unit multiplier different than 1 (`true`) or not (`false`). |
 | `unitMultiplier` | `string` | Value of the unit multiplier. |
 
-You can use the `product-selling-price`'s `sellingPriceValue`, `hasMeasurementUnit`, `unitMultiplier`, and `measurementUnit` variables together to render measurement unit and unit multiplier on products that have it.
+You can use the `product-selling-price`'s `sellingPriceWithUnitMultiplier`, `hasMeasurementUnit`, `unitMultiplier`, and `measurementUnit` variables together to render measurement unit and unit multiplier on products that have it.
 
 For example:
 
