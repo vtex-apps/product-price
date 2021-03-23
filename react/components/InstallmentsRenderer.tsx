@@ -37,6 +37,8 @@ function InstallmentsRenderer({
 
   const hasInterest = InterestRate !== 0
 
+  const interestRatePercent = InterestRate / 100
+
   return (
     <span className={handles.installments}>
       <IOMessageWithMarkers
@@ -69,8 +71,13 @@ function InstallmentsRenderer({
           ),
           interestRate: (
             <span key="interestRate" className={handles.interestRate}>
-              {InterestRate && (
-                <FormattedNumber value={InterestRate} style="percent" />
+              {interestRatePercent && (
+                <FormattedNumber
+                  value={interestRatePercent}
+                  style="percent"
+                  maximumFractionDigits={2}
+                  minimumFractionDigits={0}
+                />
               )}
             </span>
           ),

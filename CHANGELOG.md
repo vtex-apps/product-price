@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- `FormattedNumber` of `installmentsRate` on `InstallmentsRenderer` duo API response
+
 ## [1.18.0] - 2021-03-17
 ### Added
 - Example of usage of unit multiplier and measurement unit on `product-selling-price`.
