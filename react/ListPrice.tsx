@@ -11,8 +11,11 @@ const CSS_HANDLES = [
   'listPrice',
   'listPriceValue',
   'listPriceWithTax',
+  'listPriceWithUnitMultiplier',
   'taxPercentage',
-  'taxValue'
+  'taxValue',
+  'unitMultiplier',
+  'measurementUnit',
 ] as const
 
 const messages = defineMessages({
@@ -52,11 +55,21 @@ function ListPrice({
     return null
   }
 
-  const listPriceValue: number = commercialOffer.ListPrice
+  const listPriceValue = commercialOffer.ListPrice
   const sellingPriceValue = commercialOffer.Price
   const { taxPercentage } = commercialOffer
   const listPriceWithTax = listPriceValue + listPriceValue * taxPercentage
+
+  const measurementUnit =
+    productContextValue?.selectedItem?.measurementUnit ?? ''
+
+  const unitMultiplier = productContextValue?.selectedItem?.unitMultiplier ?? 1
+  const listPriceWithUnitMultiplier = commercialOffer.ListPrice * unitMultiplier
+
   const taxValue = commercialOffer.Tax
+
+  const hasMeasurementUnit = measurementUnit && measurementUnit !== 'un'
+  const hasUnitMultiplier = unitMultiplier !== 1
 
   if (listPriceValue <= sellingPriceValue) {
     return null
@@ -69,6 +82,8 @@ function ListPrice({
         markers={markers}
         handleBase="listPrice"
         values={{
+          hasMeasurementUnit,
+          hasUnitMultiplier,
           listPriceValue: (
             <span
               key="listPriceValue"
@@ -85,6 +100,14 @@ function ListPrice({
               <FormattedCurrency value={listPriceWithTax} />
             </span>
           ),
+          listPriceWithUnitMultiplier: (
+            <span
+              key="listPriceWithUnitMultiplier"
+              className={`${handles.listPriceWithUnitMultiplier} strike`}
+            >
+              <FormattedCurrency value={listPriceWithUnitMultiplier} />
+            </span>
+          ),
           taxPercentage: (
             <span key="taxPercentage" className={handles.taxPercentage}>
               <FormattedNumber value={taxPercentage} style="percent" />
@@ -93,6 +116,16 @@ function ListPrice({
           taxValue: (
             <span key="taxValue" className={handles.taxValue}>
               <FormattedCurrency value={taxValue} />
+            </span>
+          ),
+          unitMultiplier: (
+            <span key="unitMultiplier" className={handles.unitMultiplier}>
+              <FormattedNumber value={unitMultiplier} />
+            </span>
+          ),
+          measurementUnit: (
+            <span key="measurementUnit" className={handles.measurementUnit}>
+              {measurementUnit}
             </span>
           ),
         }}

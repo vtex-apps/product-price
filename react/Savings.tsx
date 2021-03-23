@@ -1,5 +1,5 @@
 import React from 'react'
-import { defineMessages, FormattedNumber } from 'react-intl'
+import { defineMessages, useIntl, IntlFormatters } from 'react-intl'
 import { useProduct } from 'vtex.product-context'
 import { FormattedCurrency } from 'vtex.format-currency'
 import { useCssHandles, CssHandlesTypes } from 'vtex.css-handles'
@@ -29,9 +29,39 @@ const messages = defineMessages({
   },
 })
 
+// This is essentially a space char (" ") that doesn't allow line breaks
+// It is needed because the formatNumber function returns it that way
+const NON_BREAKING_SPACE_CHAR = String.fromCharCode(160)
+
+interface GetFormattedSavingsPercentageParams {
+  formatNumber: IntlFormatters['formatNumber']
+  savingsPercentage: number
+  percentageStyle: Props['percentageStyle']
+}
+
+function getFormattedSavingsPercentage({
+  formatNumber,
+  savingsPercentage,
+  percentageStyle,
+}: GetFormattedSavingsPercentageParams) {
+  const formattedSavingsPercentage = formatNumber(savingsPercentage, {
+    style: 'percent',
+  })
+
+  if (percentageStyle === 'compact') {
+    return formattedSavingsPercentage.replace(
+      `${NON_BREAKING_SPACE_CHAR}%`,
+      '%'
+    )
+  }
+
+  return formattedSavingsPercentage
+}
+
 interface Props {
   message?: string
   markers?: string[]
+  percentageStyle?: 'locale' | 'compact'
   /** Used to override default CSS handles */
   classes?: CssHandlesTypes.CustomClasses<typeof CSS_HANDLES>
 }
@@ -39,9 +69,11 @@ interface Props {
 function Savings({
   message = messages.default.id,
   markers = [],
+  percentageStyle = 'locale',
   classes,
 }: Props) {
   const { handles } = useCssHandles(CSS_HANDLES, { classes })
+  const { formatNumber } = useIntl()
   const productContextValue = useProduct()
   const productSummaryValue = ProductSummaryContext.useProductSummary()
 
@@ -103,7 +135,11 @@ function Savings({
           ),
           savingsPercentage: (
             <span key="savingsPercentage" className={handles.savingsPercentage}>
-              <FormattedNumber value={savingsPercentage} style="percent" />
+              {getFormattedSavingsPercentage({
+                formatNumber,
+                savingsPercentage,
+                percentageStyle,
+              })}
             </span>
           ),
         }}

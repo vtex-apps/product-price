@@ -3,7 +3,7 @@
 # Product Price
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Product Price app is responsible for exporting blocks related to the product's price, such as list price, selling price and savings.
@@ -30,7 +30,7 @@ Now, you can use all the blocks exported by the `product-price` app. Check out t
 | --------------------| -------- |
 | `product-list-price`         | Renders the product list price. If it is equal or lower than the product selling price, this block will not be rendered. |
 | `product-selling-price`      | Renders the product selling price.|
-| `product-spot-price`         | Renders the product spot price. If it is equal to the product selling price, this block will not be rendered. This component finds the spot price by looking for the cheapest price of all installments options of count 1. For more information about how to set this up in your store, check this [document](https://docs.google.com/document/d/1zguIGidi_qFtoX101J7zPsjU7-MyV0qiQvTo_dOR_w0/edit?usp=sharing).|
+| `product-spot-price`         | Renders the product spot price (in case it equals the product selling price, the block is not rendered). This block finds the spot price by looking for the cheapest price of all installments options.|
 | `product-installments`      | Renders the product installments. If more than one option is available, the one with the biggest number of installments will be displayed. |
 | `product-installments-list` | Renders all the installments of the payment system with the biggest amount of installments options. |
 | `product-installments-list-item` | Renders an installments option of the `product-installments-list-item` |
@@ -87,6 +87,13 @@ For example:
   }
 },
 ```
+
+The block `product-price-savings` has an additional prop:
+
+| Prop name          | Type      |  Description | Default value |
+| --------------------| ----------|--------------|---------------|
+| `percentageStyle` | `locale` or `compact` | Set to `compact` if you want to remove the white space between the number and the percent sign. It uses pattern provided by the current locale as default. | `locale` |
+
 
 If you are using the asynchronous price feature, you can take advantage of the `product-price-suspense` and its props:
 
@@ -148,8 +155,13 @@ In addition to that, keep in mind the message variables for each block since you
 | --- | --- | --- |
 | `listPriceValue` | `string` | List price value. |
 | `listPriceWithTax` | `string` | List price value with tax. |
+| `listPriceWithUnitMultiplier` | `string` | List price multiplied by unit multiplier. |
 | `taxPercentage` | `string` | Tax percentage. |
 | `taxValue` | `string` | Tax value. |
+| `hasMeasurementUnit` | `boolean` | Whether the product has a measurement unit (`true`) or not (`false`). |
+| `measurementUnit` | `string` | Measure unit text. |
+| `hasUnitMultiplier` | `boolean` | Whether the product has a unit multiplier different than 1 (`true`) or not (`false`). |
+| `unitMultiplier` | `string` | Value of the unit multiplier. |
 
 - **`product-selling-price`**
 
@@ -157,9 +169,38 @@ In addition to that, keep in mind the message variables for each block since you
 | --- | --- | --- |
 | `sellingPriceValue` | `string` | Selling price value. |
 | `sellingPriceWithTax` | `string` | Selling price with tax. |
+| `sellingPriceWithUnitMultiplier` | `string` | Selling price multiplied by unit multiplier. |
 | `taxPercentage` | `string` | Tax percentage. |
 | `hasListPrice` | `boolean` | Whether the product has a list price (`true`) or not (`false`). |
 | `taxValue` | `string` | Tax value. |
+| `hasMeasurementUnit` | `boolean` | Whether the product has a measurement unit (`true`) or not (`false`). |
+| `measurementUnit` | `string` | Measure unit text. |
+| `hasUnitMultiplier` | `boolean` | Whether the product has a unit multiplier different than 1 (`true`) or not (`false`). |
+| `unitMultiplier` | `string` | Value of the unit multiplier. |
+
+You can use the `product-selling-price`'s `sellingPriceWithUnitMultiplier`, `hasMeasurementUnit`, `unitMultiplier`, and `measurementUnit` variables together to render measurement unit and unit multiplier on products that have it.
+
+For example:
+
+```json
+{
+  "product-selling-price": {
+    "props": {
+      "message": "{sellingPriceWithUnitMultiplier}{hasMeasurementUnit, select, true { / {hasUnitMultiplier, select, true {{unitMultiplier}} false {}} {measurementUnit}} false {}}"
+    }
+  }
+}
+```
+
+According to the example above, products with measurement unit and unit multiplier would be rendered as follows:
+
+`$24.00 / 2 oz`
+
+> ℹ️ *Notice that the measurement unit and unit multiplier would be properly rendered alongside their price*
+
+Still, according to the example, products that doesn't have measurement unit and unit multiplier will render only their price:
+
+`$24.00`
 
 - **`product-spot-price`**
 
@@ -295,6 +336,7 @@ Thanks goes to these wonderful people:
 <table>
   <tr>
     <td align="center"><a href="https://razvanudrea.com"><img src="https://avatars.githubusercontent.com/u/71461884?v=4?s=100" width="100px;" alt=""/><br /><sub><b>razvanudream</b></sub></a><br /><a href="https://github.com/vtex-apps/product-price/commits?author=razvanudream" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/khrizzcristian"><img src="https://avatars.githubusercontent.com/u/43498488?v=4?s=100" width="100px;" alt=""/><br /><sub><b>khrizzcristian</b></sub></a><br /><a href="https://github.com/vtex-apps/product-price/commits?author=khrizzcristian" title="Code">💻</a></td>
   </tr>
 </table>
 

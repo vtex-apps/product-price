@@ -9,10 +9,53 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - `FormattedNumber` of `installmentsRate` on `InstallmentsRenderer` duo API response
+
+## [1.18.0] - 2021-03-17
+### Added
+- Example of usage of unit multiplier and measurement unit on `product-selling-price`.
+
+## [1.17.0] - 2021-03-17
+### Added
+- Create new variable `sellingPriceWithUnitMultiplier` in `product-selling-price` to avoid changing the behavior the component.
+- `measurementUnit`, `hasMeasurementUnit`, `unitMultiplier`, `hasUnitMultiplier`, and `listPriceWithUnitMultiplier` to `product-list-price` component.
+
+## [1.16.1] - 2021-03-11
+### Fixed
+- Revert changes in `product-selling-price` default message. It was being used by external custom components that didn't provide all translation variables, breaking their code.
+
+## [1.16.0] - 2021-03-10
+### Added
+
+- `measurementUnit`, `hasMeasurementUnit`, `unitMultiplier`, and `hasUnitMultiplier` variables to `product-selling-price`.
+
+### Fixed
+
+- Take `unitMultiplier` into account in price logic at `product-selling-price`.
+
+### Changed
+
+- Now `product-selling-price` default message shows the measurement unit and unit multiplier if available.
+
+## [1.15.0] - 2021-03-09
+### Added
+- `percentageStyle` on `product-price-savings`.
+
+## [1.14.0] - 2021-03-08
+
+### Added
+
+- I18n Ro and Jp.
+- Crowdin configuration file.
+
+## [1.13.1] - 2021-03-08
+
+### Fixed
+- Updated documentation (removed link to internal doc).
+
 ## [1.13.0] - 2021-02-04
 
 ### Added
-- `taxValue` on `product-selling-price` and `product-list-price`
+- `taxValue` on `product-selling-price` and `product-list-price`.
 
 ## [1.12.0] - 2021-01-06
 ### Added

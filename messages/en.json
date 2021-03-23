@@ -14,7 +14,7 @@
   "admin/list-price.title": "List Price",
   "admin/seller-name.title": "Seller Name",
   "admin/seller-name.description": "Values available for interpolation: '{sellerName}'",
-  "admin/selling-price.description": "Values available for interpolation: '{sellingPriceValue}, {sellingPriceWithTax}, {taxPercentage}, {hasListPrice}'",
+  "admin/selling-price.description": "Values available for interpolation: '{sellingPriceValue}, {sellingPriceWithTax}, {taxPercentage}, {hasListPrice}, {hasMeasurementUnit}, {measurementUnit}, {hasUnitMultiplier}, {unitMultiplier}'",
   "admin/selling-price.title": "Selling Price",
   "admin/spot-price.description": "Values available for interpolation: '{spotPrice}'",
   "admin/spot-price.title": "Spot Price",
