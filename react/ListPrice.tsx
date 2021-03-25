@@ -5,7 +5,7 @@ import { FormattedCurrency } from 'vtex.format-currency'
 import { useCssHandles, CssHandlesTypes } from 'vtex.css-handles'
 import { IOMessageWithMarkers } from 'vtex.native-types'
 
-import { getFirstAvailableSeller } from './modules/seller'
+import { getDefaultSeller } from './modules/seller'
 
 const CSS_HANDLES = [
   'listPrice',
@@ -45,7 +45,7 @@ function ListPrice({
   const { handles } = useCssHandles(CSS_HANDLES, { classes })
   const productContextValue = useProduct()
 
-  const availableSeller = getFirstAvailableSeller(
+  const availableSeller = getDefaultSeller(
     productContextValue?.selectedItem?.sellers
   )
 

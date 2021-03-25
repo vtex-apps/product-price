@@ -4,7 +4,7 @@ import { ProductTypes, useProduct } from 'vtex.product-context'
 
 import { InstallmentsContextProvider } from './components/InstallmentsContext'
 import pickInstallments from './modules/pickInstallments'
-import { getFirstAvailableSeller } from './modules/seller'
+import { getDefaultSeller } from './modules/seller'
 
 const CSS_HANDLES = ['installmentsListContainer'] as const
 
@@ -17,7 +17,7 @@ function InstallmentsList({ classes, children }: PropsWithChildren<Props>) {
   const { handles } = useCssHandles(CSS_HANDLES, { classes })
   const productContextValue = useProduct()
 
-  const availableSeller = getFirstAvailableSeller(
+  const availableSeller = getDefaultSeller(
     productContextValue?.selectedItem?.sellers
   )
 

@@ -4,7 +4,7 @@ import { IOMessageWithMarkers } from 'vtex.native-types'
 import { useProduct } from 'vtex.product-context'
 import { useCssHandles, CssHandlesTypes } from 'vtex.css-handles'
 
-import { getFirstAvailableSeller } from './modules/seller'
+import { getDefaultSeller } from './modules/seller'
 
 const CSS_HANDLES = ['sellerNameContainer', 'sellerName'] as const
 
@@ -35,7 +35,7 @@ function ProductSellerName({
   const { handles, withModifiers } = useCssHandles(CSS_HANDLES, { classes })
   const productContextValue = useProduct()
 
-  const productSeller = getFirstAvailableSeller(
+  const productSeller = getDefaultSeller(
     productContextValue?.selectedItem?.sellers
   )
 

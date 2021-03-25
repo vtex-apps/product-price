@@ -6,7 +6,7 @@ import { useProduct } from 'vtex.product-context'
 import InstallmentsRenderer, {
   CSS_HANDLES,
 } from './components/InstallmentsRenderer'
-import { getFirstAvailableSeller } from './modules/seller'
+import { getDefaultSeller } from './modules/seller'
 
 const messages = defineMessages({
   title: {
@@ -34,7 +34,7 @@ function Installments({
 }: Props) {
   const productContextValue = useProduct()
   const { handles } = useCssHandles(CSS_HANDLES, { classes })
-  const availableSeller = getFirstAvailableSeller(
+  const availableSeller = getDefaultSeller(
     productContextValue?.selectedItem?.sellers
   )
 
