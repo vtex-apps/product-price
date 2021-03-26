@@ -7,13 +7,9 @@ export function getDefaultSeller(sellers?: ProductTypes.Seller[]) {
 
   const defaultSeller = sellers.find(seller => seller.sellerDefault)
 
-  if (defaultSeller) {
-    return defaultSeller
+  if (!defaultSeller) {
+    return sellers[0]
   }
 
-  const availableSeller = sellers.find(
-    seller => seller.commertialOffer.AvailableQuantity !== 0
-  )
-
-  return availableSeller
+  return defaultSeller
 }

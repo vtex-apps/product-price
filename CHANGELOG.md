@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Fixed
-- Use `sellerDefault` to get the default seller and fallback to first available seller.
+- Use `sellerDefault` to get the default seller and fallback to first seller.
 
 ## [1.18.1] - 2021-03-23
 
