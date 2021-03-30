@@ -6,7 +6,7 @@ import { useCssHandles, CssHandlesTypes } from 'vtex.css-handles'
 import { IOMessageWithMarkers } from 'vtex.native-types'
 import { ProductSummaryContext } from 'vtex.product-summary-context'
 
-import { getFirstAvailableSeller } from './modules/seller'
+import { getDefaultSeller } from './modules/seller'
 
 const CSS_HANDLES = [
   'savings',
@@ -77,11 +77,9 @@ function Savings({
   const productContextValue = useProduct()
   const productSummaryValue = ProductSummaryContext.useProductSummary()
 
-  const availableSeller = getFirstAvailableSeller(
-    productContextValue?.selectedItem?.sellers
-  )
+  const seller = getDefaultSeller(productContextValue?.selectedItem?.sellers)
 
-  const commercialOffer = availableSeller?.commertialOffer
+  const commercialOffer = seller?.commertialOffer
 
   if (
     !commercialOffer ||

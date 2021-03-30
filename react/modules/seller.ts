@@ -1,13 +1,15 @@
 import { ProductTypes } from 'vtex.product-context'
 
-export function getFirstAvailableSeller(sellers?: ProductTypes.Seller[]) {
+export function getDefaultSeller(sellers?: ProductTypes.Seller[]) {
   if (!sellers || sellers.length === 0) {
     return
   }
 
-  const availableSeller = sellers.find(
-    seller => seller.commertialOffer.AvailableQuantity !== 0
-  )
+  const defaultSeller = sellers.find(seller => seller.sellerDefault)
 
-  return availableSeller
+  if (!defaultSeller) {
+    return sellers[0]
+  }
+
+  return defaultSeller
 }
