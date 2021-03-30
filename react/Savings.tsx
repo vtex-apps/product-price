@@ -99,7 +99,7 @@ function Savings({
 
   const savingsPercentage = savingsValue / previousPriceValue
 
-  if (savingsValue <= 0 || minimumPercentage / 100 >= savingsPercentage) {
+  if (savingsValue <= 0 || savingsPercentage < minimumPercentage / 100) {
     return null
   }
 
