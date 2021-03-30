@@ -99,10 +99,7 @@ function Savings({
 
   const savingsPercentage = savingsValue / previousPriceValue
 
-  console.log('savingsPercentage: '+ savingsPercentage)
-  console.log('savingsValue: '+ savingsValue)
-
-  if (savingsValue <= 0 || minimumPercentage/100 >= savingsPercentage) {
+  if (savingsValue <= 0 || minimumPercentage / 100 >= savingsPercentage) {
     return null
   }
 
