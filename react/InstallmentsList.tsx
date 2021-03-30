@@ -17,11 +17,9 @@ function InstallmentsList({ classes, children }: PropsWithChildren<Props>) {
   const { handles } = useCssHandles(CSS_HANDLES, { classes })
   const productContextValue = useProduct()
 
-  const availableSeller = getDefaultSeller(
-    productContextValue?.selectedItem?.sellers
-  )
+  const seller = getDefaultSeller(productContextValue?.selectedItem?.sellers)
 
-  const commercialOffer = availableSeller?.commertialOffer
+  const commercialOffer = seller?.commertialOffer
 
   if (
     !commercialOffer?.Installments ||

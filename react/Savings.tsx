@@ -77,11 +77,9 @@ function Savings({
   const productContextValue = useProduct()
   const productSummaryValue = ProductSummaryContext.useProductSummary()
 
-  const availableSeller = getDefaultSeller(
-    productContextValue?.selectedItem?.sellers
-  )
+  const seller = getDefaultSeller(productContextValue?.selectedItem?.sellers)
 
-  const commercialOffer = availableSeller?.commertialOffer
+  const commercialOffer = seller?.commertialOffer
 
   if (
     !commercialOffer ||

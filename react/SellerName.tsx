@@ -35,17 +35,15 @@ function ProductSellerName({
   const { handles, withModifiers } = useCssHandles(CSS_HANDLES, { classes })
   const productContextValue = useProduct()
 
-  const productSeller = getDefaultSeller(
-    productContextValue?.selectedItem?.sellers
-  )
+  const seller = getDefaultSeller(productContextValue?.selectedItem?.sellers)
 
-  if (!productSeller) {
+  if (!seller) {
     return null
   }
 
   const containerClasses = withModifiers(
     'sellerNameContainer',
-    productSeller.sellerDefault ? 'isDefaultSeller' : ''
+    seller.sellerDefault ? 'isDefaultSeller' : ''
   )
 
   return (
@@ -57,7 +55,7 @@ function ProductSellerName({
         values={{
           sellerName: (
             <span key="sellerName" className={handles.sellerName}>
-              {productSeller.sellerName}
+              {seller.sellerName}
             </span>
           ),
         }}
