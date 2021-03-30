@@ -62,6 +62,7 @@ interface Props {
   message?: string
   markers?: string[]
   percentageStyle?: 'locale' | 'compact'
+  minimumPercentage?: number
   /** Used to override default CSS handles */
   classes?: CssHandlesTypes.CustomClasses<typeof CSS_HANDLES>
 }
@@ -69,6 +70,7 @@ interface Props {
 function Savings({
   message = messages.default.id,
   markers = [],
+  minimumPercentage = 0,
   percentageStyle = 'locale',
   classes,
 }: Props) {
@@ -97,7 +99,10 @@ function Savings({
 
   const savingsPercentage = savingsValue / previousPriceValue
 
-  if (savingsValue <= 0) {
+  console.log('savingsPercentage: '+ savingsPercentage)
+  console.log('savingsValue: '+ savingsValue)
+
+  if (savingsValue <= 0 || minimumPercentage/100 >= savingsPercentage) {
     return null
   }
 

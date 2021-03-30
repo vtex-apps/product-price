@@ -88,11 +88,12 @@ For example:
 },
 ```
 
-The block `product-price-savings` has an additional prop:
+The block `product-price-savings` has two additional props:
 
 | Prop name          | Type      |  Description | Default value |
 | --------------------| ----------|--------------|---------------|
 | `percentageStyle` | `locale` or `compact` | Set to `compact` if you want to remove the white space between the number and the percent sign. It uses pattern provided by the current locale as default. | `locale` |
+| `minimumPercentage` | `number` | Set the minimum value for the percentage value display. If not informed, it always appears. | `0` |
 
 
 If you are using the asynchronous price feature, you can take advantage of the `product-price-suspense` and its props:
