@@ -35,6 +35,8 @@ function InstallmentsRenderer({
     TotalValuePlusInterestRate,
   } = installment
 
+  const hasMoreThanOne = NumberOfInstallments > 1
+
   const hasInterest = InterestRate !== 0
 
   const interestRatePercent = InterestRate / 100
@@ -87,6 +89,7 @@ function InstallmentsRenderer({
             </span>
           ),
           hasInterest,
+          hasMoreThanOne
         }}
       />
     </span>

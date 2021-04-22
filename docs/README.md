@@ -220,6 +220,7 @@ Still, according to the example, products that doesn't have measurement unit and
 | `interestRate` | `string` | Interest rate. |
 | `paymentSystemName` | `string` | Payment System of the installments. |
 | `hasInterest` | `boolean` | Whether the installments have interest (`true`) or not (`false`). |
+| `hasMoreThanOne` | `boolean` | Whether there're more than 1 installments (`true`) or not (`false`). |
 
 - **`product-price-savings`**
 
