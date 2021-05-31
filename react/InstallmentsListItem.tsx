@@ -34,7 +34,7 @@ function InstallmentsListItem({
   markers = [],
   classes,
 }: Props) {
-  const { handles } = useCssHandles(CSS_HANDLES, { classes })
+  const { handles, withModifiers } = useCssHandles(CSS_HANDLES, { classes })
   const { installment } = useInstallments() ?? {}
 
   if (!installment) {
@@ -47,6 +47,7 @@ function InstallmentsListItem({
       markers={markers}
       installment={installment}
       handles={handles}
+      handlesModifierFunction={withModifiers}
     />
   )
 }

@@ -5,6 +5,8 @@ import { FormattedCurrency } from 'vtex.format-currency'
 import { IOMessageWithMarkers } from 'vtex.native-types'
 import { ProductTypes } from 'vtex.product-context'
 
+import { slug } from '../modules/slug'
+
 export const CSS_HANDLES = [
   'installments',
   'installmentsNumber',
@@ -19,6 +21,9 @@ interface Props {
   markers: string[]
   installment: ProductTypes.Installment
   handles: CssHandlesTypes.CssHandlesBag<typeof CSS_HANDLES>['handles']
+  handlesModifierFunction: CssHandlesTypes.CssHandlesBag<
+    typeof CSS_HANDLES
+  >['withModifiers']
 }
 
 function InstallmentsRenderer({
@@ -26,6 +31,7 @@ function InstallmentsRenderer({
   markers,
   installment,
   handles,
+  handlesModifierFunction: withModifiers,
 }: Props) {
   const {
     Value,
@@ -51,7 +57,10 @@ function InstallmentsRenderer({
           installmentsNumber: (
             <span
               key="installmentsNumber"
-              className={handles.installmentsNumber}
+              className={withModifiers(
+                'installmentsNumber',
+                `${NumberOfInstallments}`
+              )}
             >
               {NumberOfInstallments && (
                 <FormattedNumber value={NumberOfInstallments} />
@@ -84,12 +93,18 @@ function InstallmentsRenderer({
             </span>
           ),
           paymentSystemName: (
-            <span key="paymentSystemName" className={handles.paymentSystemName}>
+            <span
+              key="paymentSystemName"
+              className={withModifiers(
+                'paymentSystemName',
+                `${slug(PaymentSystemName)}`
+              )}
+            >
               {PaymentSystemName}
             </span>
           ),
           hasInterest,
-          hasMoreThanOne
+          hasMoreThanOne,
         }}
       />
     </span>
