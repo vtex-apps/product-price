@@ -105,19 +105,19 @@ function applyFiltersToInstallmentsList(
 ) {
   let filteredInstallmentsList = installmentsList
 
-  if (filteringRules?.paymentSystemName) {
+  if (filteringRules.paymentSystemName) {
     filteredInstallmentsList = filteredInstallmentsList.filter(
       installmentsOption =>
         installmentsOption.PaymentSystemName ===
-        filteringRules?.paymentSystemName
+        filteringRules.paymentSystemName
     )
   }
 
-  if (filteringRules?.installmentsQuantity) {
+  if (filteringRules.installmentsQuantity) {
     filteredInstallmentsList = filteredInstallmentsList.filter(
       installmentsOption =>
         installmentsOption.NumberOfInstallments ===
-        filteringRules?.installmentsQuantity
+        filteringRules.installmentsQuantity
     )
   }
 
@@ -142,7 +142,7 @@ export function pickMaxInstallmentsOption(
 
   let [maxInstallmentOption] = filteredInstallmentsList
 
-  installmentsList.forEach(installmentOption => {
+  filteredInstallmentsList.forEach(installmentOption => {
     if (
       installmentOption.NumberOfInstallments >
       maxInstallmentOption.NumberOfInstallments
@@ -186,11 +186,15 @@ export function pickMaxInstallmentsOptionWithNoInterest(
     index < filteredInstallmentsList.length;
     index++
   ) {
+    const currentInstallmentsPlan = filteredInstallmentsList[index]
+    const noInterest = currentInstallmentsPlan.InterestRate === 0
+
     if (
-      filteredInstallmentsList[index].NumberOfInstallments >
-      maxWithNoInterest.NumberOfInstallments
+      currentInstallmentsPlan.NumberOfInstallments >
+        maxWithNoInterest.NumberOfInstallments &&
+      noInterest
     ) {
-      maxWithNoInterest = filteredInstallmentsList[index]
+      maxWithNoInterest = currentInstallmentsPlan
     }
   }
 
