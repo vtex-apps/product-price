@@ -4,11 +4,11 @@ import {
   installmentsListMastercardMax,
 } from 'installments-list-mock'
 
-import pickInstallments from '../modules/pickInstallments'
+import pickInstallmentsList from '../modules/pickInstallments'
 
 describe('pickInstallments', () => {
   it('should pick installments of the paymentmethod with the biggest amount', () => {
-    const pickedInstallments = pickInstallments(
+    const pickedInstallments = pickInstallmentsList(
       installmentsList,
       'PaymentSystemName'
     )
@@ -18,7 +18,7 @@ describe('pickInstallments', () => {
   })
 
   it('should pick MasterCard because the NumberOfInstallments is bigger', () => {
-    const pickedInstallments = pickInstallments(
+    const pickedInstallments = pickInstallmentsList(
       installmentsListMastercardMax,
       'PaymentSystemName'
     )
