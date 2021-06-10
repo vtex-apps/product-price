@@ -73,6 +73,16 @@ describe('pickMaxInstallmentsOption', () => {
 
     expect(pickedInstallmentsPlan.NumberOfInstallments).toBe(14)
   })
+
+  it('should pick the installments plan with the highest NumberOfInstallments, using all filtering options', () => {
+    const pickedInstallmentsPlan = pickMaxInstallmentsOption(installmentsList, {
+      paymentSystemName: 'Customer Credit',
+      installmentsQuantity: 2,
+    })
+
+    expect(pickedInstallmentsPlan.NumberOfInstallments).toBe(2)
+    expect(pickedInstallmentsPlan.PaymentSystemName).toBe('Customer Credit')
+  })
 })
 
 describe('pickMaxInstallmentsOptionWithNoInterest', () => {
