@@ -161,42 +161,14 @@ export function pickMaxInstallmentsOptionWithNoInterest(
     installmentsQuantity?: number
   }
 ) {
-  let filteredInstallmentsList = installmentsList
-
-  if (filteringRules) {
-    filteredInstallmentsList = applyFiltersToInstallmentsList(
-      installmentsList,
-      filteringRules
-    )
-  }
-
-  const firstNoInterestOptionIndex = filteredInstallmentsList.findIndex(
-    option => option.InterestRate === 0
+  const noInterestInstallments = installmentsList.filter(
+    installmentsOption => installmentsOption.InterestRate === 0
   )
 
-  // There isn't a no-interest option
-  if (firstNoInterestOptionIndex < 0) {
-    return pickMaxInstallmentsOption(filteredInstallmentsList)
+  // There aren't any no-interest options
+  if (noInterestInstallments.length === 0) {
+    return pickMaxInstallmentsOption(installmentsList, filteringRules)
   }
 
-  let maxWithNoInterest = filteredInstallmentsList[firstNoInterestOptionIndex]
-
-  for (
-    let index = firstNoInterestOptionIndex;
-    index < filteredInstallmentsList.length;
-    index++
-  ) {
-    const currentInstallmentsPlan = filteredInstallmentsList[index]
-    const noInterest = currentInstallmentsPlan.InterestRate === 0
-
-    if (
-      currentInstallmentsPlan.NumberOfInstallments >
-        maxWithNoInterest.NumberOfInstallments &&
-      noInterest
-    ) {
-      maxWithNoInterest = currentInstallmentsPlan
-    }
-  }
-
-  return maxWithNoInterest
+  return pickMaxInstallmentsOption(noInterestInstallments, filteringRules)
 }
