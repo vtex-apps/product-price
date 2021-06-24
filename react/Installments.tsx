@@ -58,18 +58,24 @@ function Installments({
 
   let [installmentsOption] = commercialOffer.Installments
 
-  if (installmentsCriteria === 'max-quantity') {
-    installmentsOption = pickMaxInstallmentsOption(
-      commercialOffer.Installments,
-      installmentOptionsFilter
-    )
-  }
+  switch (installmentsCriteria) {
+    case 'max-quantity-without-interest': {
+      installmentsOption = pickMaxInstallmentsOptionWithNoInterest(
+        commercialOffer.Installments,
+        installmentOptionsFilter
+      )
 
-  if (installmentsCriteria === 'max-quantity-without-interest') {
-    installmentsOption = pickMaxInstallmentsOptionWithNoInterest(
-      commercialOffer.Installments,
-      installmentOptionsFilter
-    )
+      break
+    }
+
+    default: {
+      installmentsOption = pickMaxInstallmentsOption(
+        commercialOffer.Installments,
+        installmentOptionsFilter
+      )
+
+      break
+    }
   }
 
   return (
