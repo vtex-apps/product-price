@@ -131,14 +131,9 @@ export function pickMaxInstallmentsOption(
     installmentsQuantity?: number
   }
 ) {
-  let filteredInstallmentsList = installmentsList
-
-  if (filteringRules) {
-    filteredInstallmentsList = applyFiltersToInstallmentsList(
-      installmentsList,
-      filteringRules
-    )
-  }
+  const filteredInstallmentsList = filteringRules
+    ? applyFiltersToInstallmentsList(installmentsList, filteringRules)
+    : installmentsList
 
   let [maxInstallmentOption] = filteredInstallmentsList
 
