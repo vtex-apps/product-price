@@ -27,7 +27,7 @@ const messages = defineMessages({
 interface Props {
   message?: string
   markers?: string[]
-  installmentsCriteria?: 'max-quantity' | 'max-quantity-no-interest'
+  installmentsCriteria?: 'max-quantity' | 'max-quantity-without-interest'
   installmentOptionsFilter?: {
     paymentSystemName?: string
     installmentsQuantity?: number
@@ -65,7 +65,7 @@ function Installments({
     )
   }
 
-  if (installmentsCriteria === 'max-quantity-no-interest') {
+  if (installmentsCriteria === 'max-quantity-without-interest') {
     installmentsOption = pickMaxInstallmentsOptionWithNoInterest(
       commercialOffer.Installments,
       installmentOptionsFilter
