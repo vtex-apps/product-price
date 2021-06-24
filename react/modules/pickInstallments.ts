@@ -3,7 +3,7 @@ import { ProductTypes } from 'vtex.product-context'
 type ClusterBy = keyof ProductTypes.Installment
 
 /**
- * Pick which installments should be used. First it cluster all installments
+ * Pick which installments should be used. First it clusters all installments
  * by the value of clusterBy, then picks the cluster with the biggest amount of
  * installments options and then return this list sorted by the amount of installments
  * @param installmentsList All installments
@@ -49,7 +49,7 @@ export function clusterInstallments(
 
 /**
  * Pick the cluster with the biggest amount of options, if there are multiple
- * clusters with the biggest amount it will pick the one that has a installment
+ * clusters with the biggest amount it will pick the one that has an installment
  * with the biggest NumberOfInstallments of all options
  * @param clusteredInstallments
  * @param clusterBy
