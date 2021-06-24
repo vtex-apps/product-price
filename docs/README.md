@@ -106,7 +106,7 @@ And the block `product-installments` also has two additional props:
 
 | Prop name          | Type      |  Description | Default value |
 | --------------------| ----------|--------------|---------------|
-| `installmentsCriteria` | `max-quantity` or `max-quantity-without-interest` | When set to `max-quantity`, the block will render the installments plan with the biggest number of installments. When set to `max-quantity-without-interest`, the block will render the installments plan with the biggest number of installments and **zero interest**.  | `max-quantity` |
+| `installmentsCriteria` | `max-quantity` or `max-quantity-without-interest` | When set to `max-quantity`, the block will render the installments plan with the biggest number of installments. When set to `max-quantity-without-interest`, the block will render the installments plan with the biggest number of installments and **zero interest**. Notice that, if this prop is set to `max-quantity-without-interest`, and no installments plan matches the 'without interest' criteria, the component will fallback the default behavior.  | `max-quantity` |
 | `installmentOptionsFilter` | `{ paymentSystemName?: string, installmentsQuantity?: number }` | Allows you to define two filtering rules that will narrow down the possible installments plans the component might render. | `undefined` |
 
 
