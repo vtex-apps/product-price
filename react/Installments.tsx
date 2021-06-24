@@ -33,7 +33,7 @@ function Installments({
   classes,
 }: Props) {
   const productContextValue = useProduct()
-  const { handles } = useCssHandles(CSS_HANDLES, { classes })
+  const { handles, withModifiers } = useCssHandles(CSS_HANDLES, { classes })
   const seller = getDefaultSeller(productContextValue?.selectedItem?.sellers)
 
   const commercialOffer = seller?.commertialOffer
@@ -62,6 +62,7 @@ function Installments({
       markers={markers}
       installment={maxInstallmentOption}
       handles={handles}
+      handlesModifierFunction={withModifiers}
     />
   )
 }
