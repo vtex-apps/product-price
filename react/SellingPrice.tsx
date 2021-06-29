@@ -35,12 +35,14 @@ interface Props {
   markers?: string[]
   /** Used to override default CSS handles */
   classes?: CssHandlesTypes.CustomClasses<typeof CSS_HANDLES>
+  showWhenUnavailable?: boolean
 }
 
 function SellingPrice({
   message = messages.default.id,
   markers = [],
   classes,
+  showWhenUnavailable = false,
 }: Props) {
   const { handles, withModifiers } = useCssHandles(CSS_HANDLES, {
     classes,
@@ -52,7 +54,10 @@ function SellingPrice({
 
   const commercialOffer = seller?.commertialOffer
 
-  if (!commercialOffer || commercialOffer?.AvailableQuantity <= 0) {
+  if (
+    !commercialOffer ||
+    (!showWhenUnavailable && commercialOffer?.AvailableQuantity <= 0)
+  ) {
     return null
   }
 
@@ -78,6 +83,9 @@ function SellingPrice({
     hasListPrice ? 'hasListPrice' : '',
     hasMeasurementUnit ? 'hasMeasurementUnit' : '',
     hasUnitMultiplier ? 'hasUnitMultiplier' : '',
+    showWhenUnavailable && commercialOffer.AvailableQuantity <= 0
+      ? 'isUnavailable'
+      : '',
   ])
 
   return (
