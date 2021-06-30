@@ -95,6 +95,21 @@ The block `product-price-savings` has two additional props:
 | `percentageStyle` | `locale` or `compact` | Set to `compact` if you want to remove the white space between the number and the percent sign. It uses pattern provided by the current locale as default. | `locale` |
 | `minimumPercentage` | `number` | Set the minimum value for the percentage value display. If not informed, it always appears. Example: `10`, savings under or equal 10% will not show up. | `0` |
 
+The following blocks `product-list-price`, `product-selling-price`, `product-spot-price`, `product-spot-price-savings`, `product-price-savings`, `product-list-price-range`, and `product-selling-price-range` have an additional prop:
+
+| Prop name    | Type       | Description                                              | Default value       |
+| :----------: | :--------: | :------------------------------------------------------: | :-----------------: |
+| `showWhenUnavailable`   | `boolean`    | Renders the block even when the product is unavailable. | `false`  |
+
+For example:
+
+```json
+"product-selling-price#summary": {
+  "props": {
+    "showWhenUnavailable": true
+  }
+},
+```
 
 If you are using the asynchronous price feature, you can take advantage of the `product-price-suspense` and its props:
 
@@ -287,6 +302,7 @@ To apply CSS customization in this and other blocks, follow the instructions giv
 | `installments` |
 | `interestRate` |
 | `listPrice'` |
+| `listPrice--isUnavailable` |
 | `listPriceRangeMaxValue` |
 | `listPriceRangeMaxWithTax` |
 | `listPriceRangeMinValue` |
@@ -294,6 +310,7 @@ To apply CSS customization in this and other blocks, follow the instructions giv
 | `listPriceRangeUniqueValue` |
 | `listPriceRangeUniqueWithTax` |
 | `listPriceRange` |
+| `listPriceRange--isUnavailable` | 
 | `listPriceValue` |
 | `listPriceWithTax` | 
 | `newPriceValue` |
@@ -304,10 +321,12 @@ To apply CSS customization in this and other blocks, follow the instructions giv
 | `savingsValue` |
 | `savingsWithTax` |
 | `savings` |
+| `savings--isUnavailable` | 
 | `sellerName` |
 | `sellerNameContainer` |
 | `sellerNameContainer--isDefaultSeller` |
 | `sellingPrice--hasListPrice` |
+| `sellingPrice--isUnavailable` |
 | `sellingPriceRangeMaxValue` |
 | `sellingPriceRangeMaxWithTax` |
 | `sellingPriceRangeMinValue` |
@@ -315,15 +334,18 @@ To apply CSS customization in this and other blocks, follow the instructions giv
 | `sellingPriceRangeUniqueValue` |
 | `sellingPriceRangeUniqueWithTax` |
 | `sellingPriceRange` |
+| `sellingPriceRange--isUnavailable` |
 | `sellingPriceValue` |
 | `sellingPriceWithTax` | 
 | `sellingPrice` |
 | `spotPriceSavingsPercentage` | 
 | `spotPriceSavingsValue` | 
 | `spotPriceSavingsWithTax` | 
-| `spotPriceSavings` | 
+| `spotPriceSavings` |
+| `spotPriceSavings--isUnavailable` | 
 | `spotPriceValue` |
 | `spotPrice` |
+| `spotPrice--isUnavailable` |
 | `taxPercentage` |
 
 <!-- DOCS-IGNORE:start -->
