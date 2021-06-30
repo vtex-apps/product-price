@@ -6,6 +6,7 @@ import { useCssHandles, CssHandlesTypes } from 'vtex.css-handles'
 import { IOMessageWithMarkers } from 'vtex.native-types'
 
 import { getDefaultSeller } from './modules/seller'
+import { hideWhenUnavailable } from './modules/hideWhenUnavailable'
 
 const CSS_HANDLES = [
   'spotPriceSavings',
@@ -49,10 +50,13 @@ function SpotPriceSavings({
 
   const commercialOffer = seller?.commertialOffer
 
-  if (
-    !commercialOffer ||
-    (!showWhenUnavailable && commercialOffer?.AvailableQuantity <= 0)
-  ) {
+  if (!commercialOffer) {
+    return null
+  }
+
+  const { AvailableQuantity } = commercialOffer
+
+  if (hideWhenUnavailable({ showWhenUnavailable, AvailableQuantity })) {
     return null
   }
 
@@ -71,9 +75,7 @@ function SpotPriceSavings({
   }
 
   const containerClasses = withModifiers('spotPriceSavings', [
-    showWhenUnavailable && commercialOffer.AvailableQuantity <= 0
-      ? 'isUnavailable'
-      : '',
+    showWhenUnavailable && AvailableQuantity <= 0 ? 'isUnavailable' : '',
   ])
 
   return (

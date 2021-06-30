@@ -7,6 +7,7 @@ import { IOMessageWithMarkers } from 'vtex.native-types'
 import { ProductSummaryContext } from 'vtex.product-summary-context'
 
 import { getDefaultSeller } from './modules/seller'
+import { hideWhenUnavailable } from './modules/hideWhenUnavailable'
 
 const CSS_HANDLES = [
   'savings',
@@ -85,11 +86,13 @@ function Savings({
 
   const commercialOffer = seller?.commertialOffer
 
-  if (
-    !commercialOffer ||
-    (!showWhenUnavailable && commercialOffer?.AvailableQuantity <= 0) ||
-    productSummaryValue?.isLoading
-  ) {
+  if (!commercialOffer || productSummaryValue?.isLoading) {
+    return null
+  }
+
+  const { AvailableQuantity } = commercialOffer
+
+  if (hideWhenUnavailable({ showWhenUnavailable, AvailableQuantity })) {
     return null
   }
 
@@ -106,9 +109,7 @@ function Savings({
   }
 
   const containerClasses = withModifiers('savings', [
-    showWhenUnavailable && commercialOffer.AvailableQuantity <= 0
-      ? 'isUnavailable'
-      : '',
+    showWhenUnavailable && AvailableQuantity <= 0 ? 'isUnavailable' : '',
   ])
 
   return (
