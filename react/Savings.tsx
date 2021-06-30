@@ -65,6 +65,7 @@ interface Props {
   minimumPercentage?: number
   /** Used to override default CSS handles */
   classes?: CssHandlesTypes.CustomClasses<typeof CSS_HANDLES>
+  showWhenUnavailable?: boolean
 }
 
 function Savings({
@@ -73,8 +74,9 @@ function Savings({
   minimumPercentage = 0,
   percentageStyle = 'locale',
   classes,
+  showWhenUnavailable = false,
 }: Props) {
-  const { handles } = useCssHandles(CSS_HANDLES, { classes })
+  const { handles, withModifiers } = useCssHandles(CSS_HANDLES, { classes })
   const { formatNumber } = useIntl()
   const productContextValue = useProduct()
   const productSummaryValue = ProductSummaryContext.useProductSummary()
@@ -85,7 +87,7 @@ function Savings({
 
   if (
     !commercialOffer ||
-    commercialOffer?.AvailableQuantity <= 0 ||
+    (!showWhenUnavailable && commercialOffer?.AvailableQuantity <= 0) ||
     productSummaryValue?.isLoading
   ) {
     return null
@@ -103,8 +105,14 @@ function Savings({
     return null
   }
 
+  const containerClasses = withModifiers('savings', [
+    showWhenUnavailable && commercialOffer.AvailableQuantity <= 0
+      ? 'isUnavailable'
+      : '',
+  ])
+
   return (
-    <span className={handles.savings}>
+    <span className={containerClasses}>
       <IOMessageWithMarkers
         message={message}
         markers={markers}
