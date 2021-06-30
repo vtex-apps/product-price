@@ -26,21 +26,26 @@ interface Props {
   markers?: string[]
   /** Used to override default CSS handles */
   classes?: CssHandlesTypes.CustomClasses<typeof CSS_HANDLES>
+  showWhenUnavailable?: boolean
 }
 
 function SpotPrice({
   message = messages.default.id,
   markers = [],
   classes,
+  showWhenUnavailable = false,
 }: Props) {
-  const { handles } = useCssHandles(CSS_HANDLES, { classes })
+  const { handles, withModifiers } = useCssHandles(CSS_HANDLES, { classes })
   const productContextValue = useProduct()
 
   const seller = getDefaultSeller(productContextValue?.selectedItem?.sellers)
 
   const commercialOffer = seller?.commertialOffer
 
-  if (!commercialOffer || commercialOffer?.AvailableQuantity <= 0) {
+  if (
+    !commercialOffer ||
+    (!showWhenUnavailable && commercialOffer?.AvailableQuantity <= 0)
+  ) {
     return null
   }
 
@@ -51,8 +56,14 @@ function SpotPrice({
     return null
   }
 
+  const containerClasses = withModifiers('spotPrice', [
+    showWhenUnavailable && commercialOffer.AvailableQuantity <= 0
+      ? 'isUnavailable'
+      : '',
+  ])
+
   return (
-    <span className={handles.spotPrice}>
+    <span className={containerClasses}>
       <IOMessageWithMarkers
         message={message}
         markers={markers}
