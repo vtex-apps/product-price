@@ -149,21 +149,21 @@ export function pickMaxInstallmentsOption(
   return maxInstallmentOption
 }
 
-export function pickMaxInstallmentsOptionWithNoInterest(
+export function pickMaxInstallmentsOptionWithoutInterest(
   installmentsList: ProductTypes.Installment[],
   filteringRules?: {
     paymentSystemName?: string
     installmentsQuantity?: number
   }
 ) {
-  const noInterestInstallments = installmentsList.filter(
+  const installmentsWithoutInterest = installmentsList.filter(
     installmentsOption => installmentsOption.InterestRate === 0
   )
 
   // There aren't any no-interest options
-  if (noInterestInstallments.length === 0) {
+  if (installmentsWithoutInterest.length === 0) {
     return pickMaxInstallmentsOption(installmentsList, filteringRules)
   }
 
-  return pickMaxInstallmentsOption(noInterestInstallments, filteringRules)
+  return pickMaxInstallmentsOption(installmentsWithoutInterest, filteringRules)
 }

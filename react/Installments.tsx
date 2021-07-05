@@ -8,7 +8,7 @@ import InstallmentsRenderer, {
 } from './components/InstallmentsRenderer'
 import {
   pickMaxInstallmentsOption,
-  pickMaxInstallmentsOptionWithNoInterest,
+  pickMaxInstallmentsOptionWithoutInterest,
 } from './modules/pickInstallments'
 import { getDefaultSeller } from './modules/seller'
 
@@ -60,7 +60,7 @@ function Installments({
 
   switch (installmentsCriteria) {
     case 'max-quantity-without-interest': {
-      installmentsOption = pickMaxInstallmentsOptionWithNoInterest(
+      installmentsOption = pickMaxInstallmentsOptionWithoutInterest(
         commercialOffer.Installments,
         installmentOptionsFilter
       )

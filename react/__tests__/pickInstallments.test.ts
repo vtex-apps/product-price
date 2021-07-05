@@ -6,7 +6,7 @@ import {
 
 import pickInstallmentsList, {
   pickMaxInstallmentsOption,
-  pickMaxInstallmentsOptionWithNoInterest,
+  pickMaxInstallmentsOptionWithoutInterest,
 } from '../modules/pickInstallments'
 
 describe('pickInstallmentsList', () => {
@@ -85,9 +85,9 @@ describe('pickMaxInstallmentsOption', () => {
   })
 })
 
-describe('pickMaxInstallmentsOptionWithNoInterest', () => {
+describe('pickMaxInstallmentsOptionWithoutInterest', () => {
   it('should pick the installments plan with the highest NumberOfInstallments and no interest', () => {
-    const pickedInstallmentsPlan = pickMaxInstallmentsOptionWithNoInterest(
+    const pickedInstallmentsPlan = pickMaxInstallmentsOptionWithoutInterest(
       installmentsListMastercardMax
     )
 
@@ -97,7 +97,7 @@ describe('pickMaxInstallmentsOptionWithNoInterest', () => {
   })
 
   it('should pick the installments plan with the second highest NumberOfInstallments and no interest, due to filtering rules', () => {
-    const pickedInstallmentsPlan = pickMaxInstallmentsOptionWithNoInterest(
+    const pickedInstallmentsPlan = pickMaxInstallmentsOptionWithoutInterest(
       installmentsList,
       {
         paymentSystemName: 'Customer Credit',
@@ -110,7 +110,7 @@ describe('pickMaxInstallmentsOptionWithNoInterest', () => {
   })
 
   it("should pick the installments plan with the highest NumberOfInstallments overall, if there isn't an option with no interest", () => {
-    const pickedInstallmentsPlan = pickMaxInstallmentsOptionWithNoInterest(
+    const pickedInstallmentsPlan = pickMaxInstallmentsOptionWithoutInterest(
       visaInstallments
     )
 
