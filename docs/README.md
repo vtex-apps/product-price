@@ -99,14 +99,14 @@ The following blocks `product-list-price`, `product-selling-price`, `product-spo
 
 | Prop name    | Type       | Description                                              | Default value       |
 | :----------: | :--------: | :------------------------------------------------------: | :-----------------: |
-| `showWhenUnavailable`   | `boolean`    | Renders the block even when the product is unavailable. | `false`  |
+| `alwaysShow`   | `boolean`    | Renders the block even when the product is unavailable. | `false`  |
 
 For example:
 
 ```json
 "product-selling-price#summary": {
   "props": {
-    "showWhenUnavailable": true
+    "alwaysShow": true
   }
 },
 ```
