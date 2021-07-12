@@ -86,13 +86,14 @@ function Savings({
 
   const commercialOffer = seller?.commertialOffer
 
-  if (!commercialOffer || productSummaryValue?.isLoading) {
-    return null
-  }
-
-  const { AvailableQuantity } = commercialOffer
-
-  if (hideProductPrice({ alwaysShow, AvailableQuantity })) {
+  if (
+    !commercialOffer ||
+    hideProductPrice({
+      alwaysShow,
+      AvailableQuantity: commercialOffer.AvailableQuantity,
+    }) ||
+    productSummaryValue?.isLoading
+  ) {
     return null
   }
 
@@ -109,7 +110,7 @@ function Savings({
   }
 
   const containerClasses = withModifiers('savings', [
-    alwaysShow && AvailableQuantity <= 0 ? 'isUnavailable' : '',
+    alwaysShow && commercialOffer.AvailableQuantity <= 0 ? 'isUnavailable' : '',
   ])
 
   return (

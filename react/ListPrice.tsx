@@ -52,13 +52,13 @@ function ListPrice({
 
   const commercialOffer = seller?.commertialOffer
 
-  if (!commercialOffer) {
-    return null
-  }
-
-  const { AvailableQuantity } = commercialOffer
-
-  if (hideProductPrice({ alwaysShow, AvailableQuantity })) {
+  if (
+    !commercialOffer ||
+    hideProductPrice({
+      alwaysShow,
+      AvailableQuantity: commercialOffer.AvailableQuantity,
+    })
+  ) {
     return null
   }
 
@@ -83,7 +83,7 @@ function ListPrice({
   }
 
   const containerClasses = withModifiers('listPrice', [
-    alwaysShow && AvailableQuantity <= 0 ? 'isUnavailable' : '',
+    alwaysShow && commercialOffer.AvailableQuantity <= 0 ? 'isUnavailable' : '',
   ])
 
   return (

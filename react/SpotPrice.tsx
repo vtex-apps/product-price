@@ -43,13 +43,13 @@ function SpotPrice({
 
   const commercialOffer = seller?.commertialOffer
 
-  if (!commercialOffer) {
-    return null
-  }
-
-  const { AvailableQuantity } = commercialOffer
-
-  if (hideProductPrice({ alwaysShow, AvailableQuantity })) {
+  if (
+    !commercialOffer ||
+    hideProductPrice({
+      alwaysShow,
+      AvailableQuantity: commercialOffer.AvailableQuantity,
+    })
+  ) {
     return null
   }
 
@@ -61,7 +61,7 @@ function SpotPrice({
   }
 
   const containerClasses = withModifiers('spotPrice', [
-    alwaysShow && AvailableQuantity <= 0 ? 'isUnavailable' : '',
+    alwaysShow && commercialOffer.AvailableQuantity <= 0 ? 'isUnavailable' : '',
   ])
 
   return (

@@ -73,13 +73,13 @@ function SellingPriceRange({
 
   const commercialOffer = seller?.commertialOffer
 
-  if (!commercialOffer) {
-    return null
-  }
-
-  const { AvailableQuantity } = commercialOffer
-
-  if (hideProductPrice({ alwaysShow, AvailableQuantity })) {
+  if (
+    !commercialOffer ||
+    hideProductPrice({
+      alwaysShow,
+      AvailableQuantity: commercialOffer.AvailableQuantity,
+    })
+  ) {
     return null
   }
 
@@ -94,7 +94,7 @@ function SellingPriceRange({
     commercialOffer.PriceWithoutDiscount * commercialOffer.taxPercentage
 
   const containerClasses = withModifiers('sellingPriceRange', [
-    alwaysShow && AvailableQuantity <= 0 ? 'isUnavailable' : '',
+    alwaysShow && commercialOffer.AvailableQuantity <= 0 ? 'isUnavailable' : '',
   ])
 
   if (hasRange) {
