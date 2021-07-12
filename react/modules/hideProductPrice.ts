@@ -1,6 +1,6 @@
 interface HideProductPriceParams {
   alwaysShow: boolean
-  AvailableQuantity: number
+  availableQuantity: number
 }
 /**
  * hideProductPrice -> Logic to hide or show block based on props passed by store theme
@@ -8,17 +8,17 @@ interface HideProductPriceParams {
  * @export
  * @param {HideProductPriceParams} {
  *   alwaysShow,
- *   AvailableQuantity,
+ *   availableQuantity,
  * }
  * @returns {boolean}
  */
 export function hideProductPrice({
   alwaysShow,
-  AvailableQuantity,
+  availableQuantity,
 }: HideProductPriceParams): boolean {
   if (alwaysShow) {
     return false
   }
 
-  return AvailableQuantity <= 0
+  return availableQuantity <= 0
 }

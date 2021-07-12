@@ -59,7 +59,7 @@ function SellingPrice({
     !commercialOffer ||
     hideProductPrice({
       alwaysShow,
-      AvailableQuantity: commercialOffer.AvailableQuantity,
+      availableQuantity: commercialOffer.AvailableQuantity,
     })
   ) {
     return null

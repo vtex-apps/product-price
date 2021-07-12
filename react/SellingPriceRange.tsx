@@ -77,7 +77,7 @@ function SellingPriceRange({
     !commercialOffer ||
     hideProductPrice({
       alwaysShow,
-      AvailableQuantity: commercialOffer.AvailableQuantity,
+      availableQuantity: commercialOffer.AvailableQuantity,
     })
   ) {
     return null

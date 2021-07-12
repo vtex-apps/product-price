@@ -90,7 +90,7 @@ function Savings({
     !commercialOffer ||
     hideProductPrice({
       alwaysShow,
-      AvailableQuantity: commercialOffer.AvailableQuantity,
+      availableQuantity: commercialOffer.AvailableQuantity,
     }) ||
     productSummaryValue?.isLoading
   ) {
