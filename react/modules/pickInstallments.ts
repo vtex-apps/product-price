@@ -3,8 +3,8 @@ import { ProductTypes } from 'vtex.product-context'
 type ClusterBy = keyof ProductTypes.Installment
 
 /**
- * Pick which installments should be used, first it cluster all installments
- * by the value of clusterBy, then pick the cluster with the biggest amount of
+ * Pick which installments should be used. First it clusters all installments
+ * by the value of clusterBy, then picks the cluster with the biggest amount of
  * installments options and then return this list sorted by the amount of installments
  * @param installmentsList All installments
  * @param clusterBy
@@ -15,7 +15,10 @@ export default function pickInstallmentsList(
 ) {
   const clusteredInstallments = clusterInstallments(installmentsList, clusterBy)
 
-  const pickedInstallments = pickMaxOption(clusteredInstallments, clusterBy)
+  const pickedInstallments = pickMaxOptionCount(
+    clusteredInstallments,
+    clusterBy
+  )
 
   return pickedInstallments.sort(
     (a, b) => a.NumberOfInstallments - b.NumberOfInstallments
@@ -46,12 +49,12 @@ export function clusterInstallments(
 
 /**
  * Pick the cluster with the biggest amount of options, if there are multiple
- * clusters witht eh biggest amount it will pick the one that has a installment
+ * clusters with the biggest amount it will pick the one that has an installment
  * with the biggest NumberOfInstallments of all options
  * @param clusteredInstallments
  * @param clusterBy
  */
-function pickMaxOption(
+function pickMaxOptionCount(
   clusteredInstallments: Record<string, ProductTypes.Installment[]>,
   clusterBy: ClusterBy
 ) {
@@ -91,4 +94,76 @@ function pickMaxOption(
   }
 
   return clusteredInstallments[biggestInstallmentsOptionKey]
+}
+
+function applyFiltersToInstallmentsList(
+  installmentsList: ProductTypes.Installment[],
+  filteringRules: {
+    paymentSystemName?: string
+    installmentsQuantity?: number
+  }
+) {
+  let filteredInstallmentsList = installmentsList
+
+  if (filteringRules.paymentSystemName) {
+    filteredInstallmentsList = filteredInstallmentsList.filter(
+      installmentsOption =>
+        installmentsOption.PaymentSystemName ===
+        filteringRules.paymentSystemName
+    )
+  }
+
+  if (filteringRules.installmentsQuantity) {
+    filteredInstallmentsList = filteredInstallmentsList.filter(
+      installmentsOption =>
+        installmentsOption.NumberOfInstallments ===
+        filteringRules.installmentsQuantity
+    )
+  }
+
+  return filteredInstallmentsList
+}
+
+export function pickMaxInstallmentsOption(
+  installmentsList: ProductTypes.Installment[],
+  filteringRules?: {
+    paymentSystemName?: string
+    installmentsQuantity?: number
+  }
+) {
+  const filteredInstallmentsList = filteringRules
+    ? applyFiltersToInstallmentsList(installmentsList, filteringRules)
+    : installmentsList
+
+  let [maxInstallmentOption] = filteredInstallmentsList
+
+  filteredInstallmentsList.forEach(installmentOption => {
+    if (
+      installmentOption.NumberOfInstallments >
+      maxInstallmentOption.NumberOfInstallments
+    ) {
+      maxInstallmentOption = installmentOption
+    }
+  })
+
+  return maxInstallmentOption
+}
+
+export function pickMaxInstallmentsOptionWithoutInterest(
+  installmentsList: ProductTypes.Installment[],
+  filteringRules?: {
+    paymentSystemName?: string
+    installmentsQuantity?: number
+  }
+) {
+  const installmentsWithoutInterest = installmentsList.filter(
+    installmentsOption => installmentsOption.InterestRate === 0
+  )
+
+  // There aren't any no-interest options
+  if (installmentsWithoutInterest.length === 0) {
+    return pickMaxInstallmentsOption(installmentsList, filteringRules)
+  }
+
+  return pickMaxInstallmentsOption(installmentsWithoutInterest, filteringRules)
 }

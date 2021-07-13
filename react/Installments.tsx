@@ -6,6 +6,10 @@ import { useProduct } from 'vtex.product-context'
 import InstallmentsRenderer, {
   CSS_HANDLES,
 } from './components/InstallmentsRenderer'
+import {
+  pickMaxInstallmentsOption,
+  pickMaxInstallmentsOptionWithoutInterest,
+} from './modules/pickInstallments'
 import { getDefaultSeller } from './modules/seller'
 
 const messages = defineMessages({
@@ -23,6 +27,11 @@ const messages = defineMessages({
 interface Props {
   message?: string
   markers?: string[]
+  installmentsCriteria?: 'max-quantity' | 'max-quantity-without-interest'
+  installmentOptionsFilter?: {
+    paymentSystemName?: string
+    installmentsQuantity?: number
+  }
   /** Used to override default CSS handles */
   classes?: CssHandlesTypes.CustomClasses<typeof CSS_HANDLES>
 }
@@ -30,6 +39,8 @@ interface Props {
 function Installments({
   message = messages.default.id,
   markers = [],
+  installmentsCriteria = 'max-quantity',
+  installmentOptionsFilter,
   classes,
 }: Props) {
   const productContextValue = useProduct()
@@ -45,22 +56,33 @@ function Installments({
     return null
   }
 
-  let [maxInstallmentOption] = commercialOffer.Installments
+  let [installmentsOption] = commercialOffer.Installments
 
-  commercialOffer.Installments.forEach(installmentOption => {
-    if (
-      installmentOption.NumberOfInstallments >
-      maxInstallmentOption.NumberOfInstallments
-    ) {
-      maxInstallmentOption = installmentOption
+  switch (installmentsCriteria) {
+    case 'max-quantity-without-interest': {
+      installmentsOption = pickMaxInstallmentsOptionWithoutInterest(
+        commercialOffer.Installments,
+        installmentOptionsFilter
+      )
+
+      break
     }
-  })
+
+    default: {
+      installmentsOption = pickMaxInstallmentsOption(
+        commercialOffer.Installments,
+        installmentOptionsFilter
+      )
+
+      break
+    }
+  }
 
   return (
     <InstallmentsRenderer
       message={message}
       markers={markers}
-      installment={maxInstallmentOption}
+      installment={installmentsOption}
       handles={handles}
       handlesModifierFunction={withModifiers}
     />

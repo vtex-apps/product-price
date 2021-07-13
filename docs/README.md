@@ -31,7 +31,7 @@ Now, you can use all the blocks exported by the `product-price` app. Check out t
 | `product-list-price`         | Renders the product list price. If it is equal or lower than the product selling price, this block will not be rendered. |
 | `product-selling-price`      | Renders the product selling price.|
 | `product-spot-price`         | Renders the product spot price (in case it equals the product selling price, the block is not rendered). This block finds the spot price by looking for the cheapest price of all installments options.|
-| `product-installments`      | Renders the product installments. If more than one option is available, the one with the biggest number of installments will be displayed. |
+| `product-installments`      | Renders the product installments. If more than one option is available, the one with the biggest number of installments will be displayed by default. |
 | `product-installments-list` | Renders all the installments of the payment system with the biggest amount of installments options by default. |
 | `product-installments-list-item` | Renders an installments option of the `product-installments-list-item` |
 | `product-price-savings`           | Renders the product price savings, if there is any. It can show the percentage of the discount or the value of the absolute saving. | 
@@ -101,6 +101,13 @@ The block `product-installments-list` has two additional props:
 | --------------------| ----------|--------------|---------------|
 | `paymentSystemName` | `string` | This prop enables you to filter the listed installments options by a certain payment system. If not passed, the installments of the payment system with the biggest amount of installments options will be rendered.  | `undefined` |
 | `installmentsToShow` | `number[]` | Which installments options you want to show the user, in terms of the number of installments. For example, if `[1, 3]` is passed as a value for this prop, only the installments options with `NumberOfInstallments` equal to 1 and 3 will be rendered. If not passed, all options will be rendered. | `undefined` |
+
+And the block `product-installments` also has two additional props:
+
+| Prop name          | Type      |  Description | Default value |
+| --------------------| ----------|--------------|---------------|
+| `installmentsCriteria` | `max-quantity` or `max-quantity-without-interest` | When set to `max-quantity`, the block will render the installments plan with the biggest number of installments. When set to `max-quantity-without-interest`, the block will render the installments plan with the biggest number of installments and **zero interest**. Notice that, if this prop is set to `max-quantity-without-interest`, and no installments plan matches the 'without interest' criteria, the component will fallback the default behavior.  | `max-quantity` |
+| `installmentOptionsFilter` | `{ paymentSystemName?: string, installmentsQuantity?: number }` | Allows you to define two filtering rules that will narrow down the possible installments plans the component might render. | `undefined` |
 
 
 If you are using the asynchronous price feature, you can take advantage of the `product-price-suspense` and its props:
