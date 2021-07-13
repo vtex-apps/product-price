@@ -9,7 +9,7 @@ type ClusterBy = keyof ProductTypes.Installment
  * @param installmentsList All installments
  * @param clusterBy
  */
-export default function pickInstallments(
+export default function pickInstallmentsList(
   installmentsList: ProductTypes.Installment[],
   clusterBy: ClusterBy
 ) {
@@ -27,7 +27,7 @@ export default function pickInstallments(
  * @param installmentsList List of installments to be clustered
  * @param clusterBy Key to be clustered by
  */
-function clusterInstallments(
+export function clusterInstallments(
   installmentsList: ProductTypes.Installment[],
   clusterBy: keyof ProductTypes.Installment
 ) {
