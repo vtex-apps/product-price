@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Prop `alwaysShow` to the following blocks `product-list-price`, `product-selling-price`, `product-spot-price`, `product-spot-price-savings`, `product-price-savings`, `product-list-price-range`, and `product-selling-price-range` to render them even when product is unavailable.
+### Added 
+- I18n pseudo language to implement in-context tool
+
 ## [1.24.0] - 2021-07-13
 ### Added
 - `installmentsCriteria` and `installmentOptionsFilter` props to `Installments` component.
