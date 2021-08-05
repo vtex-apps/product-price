@@ -6,6 +6,7 @@ import { useCssHandles, CssHandlesTypes } from 'vtex.css-handles'
 import { IOMessageWithMarkers } from 'vtex.native-types'
 
 import { getDefaultSeller } from './modules/seller'
+import { hideProductPrice } from './modules/hideProductPrice'
 
 const CSS_HANDLES = ['spotPrice', 'spotPriceValue'] as const
 
@@ -26,21 +27,29 @@ interface Props {
   markers?: string[]
   /** Used to override default CSS handles */
   classes?: CssHandlesTypes.CustomClasses<typeof CSS_HANDLES>
+  alwaysShow?: boolean
 }
 
 function SpotPrice({
   message = messages.default.id,
   markers = [],
   classes,
+  alwaysShow = false,
 }: Props) {
-  const { handles } = useCssHandles(CSS_HANDLES, { classes })
+  const { handles, withModifiers } = useCssHandles(CSS_HANDLES, { classes })
   const productContextValue = useProduct()
 
   const seller = getDefaultSeller(productContextValue?.selectedItem?.sellers)
 
   const commercialOffer = seller?.commertialOffer
 
-  if (!commercialOffer || commercialOffer?.AvailableQuantity <= 0) {
+  if (
+    !commercialOffer ||
+    hideProductPrice({
+      alwaysShow,
+      availableQuantity: commercialOffer.AvailableQuantity,
+    })
+  ) {
     return null
   }
 
@@ -51,8 +60,12 @@ function SpotPrice({
     return null
   }
 
+  const containerClasses = withModifiers('spotPrice', [
+    alwaysShow && commercialOffer.AvailableQuantity <= 0 ? 'isUnavailable' : '',
+  ])
+
   return (
-    <span className={handles.spotPrice}>
+    <span className={containerClasses}>
       <IOMessageWithMarkers
         message={message}
         markers={markers}

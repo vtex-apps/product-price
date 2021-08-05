@@ -7,6 +7,7 @@ import { IOMessageWithMarkers } from 'vtex.native-types'
 import { ProductSummaryContext } from 'vtex.product-summary-context'
 
 import { getDefaultSeller } from './modules/seller'
+import { hideProductPrice } from './modules/hideProductPrice'
 
 const CSS_HANDLES = [
   'savings',
@@ -65,6 +66,7 @@ interface Props {
   minimumPercentage?: number
   /** Used to override default CSS handles */
   classes?: CssHandlesTypes.CustomClasses<typeof CSS_HANDLES>
+  alwaysShow?: boolean
 }
 
 function Savings({
@@ -73,8 +75,9 @@ function Savings({
   minimumPercentage = 0,
   percentageStyle = 'locale',
   classes,
+  alwaysShow = false,
 }: Props) {
-  const { handles } = useCssHandles(CSS_HANDLES, { classes })
+  const { handles, withModifiers } = useCssHandles(CSS_HANDLES, { classes })
   const { formatNumber } = useIntl()
   const productContextValue = useProduct()
   const productSummaryValue = ProductSummaryContext.useProductSummary()
@@ -85,7 +88,10 @@ function Savings({
 
   if (
     !commercialOffer ||
-    commercialOffer?.AvailableQuantity <= 0 ||
+    hideProductPrice({
+      alwaysShow,
+      availableQuantity: commercialOffer.AvailableQuantity,
+    }) ||
     productSummaryValue?.isLoading
   ) {
     return null
@@ -103,8 +109,12 @@ function Savings({
     return null
   }
 
+  const containerClasses = withModifiers('savings', [
+    alwaysShow && commercialOffer.AvailableQuantity <= 0 ? 'isUnavailable' : '',
+  ])
+
   return (
-    <span className={handles.savings}>
+    <span className={containerClasses}>
       <IOMessageWithMarkers
         message={message}
         markers={markers}

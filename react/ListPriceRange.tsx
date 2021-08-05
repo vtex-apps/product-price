@@ -6,6 +6,7 @@ import { useCssHandles, CssHandlesTypes } from 'vtex.css-handles'
 import { IOMessageWithMarkers } from 'vtex.native-types'
 
 import { getDefaultSeller } from './modules/seller'
+import { hideProductPrice } from './modules/hideProductPrice'
 
 const CSS_HANDLES = [
   'listPriceRange',
@@ -47,6 +48,7 @@ interface Props {
   markers?: string[]
   /** Used to override default CSS handles */
   classes?: CssHandlesTypes.CustomClasses<typeof CSS_HANDLES>
+  alwaysShow?: boolean
 }
 
 function ListPriceRange({
@@ -54,8 +56,9 @@ function ListPriceRange({
   noRangeMessage = messages.noRangeMessageDefault.id,
   markers = [],
   classes,
+  alwaysShow = false,
 }: Props) {
-  const { handles } = useCssHandles(CSS_HANDLES, { classes })
+  const { handles, withModifiers } = useCssHandles(CSS_HANDLES, { classes })
   const productContextValue = useProduct()
 
   const priceRange = productContextValue?.product?.priceRange
@@ -75,7 +78,13 @@ function ListPriceRange({
 
   const commercialOffer = seller?.commertialOffer
 
-  if (!commercialOffer || commercialOffer?.AvailableQuantity <= 0) {
+  if (
+    !commercialOffer ||
+    hideProductPrice({
+      alwaysShow,
+      availableQuantity: commercialOffer.AvailableQuantity,
+    })
+  ) {
     return null
   }
 
@@ -85,9 +94,13 @@ function ListPriceRange({
   const minPriceWithTax = minPrice + minPrice * commercialOffer.taxPercentage
   const maxPriceWithTax = maxPrice + maxPrice * commercialOffer.taxPercentage
 
+  const containerClasses = withModifiers('listPriceRange', [
+    alwaysShow && commercialOffer.AvailableQuantity <= 0 ? 'isUnavailable' : '',
+  ])
+
   if (hasRange) {
     return (
-      <span className={handles.listPriceRange}>
+      <span className={containerClasses}>
         <IOMessageWithMarkers
           message={message}
           markers={markers}
@@ -132,7 +145,7 @@ function ListPriceRange({
   }
 
   return (
-    <span className={handles.listPriceRange}>
+    <span className={containerClasses}>
       <IOMessageWithMarkers
         message={noRangeMessage}
         markers={markers}
