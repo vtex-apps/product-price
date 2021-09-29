@@ -95,9 +95,8 @@ function SellingPrice({
   ])
 
   const sellingPriceValueWithQuantity = commercialOffer.Price * quantity
-  const sellingPriceWithUnitMultiplierWithQuantity = commercialOffer.ListPrice  * quantity
-  const sellingPriceWithTaxWithQuantity =
-    (sellingPriceValue + sellingPriceValue * taxPercentage)  * quantity
+  const sellingPriceWithUnitMultiplierWithQuantity = sellingPriceWithUnitMultiplier * quantity
+  const sellingPriceWithTaxWithQuantity = sellingPriceWithTax * quantity
 
   return (
     <span className={containerClasses}>

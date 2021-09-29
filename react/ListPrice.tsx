@@ -90,9 +90,9 @@ function ListPrice({
     alwaysShow && commercialOffer.AvailableQuantity <= 0 ? 'isUnavailable' : '',
   ])
 
-  const listPriceWithTaxWithQuantity = (listPriceValue + listPriceValue * taxPercentage) * quantity
+  const listPriceWithTaxWithQuantity = listPriceWithTax * quantity
   const listPriceValueWithQuantity = listPriceValue * quantity
-  const listPriceWithUnitMultiplierWithQuantity = (commercialOffer.ListPrice * unitMultiplier) * quantity
+  const listPriceWithUnitMultiplierWithQuantity = listPriceWithUnitMultiplier * quantity
 
   return (
     <span className={containerClasses}>

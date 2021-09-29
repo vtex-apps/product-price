@@ -120,9 +120,8 @@ function Savings({
 
   const previousPriceValueWithQuantity = commercialOffer.ListPrice * quantity
   const newPriceValueWithQuantity = commercialOffer.Price * quantity
-  const savingsValueWithQuantity = (previousPriceValue - newPriceValue ) * quantity
-  const savingsWithTaxWithQuantity =
-    (savingsValue + savingsValue * commercialOffer.taxPercentage) * quantity
+  const savingsValueWithQuantity = savingsValue * quantity
+  const savingsWithTaxWithQuantity = savingsWithTax * quantity
 
 
   return (
