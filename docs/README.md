@@ -187,6 +187,9 @@ In addition to that, keep in mind the message variables for each block since you
 | `listPriceValue` | `string` | List price value. |
 | `listPriceWithTax` | `string` | List price value with tax. |
 | `listPriceWithUnitMultiplier` | `string` | List price multiplied by unit multiplier. |
+| `listPriceValueWithQuantity` | `string` | List price value by quantity selected. |
+| `listPriceWithTaxWithQuantity` | `string` | List price value with tax by quantity selected. |
+| `listPriceWithUnitMultiplierWithQuantity` | `string` | List price multiplied by unit multiplier and quantity selected. |
 | `taxPercentage` | `string` | Tax percentage. |
 | `taxValue` | `string` | Tax value. |
 | `hasMeasurementUnit` | `boolean` | Whether the product has a measurement unit (`true`) or not (`false`). |
@@ -201,6 +204,9 @@ In addition to that, keep in mind the message variables for each block since you
 | `sellingPriceValue` | `string` | Selling price value. |
 | `sellingPriceWithTax` | `string` | Selling price with tax. |
 | `sellingPriceWithUnitMultiplier` | `string` | Selling price multiplied by unit multiplier. |
+| `sellingPriceValueWithQuantity` | `string` | Selling price value by quantity selected. |
+| `sellingPriceWithTaxWithQuantity` | `string` | Selling price with tax by quantity selected. |
+| `sellingPriceWithUnitMultiplierWithQuantity` | `string` | Selling price multiplied by unit multiplier and quantity selected. |
 | `taxPercentage` | `string` | Tax percentage. |
 | `hasListPrice` | `boolean` | Whether the product has a list price (`true`) or not (`false`). |
 | `taxValue` | `string` | Tax value. |
@@ -260,6 +266,10 @@ Still, according to the example, products that don't have a measurement unit and
 | `newPriceValue` | `string` | New price value (selling price). |
 | `savingsValue` | `string` | Difference between previous product price and the new one. |
 | `savingsWithTax` | `string` | Difference between previous product price and the new one with taxes. |
+| `previousPriceValueWithQuantity` | `string` | Previous price value (list price) by quantity selected. |
+| `newPriceValueWithQuantity` | `string` | New price value (selling price) by quantity selected. |
+| `savingsValueWithQuantity` | `string` | Difference between previous product price and the new one by quantity selected. |
+| `savingsWithTaxWithQuantity` | `string` | Difference between previous product price and the new one with taxes by quantity selected. |
 | `savingsPercentage` | `string` | Percentage of savings. |
 
 - **`product-spot-price-savings`**
@@ -328,13 +338,21 @@ To apply CSS customization in this and other blocks, follow the instructions giv
 | `listPriceRange--isUnavailable` | 
 | `listPriceValue` |
 | `listPriceWithTax` | 
+| `listPriceWithUnitMultiplier` | 
+| `listPriceValueWithQuantity` |
+| `listPriceWithTaxWithQuantity` | 
+| `listPriceWithUnitMultiplierWithQuantity` | 
 | `newPriceValue` |
+| `newPriceValueWithQuantity` |
 | `newSpotPriceValue` | 
 | `paymentSystemName` |
 | `previousPriceValue` |
+| `previousPriceValueWithQuantity` |
 | `savingsPercentage` |
 | `savingsValue` |
 | `savingsWithTax` |
+| `savingsValueWithQuantity` |
+| `savingsWithTaxWithQuantity` |
 | `savings` |
 | `savings--isUnavailable` | 
 | `sellerName` |
@@ -352,6 +370,10 @@ To apply CSS customization in this and other blocks, follow the instructions giv
 | `sellingPriceRange--isUnavailable` |
 | `sellingPriceValue` |
 | `sellingPriceWithTax` | 
+| `sellingPriceWithUnitMultiplier` | 
+| `sellingPriceValueWithQuantity` |
+| `sellingPriceWithTaxWithQuantity` | 
+| `sellingPriceWithUnitMultiplierWithQuantity` | 
 | `sellingPrice` |
 | `spotPriceSavingsPercentage` | 
 | `spotPriceSavingsValue` | 
