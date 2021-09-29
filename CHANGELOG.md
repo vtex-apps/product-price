@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- SellingPrices with Quantity
+- ListPrices with quantity
+- Savings with quantity
 ## [1.26.0] - 2021-09-24
 
 ### Added 
