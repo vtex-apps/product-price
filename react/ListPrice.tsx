@@ -13,6 +13,9 @@ const CSS_HANDLES = [
   'listPriceValue',
   'listPriceWithTax',
   'listPriceWithUnitMultiplier',
+  'listPriceValueWithQuantity',
+  'listPriceWithTaxWithQuantity',
+  'listPriceWithUnitMultiplierWithQuantity',
   'taxPercentage',
   'taxValue',
   'unitMultiplier',
@@ -49,6 +52,7 @@ function ListPrice({
   const productContextValue = useProduct()
 
   const seller = getDefaultSeller(productContextValue?.selectedItem?.sellers)
+  const quantity = productContextValue?.selectedQuantity || 1
 
   const commercialOffer = seller?.commertialOffer
 
@@ -85,6 +89,10 @@ function ListPrice({
   const containerClasses = withModifiers('listPrice', [
     alwaysShow && commercialOffer.AvailableQuantity <= 0 ? 'isUnavailable' : '',
   ])
+
+  const listPriceWithTaxWithQuantity = (listPriceValue + listPriceValue * taxPercentage) * quantity
+  const listPriceValueWithQuantity = listPriceValue * quantity
+  const listPriceWithUnitMultiplierWithQuantity = (commercialOffer.ListPrice * unitMultiplier) * quantity
 
   return (
     <span className={containerClasses}>
@@ -137,6 +145,30 @@ function ListPrice({
           measurementUnit: (
             <span key="measurementUnit" className={handles.measurementUnit}>
               {measurementUnit}
+            </span>
+          ),
+          listPriceValueWithQuantity: (
+            <span
+              key="listPriceValueWithQuantity"
+              className={`${handles.listPriceValueWithQuantity} strike`}
+            >
+              <FormattedCurrency value={listPriceValueWithQuantity} />
+            </span>
+          ),
+          listPriceWithTaxWithQuantity: (
+            <span
+              key="listPriceWithTaxWithQuantity"
+              className={`${handles.listPriceWithTaxWithQuantity} strike`}
+            >
+              <FormattedCurrency value={listPriceWithTaxWithQuantity} />
+            </span>
+          ),
+          listPriceWithUnitMultiplierWithQuantity: (
+            <span
+              key="listPriceWithUnitMultiplierWithQuantity"
+              className={`${handles.listPriceWithUnitMultiplierWithQuantity} strike`}
+            >
+              <FormattedCurrency value={listPriceWithUnitMultiplierWithQuantity} />
             </span>
           ),
         }}
