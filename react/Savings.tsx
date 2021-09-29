@@ -165,24 +165,24 @@ function Savings({
           ),
           previousPriceValueWithQuantity: (
             <span
-              key="previousPriceValue"
+              key="previousPriceValueWithQuantity"
               className={handles.previousPriceValueWithQuantity}
             >
               <FormattedCurrency value={previousPriceValueWithQuantity} />
             </span>
           ),
           newPriceValueWithQuantity: (
-            <span key="newPriceValue" className={handles.newPriceValueWithQuantity}>
+            <span key="newPriceValueWithQuantity" className={handles.newPriceValueWithQuantity}>
               <FormattedCurrency value={newPriceValueWithQuantity} />
             </span>
           ),
           savingsValueWithQuantity: (
-            <span key="savingsValue" className={handles.savingsValueWithQuantity}>
+            <span key="savingsValueWithQuantity" className={handles.savingsValueWithQuantity}>
               <FormattedCurrency value={savingsValueWithQuantity} />
             </span>
           ),
           savingsWithTaxWithQuantity: (
-            <span key="savingsWithTax" className={handles.savingsWithTaxWithQuantity}>
+            <span key="savingsWithTaxWithQuantity" className={handles.savingsWithTaxWithQuantity}>
               <FormattedCurrency value={savingsWithTaxWithQuantity} />
             </span>
           ),

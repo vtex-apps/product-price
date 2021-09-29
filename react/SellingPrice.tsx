@@ -150,13 +150,13 @@ function SellingPrice({
             </span>
           ),
           sellingPriceValueWithQuantity: (
-            <span key="sellingPriceValue" className={handles.sellingPriceValueWithQuantity}>
+            <span key="sellingPriceValueWithQuantity" className={handles.sellingPriceValueWithQuantity}>
               <FormattedCurrency value={sellingPriceValueWithQuantity} />
             </span>
           ),
           sellingPriceWithTaxWithQuantity: (
             <span
-              key="sellingPriceWithTax"
+              key="sellingPriceWithTaxWithQuantity"
               className={handles.sellingPriceWithTaxWithQuantity}
             >
               <FormattedCurrency value={sellingPriceWithTaxWithQuantity} />
@@ -164,7 +164,7 @@ function SellingPrice({
           ),
           sellingPriceWithUnitMultiplierWithQuantity: (
             <span
-              key="sellingPriceWithUnitMultiplier"
+              key="sellingPriceWithUnitMultiplierWithQuantity"
               className={handles.sellingPriceWithUnitMultiplierWithQuantity}
             >
               <FormattedCurrency value={sellingPriceWithUnitMultiplierWithQuantity} />
