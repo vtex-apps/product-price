@@ -13,6 +13,9 @@ const CSS_HANDLES = [
   'sellingPriceValue',
   'sellingPriceWithTax',
   'sellingPriceWithUnitMultiplier',
+  'sellingPriceValueWithQuantity',
+  'sellingPriceWithTaxWithQuantity',
+  'sellingPriceWithUnitMultiplierWithQuantity',
   'taxPercentage',
   'taxValue',
   'measurementUnit',
@@ -52,6 +55,7 @@ function SellingPrice({
   const productContextValue = useProduct()
 
   const seller = getDefaultSeller(productContextValue?.selectedItem?.sellers)
+  const quantity = productContextValue?.selectedQuantity || 1
 
   const commercialOffer = seller?.commertialOffer
 
@@ -89,6 +93,11 @@ function SellingPrice({
     hasUnitMultiplier ? 'hasUnitMultiplier' : '',
     alwaysShow && commercialOffer.AvailableQuantity <= 0 ? 'isUnavailable' : '',
   ])
+
+  const sellingPriceValueWithQuantity = commercialOffer.Price * quantity
+  const sellingPriceWithUnitMultiplierWithQuantity = commercialOffer.ListPrice  * quantity
+  const sellingPriceWithTaxWithQuantity =
+    (sellingPriceValue + sellingPriceValue * taxPercentage)  * quantity
 
   return (
     <span className={containerClasses}>
@@ -139,6 +148,27 @@ function SellingPrice({
           measurementUnit: (
             <span key="measurementUnit" className={handles.measurementUnit}>
               {measurementUnit}
+            </span>
+          ),
+          sellingPriceValueWithQuantity: (
+            <span key="sellingPriceValue" className={handles.sellingPriceValueWithQuantity}>
+              <FormattedCurrency value={sellingPriceValueWithQuantity} />
+            </span>
+          ),
+          sellingPriceWithTaxWithQuantity: (
+            <span
+              key="sellingPriceWithTax"
+              className={handles.sellingPriceWithTaxWithQuantity}
+            >
+              <FormattedCurrency value={sellingPriceWithTaxWithQuantity} />
+            </span>
+          ),
+          sellingPriceWithUnitMultiplierWithQuantity: (
+            <span
+              key="sellingPriceWithUnitMultiplier"
+              className={handles.sellingPriceWithUnitMultiplierWithQuantity}
+            >
+              <FormattedCurrency value={sellingPriceWithUnitMultiplierWithQuantity} />
             </span>
           ),
         }}
