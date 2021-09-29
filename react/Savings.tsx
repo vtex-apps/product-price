@@ -15,6 +15,10 @@ const CSS_HANDLES = [
   'newPriceValue',
   'savingsValue',
   'savingsWithTax',
+  'previousPriceValueWithQuantity',
+  'newPriceValueWithQuantity',
+  'savingsValueWithQuantity',
+  'savingsWithTaxWithQuantity',
   'savingsPercentage',
 ] as const
 
@@ -83,6 +87,7 @@ function Savings({
   const productSummaryValue = ProductSummaryContext.useProductSummary()
 
   const seller = getDefaultSeller(productContextValue?.selectedItem?.sellers)
+  const quantity = productContextValue?.selectedQuantity || 1
 
   const commercialOffer = seller?.commertialOffer
 
@@ -104,7 +109,6 @@ function Savings({
     savingsValue + savingsValue * commercialOffer.taxPercentage
 
   const savingsPercentage = savingsValue / previousPriceValue
-
   if (savingsValue <= 0 || savingsPercentage < minimumPercentage / 100) {
     return null
   }
@@ -112,6 +116,14 @@ function Savings({
   const containerClasses = withModifiers('savings', [
     alwaysShow && commercialOffer.AvailableQuantity <= 0 ? 'isUnavailable' : '',
   ])
+
+
+  const previousPriceValueWithQuantity = commercialOffer.ListPrice * quantity
+  const newPriceValueWithQuantity = commercialOffer.Price * quantity
+  const savingsValueWithQuantity = (previousPriceValue - newPriceValue ) * quantity
+  const savingsWithTaxWithQuantity =
+    (savingsValue + savingsValue * commercialOffer.taxPercentage) * quantity
+
 
   return (
     <span className={containerClasses}>
@@ -150,6 +162,29 @@ function Savings({
                 savingsPercentage,
                 percentageStyle,
               })}
+            </span>
+          ),
+          previousPriceValueWithQuantity: (
+            <span
+              key="previousPriceValue"
+              className={handles.previousPriceValueWithQuantity}
+            >
+              <FormattedCurrency value={previousPriceValueWithQuantity} />
+            </span>
+          ),
+          newPriceValueWithQuantity: (
+            <span key="newPriceValue" className={handles.newPriceValueWithQuantity}>
+              <FormattedCurrency value={newPriceValueWithQuantity} />
+            </span>
+          ),
+          savingsValueWithQuantity: (
+            <span key="savingsValue" className={handles.savingsValueWithQuantity}>
+              <FormattedCurrency value={savingsValueWithQuantity} />
+            </span>
+          ),
+          savingsWithTaxWithQuantity: (
+            <span key="savingsWithTax" className={handles.savingsWithTaxWithQuantity}>
+              <FormattedCurrency value={savingsWithTaxWithQuantity} />
             </span>
           ),
         }}
