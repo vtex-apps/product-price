@@ -3,7 +3,7 @@
   "store/selling-price.default": "{sellingPriceValue}",
   "store/spot-price.default": "Prix au comptant : {spotPriceValue}",
   "store/spot-price-savings.default": "Économies sur les prix au comptant : {spotPriceSavingsValue}",
-  "store/savings.default": "Sauvegarder {savingsValue}",
+  "store/savings.default": "Économisez {savingsValue}",
   "store/installments.default": "Jusqu’à {installmentsNumber}x {installmentValue}{hasInterest, select, true {, {interestRate} of interest} false { interest-free}}\"",
   "store/list-price-range-message.default": "{minPriceValue} - {maxPriceValue}",
   "store/list-price-range-no-range-message.default": "{listPriceValue}",
