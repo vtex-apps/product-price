@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- French translations.
+
 ## [1.26.0] - 2021-09-24
 
 ### Added 
