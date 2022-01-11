@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Arabic, Norwegian and Norwegian variant translations.
+
+### Fixed
+- French translations.
+
 ## [1.26.1] - 2022-01-03
 
 ### Fixed
@@ -17,17 +23,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.26.0] - 2021-09-24
 
-### Added 
+### Added
 - I18n Bg.
 
-### Fixed 
+### Fixed
 - I18n Es and PT.
 
 ## [1.25.0] - 2021-08-05
 
 ### Added
 - Prop `alwaysShow` to the following blocks `product-list-price`, `product-selling-price`, `product-spot-price`, `product-spot-price-savings`, `product-price-savings`, `product-list-price-range`, and `product-selling-price-range` to render them even when product is unavailable.
-### Added 
+### Added
 - I18n pseudo language to implement in-context tool
 
 ## [1.24.0] - 2021-07-13
@@ -156,7 +162,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `product-spot-price-savings` component
 
 ### Removed
-- Spot price logic from `product-price-savings` since it was causing "0%" to appear as savings on some stores. 
+- Spot price logic from `product-price-savings` since it was causing "0%" to appear as savings on some stores.
 
 ## [1.6.1] - 2020-09-09
 ### Removed
@@ -196,7 +202,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.3.1] - 2020-06-01
 ### Fixed
 - Improved the `spot-price` documentation to have more details.
-- Updated the README.md file with a disclaimer regarding the deprecation of Product Summary Price and Product Price block. 
+- Updated the README.md file with a disclaimer regarding the deprecation of Product Summary Price and Product Price block.
 
 ## [1.3.0] - 2020-05-11
 ### Added
