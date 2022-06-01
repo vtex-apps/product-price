@@ -26,13 +26,13 @@
   "admin/installments.title": "Versements",
   "admin/installments-list-item.title": "Versements",
   "admin/list-price-range.title": "Lister la gamme de prix",
-  "admin/list-price-range-message.description": "Message à afficher lorsqu’il y a une différence de prix entre les UGS.\nValeurs disponibles pour l’interpolation :: '{minPriceValue}, {maxPriceValue}, {minPriceWithTax}, {maxPriceWithTax}'",
+  "admin/list-price-range-message.description": "Message à afficher lorsqu’il y a une différence de prix entre les SKU.\nValeurs disponibles pour l’interpolation : '{minPriceValue}, {maxPriceValue}, {minPriceWithTax}, {maxPriceWithTax}'",
   "admin/list-price-range-message.title": "Liste de prix (Gamme)",
-  "admin/list-price-range-no-range-message.description": "Message à afficher lorsqu’il n’y a pas de différence de prix entre les UGS.\nValeurs disponibles pour l’interpolation : \"{listPriceValue}, {listPriceWithTax}\"",
+  "admin/list-price-range-no-range-message.description": "Message à afficher lorsqu’il n’y a pas de différence de prix entre les SKU.\nValeurs disponibles pour l’interpolation : \"{listPriceValue}, {listPriceWithTax}\"",
   "admin/list-price-range-no-range-message.title": "Lister de prix (Pas de gamme)",
   "admin/selling-price-range.title": "Gamme de prix de vente",
-  "admin/selling-price-range-message.description": "Message à afficher lorsqu’il y a une différence de prix entre les UGS.\nValeurs disponibles pour l’interpolation: '{minPriceValue}, {maxPriceValue}, {minPriceWithTax}, {maxPriceWithTax}'",
+  "admin/selling-price-range-message.description": "Message à afficher lorsqu’il y a une différence de prix entre les SKU.\nValeurs disponibles pour l’interpolation : '{minPriceValue}, {maxPriceValue}, {minPriceWithTax}, {maxPriceWithTax}'",
   "admin/selling-price-range-message.title": "Prix de vente (Gamme)",
-  "admin/selling-price-range-no-range-message.description": "Message à afficher lorsqu’il n’y a pas de différence de prix entre les UGS.\nValeurs disponibles pour l’interpolation : '{sellingPriceValue}, {sellingPriceWithTax}'",
+  "admin/selling-price-range-no-range-message.description": "Message à afficher lorsqu’il n’y a pas de différence de prix entre les SKU.\nValeurs disponibles pour l’interpolation : '{sellingPriceValue}, {sellingPriceWithTax}'",
   "admin/selling-price-range-no-range-message.title": "Prix de vente (Pas de gamme)"
 }
