@@ -350,6 +350,7 @@ To apply CSS customization in this and other blocks, follow the instructions giv
 | `sellingPriceRangeUniqueWithTax` |
 | `sellingPriceRange` |
 | `sellingPriceRange--isUnavailable` |
+| `sellingPriceRange--hasListPrice` |
 | `sellingPriceValue` |
 | `sellingPriceWithTax` | 
 | `sellingPrice` |
