@@ -83,6 +83,9 @@ function SellingPriceRange({
     return null
   }
 
+  const sellingPriceValue = commercialOffer.Price
+  const listPriceValue = commercialOffer.ListPrice
+  const hasListPrice = sellingPriceValue !== listPriceValue
   const minPrice: number = priceRange.sellingPrice.lowPrice
   const maxPrice: number = priceRange.sellingPrice.highPrice
   const hasRange = minPrice !== maxPrice
@@ -94,6 +97,7 @@ function SellingPriceRange({
     commercialOffer.PriceWithoutDiscount * commercialOffer.taxPercentage
 
   const containerClasses = withModifiers('sellingPriceRange', [
+    hasListPrice ? 'hasListPrice' : '',
     alwaysShow && commercialOffer.AvailableQuantity <= 0 ? 'isUnavailable' : '',
   ])
 
@@ -153,6 +157,7 @@ function SellingPriceRange({
                 <FormattedCurrency value={sellingPriceWithTax} />
               </span>
             ),
+            hasListPrice,
           }}
         />
       </span>
