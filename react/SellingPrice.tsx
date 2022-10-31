@@ -65,7 +65,7 @@ function SellingPrice({
     return null
   }
 
-  const sellingPriceValue = commercialOffer.Price
+  const sellingPriceValue = commercialOffer.PriceWithoutDiscount
   const listPriceValue = commercialOffer.ListPrice
   const { taxPercentage } = commercialOffer
   const sellingPriceWithTax =
