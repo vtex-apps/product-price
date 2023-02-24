@@ -7,7 +7,8 @@ import { IOMessageWithMarkers } from 'vtex.native-types'
 
 import { getDefaultSeller } from './modules/seller'
 import { hideProductPrice } from './modules/hideProductPrice'
-
+import { useRuntime } from 'vtex.render-runtime'
+import './styles.css'
 const CSS_HANDLES = [
   'listPrice',
   'listPriceValue',
@@ -17,6 +18,8 @@ const CSS_HANDLES = [
   'taxValue',
   'unitMultiplier',
   'measurementUnit',
+  'productPricePerUnit',
+  'discountInsideContainer'
 ] as const
 
 const messages = defineMessages({
@@ -42,10 +45,15 @@ interface Props {
 function ListPrice({
   message = messages.default.id,
   markers = [],
-  classes,
   alwaysShow = false,
 }: Props) {
-  const { handles, withModifiers } = useCssHandles(CSS_HANDLES, { classes })
+
+  const {
+    culture: { country },
+  } = useRuntime()
+  const isCoCountry = country === 'COL';
+
+  const { handles } = useCssHandles(CSS_HANDLES)
   const productContextValue = useProduct()
 
   const seller = getDefaultSeller(productContextValue?.selectedItem?.sellers)
@@ -69,25 +77,49 @@ function ListPrice({
 
   const measurementUnit =
     productContextValue?.selectedItem?.measurementUnit ?? ''
-
   const unitMultiplier = productContextValue?.selectedItem?.unitMultiplier ?? 1
-  const listPriceWithUnitMultiplier = commercialOffer.ListPrice * unitMultiplier
 
+  const listPriceWithUnitMultiplier = commercialOffer.ListPrice * unitMultiplier
   const taxValue = commercialOffer.Tax
 
   const hasMeasurementUnit = measurementUnit && measurementUnit !== 'un'
   const hasUnitMultiplier = unitMultiplier !== 1
 
+  //UnitPrice
+  const sizeItems = productContextValue?.product?.properties?.filter(item => item.name === 'Tamaño');
+  const sizeItemsValue = sizeItems?.map(element => element.values[0])[0]?.trim().toLowerCase();
+  const unitsItems = productContextValue?.product?.properties?.filter(item => item.name === 'Unidades');
+  const unitMeasure = Number(unitsItems?.map(element => element.values[0])[0]?.trim().split('pack')[0]);
+
+  const mlUnits = 'ml';
+  const litersUnits = 'l'
+  let pricePerUnit;
+  let unitValue = '';
+
+  if (sizeItemsValue?.includes(mlUnits || litersUnits)) {
+    const sizeValue = parseInt(sizeItemsValue?.split(mlUnits || litersUnits)[0]);
+    //Delete numbers
+    unitValue = sizeItemsValue.replace(/\d+/g, '')
+
+    if (sizeValue && unitMeasure && sellingPriceValue) {
+      
+      pricePerUnit = (sellingPriceValue / (sizeValue*unitMeasure)).toFixed(2);
+
+      //Replace point by comma COL
+      if (isCoCountry) {
+        pricePerUnit = pricePerUnit.replace(".", ",");
+      }
+
+    }
+  }
+
   if (listPriceValue <= sellingPriceValue) {
     return null
   }
 
-  const containerClasses = withModifiers('listPrice', [
-    alwaysShow && commercialOffer.AvailableQuantity <= 0 ? 'isUnavailable' : '',
-  ])
 
   return (
-    <span className={containerClasses}>
+    <span >
       <IOMessageWithMarkers
         message={message}
         markers={markers}
@@ -98,7 +130,7 @@ function ListPrice({
           listPriceValue: (
             <span
               key="listPriceValue"
-              className={`${handles.listPriceValue} strike`}
+              className={`${handles.discountInsideContainer} strike `}
             >
               <FormattedCurrency value={listPriceValue} />
             </span>
@@ -139,8 +171,11 @@ function ListPrice({
               {measurementUnit}
             </span>
           ),
+
         }}
       />
+
+      <span key="unitPrice"className={handles.productPricePerUnit} >{typeof pricePerUnit !== 'undefined' ? `($${pricePerUnit}/${unitValue})` : ''}</span>
     </span>
   )
 }

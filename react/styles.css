@@ -1,0 +1,38 @@
+
+:global(.vtex-product-summary-2-x-container--noaction-shelf) .sellingPriceValue--summary {
+    color: var(--tada-color-green, #248B2C);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+@media (max-width: 39.9375em) {
+    :global(.vtex-product-summary-2-x-container--noaction-shelf) .sellingPriceValue--summary {
+        font-size: 13px;
+    }
+}
+
+:global(.vtex-product-summary-2-x-container--noaction-shelf) .listPrice--summary {
+    color: var(--tada-color-red, #F41F40);
+    font-size: 11px;
+}
+
+:global(.vtex-product-summary-2-x-container--noaction-shelf) .sellingPrice--summary {
+    font-size: 0px;
+}
+.productPricePerUnit {
+    margin: 0px;
+    font-size: 11px;
+    color: #4F4B4B;
+    font-weight: 500;
+    padding-right: 10px;
+}
+
+.vtex-product-summary-2-x-container--noaction-shelf .vtex-product-price-1-x-listPrice--summary {
+    color: var(--tada-color-red,#f41f40);
+    font-size: 11px;
+}
+
+.discountInsideContainer {
+    color: #f41f40;
+    font-size: 11px;
+}
