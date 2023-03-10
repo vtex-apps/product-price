@@ -79,7 +79,7 @@ function SellingPrice({
   const sellingPriceWithUnitMultiplier = sellingPriceValue * unitMultiplier
 
   const sellingPriceWithUnitMultiplierAndTax =
-    sellingPriceWithUnitMultiplier + sellingPriceValue * taxPercentage
+  sellingPriceWithTax * unitMultiplier
 
   const taxValue = commercialOffer.Tax
 
