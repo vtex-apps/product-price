@@ -38,31 +38,46 @@ interface GetFormattedSavingsPercentageParams {
   formatNumber: IntlFormatters['formatNumber']
   savingsPercentage: number
   percentageStyle: Props['percentageStyle']
+  displayStyle: Props['displayStyle']
+  numberOfDecimals: Props['numberOfDecimals']
 }
 
 function getFormattedSavingsPercentage({
   formatNumber,
   savingsPercentage,
   percentageStyle,
+  displayStyle,
+  numberOfDecimals
 }: GetFormattedSavingsPercentageParams) {
-  const formattedSavingsPercentage = formatNumber(savingsPercentage, {
-    style: 'percent',
-  })
+    let finalNumber = '';
+    const formattedSavingsPercentage = formatNumber(savingsPercentage, {
+      style: displayStyle
+    })
 
-  if (percentageStyle === 'compact') {
-    return formattedSavingsPercentage.replace(
-      `${NON_BREAKING_SPACE_CHAR}%`,
-      '%'
-    )
+  if(displayStyle === 'decimal') {
+    const number = savingsPercentage * 100;
+    const numberWithDecimals = parseFloat(number.toFixed(numberOfDecimals)).toLocaleString();
+    finalNumber = `${numberWithDecimals} %`
+  } else {
+    finalNumber = formattedSavingsPercentage
   }
 
-  return formattedSavingsPercentage
+  if (percentageStyle === 'compact') {
+    return finalNumber.replace(
+      `${NON_BREAKING_SPACE_CHAR}%`,
+      '%'
+    ).replace(' %', '%')
+  }
+
+  return finalNumber
 }
 
 interface Props {
   message?: string
   markers?: string[]
   percentageStyle?: 'locale' | 'compact'
+  displayStyle?: 'percent' | 'decimal'
+  numberOfDecimals?: number
   minimumPercentage?: number
   /** Used to override default CSS handles */
   classes?: CssHandlesTypes.CustomClasses<typeof CSS_HANDLES>
@@ -74,6 +89,8 @@ function Savings({
   markers = [],
   minimumPercentage = 0,
   percentageStyle = 'locale',
+  displayStyle = 'percent',
+  numberOfDecimals = 2,
   classes,
   alwaysShow = false,
 }: Props) {
@@ -149,6 +166,8 @@ function Savings({
                 formatNumber,
                 savingsPercentage,
                 percentageStyle,
+                displayStyle,
+                numberOfDecimals
               })}
             </span>
           ),

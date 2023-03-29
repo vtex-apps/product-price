@@ -88,12 +88,14 @@ For example:
 },
 ```
 
-The block `product-price-savings` has two additional props:
+The block `product-price-savings` has four additional props:
 
 | Prop name          | Type      |  Description | Default value |
 | --------------------| ----------|--------------|---------------|
 | `percentageStyle` | `locale` or `compact` | Set to `compact` if you want to remove the white space between the number and the percent sign. It uses pattern provided by the current locale as default. | `locale` |
 | `minimumPercentage` | `number` | Set the minimum value for the percentage value display. If not informed, it always appears. Example: `10`, savings under or equal 10% will not show up. | `0` |
+| `displayStyle` | `percent` or `decimal` | Set to `decimal` if you want to display number with decimals | `percent` |
+| `numberOfDecimals` | `number` | Number of decimals to display if `displayStyle` is `decimal` | `2` |
 
 The following blocks `product-list-price`, `product-selling-price`, `product-spot-price`, `product-spot-price-savings`, `product-price-savings`, `product-list-price-range`, and `product-selling-price-range` have an additional prop:
 
