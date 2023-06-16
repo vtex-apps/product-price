@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - SellingPriceWithUnitMultiplierAndTax variable for ICU
+
+## [1.31.0] - 2023-03-28
+
+### Added
+- German translation.
+
 ## [1.30.0] - 2022-12-23
 
 ### Added
