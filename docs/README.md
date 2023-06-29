@@ -10,13 +10,13 @@ The Product Price app exports blocks related to the product price, such as list 
 
 ![image](https://cdn.jsdelivr.net/gh/vtexdocs/dev-portal-content@main/images/vtex-product-price-0.png)
 
-> ℹ️ Currently, **Product Price is the only app that provides product price blocks for your theme**. Both, the [Product Summary Price](https://developers.vtex.com/docs/guides/vtex-product-summary-productsummaryprice) and [Product Price](https://developers.vtex.com/docs/guides/vtex-store-components-productprice/) blocks from the [Product Summary](https://developers.vtex.com/docs/guides/vtex-product-summary/) and [Store Components](https://developers.vtex.com/docs/guides/vtex-store-components/) apps respectively were deprecated and will no longer be developed.
+> ℹ️ Currently, **Product Price is the only app that provides product price blocks for your theme**. The [Product Summary Price](https://developers.vtex.com/docs/guides/vtex-product-summary-productsummaryprice) block from the [Product Summary](https://developers.vtex.com/docs/guides/vtex-product-summary/) app and the [Product Price](https://developers.vtex.com/docs/guides/vtex-store-components-productprice/) block from [Store Components](https://developers.vtex.com/docs/guides/vtex-store-components/) have been deprecated.
 
-## Configuring Product Price
+## Configuration
 
 ### Step 1 - Adding the Product Price app to your theme dependencies
 
-In the theme `manifest.json`, add the Product Price app as a dependency:
+In the theme's `manifest.json` file, add the Product Price app as a dependency:
 
 ```json
 "dependencies": {
@@ -115,14 +115,14 @@ The `product-installments-list` block has two additional props:
 
 | Prop name            | Type       | Description                                                                                                                                                                                                                                                                                                           | Default value |
 | -------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| `paymentSystemName`  | `string`   | This prop allows you to filter the listed installment options by a particular payment system. If not passed, the installments of the payment system with the most installment options will be rendered.                                                                                                               | `undefined`   |
-| `installmentsToShow` | `number[]` | Determine the installment options you want to show to the user based on the number of installments. For example, if `[1, 3]` is passed as a value for this prop, only the installments options with `NumberOfInstallments` equal to 1 and 3 will be rendered. If a value is not passed, all options will be rendered. | `undefined`   |
+| `paymentSystemName`  | `string`   | Allows you to filter the listed installment options by a particular payment system. If not passed, the installments of the payment system with the most installment options will be rendered.                                                                                                               | `undefined`   |
+| `installmentsToShow` | `number[]` | Determines the installment options you want to show to the user based on the number of installments. For example, if `[1, 3]` is passed as a value for this prop, only the installments options with `NumberOfInstallments` equal to 1 and 3 will be rendered. If a value is not passed, all options will be rendered. | `undefined`   |
 
 The `product-installments` block also has two additional props:
 
 | Prop name                  | Type                                                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                             | Default value  |
 | -------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| `installmentsCriteria`     | `max-quantity` or `max-quantity-without-interest`               | When set to `max-quantity`, the block will render the installment plan with the most number of installments. When set to `max-quantity-without-interest`, the block will render the installment plan with the most number of installments and **no interest**. Note that if this prop is set to `max-quantity-without-interest` and no installment plan matches the 'without interest' criterion, the component will fall back to the default behavior. | `max-quantity` |
+| `installmentsCriteria`     | `max-quantity` or `max-quantity-without-interest`               | When set to `max-quantity`, the block renders the installment plan with the most number of installments. When set to `max-quantity-without-interest`, the block renders the installment plan with the most number of installments and **no interest**. Note that if this prop is set to `max-quantity-without-interest` and no installment plan matches the 'without interest' criterion, the component will fall back to the default behavior. | `max-quantity` |
 | `installmentOptionsFilter` | `{ paymentSystemName?: string, installmentsQuantity?: number }` | Allows you to define two filtering rules that will narrow down the possible installment plans the component may render.                                                                                                                                                                                                                                                                                                                                 | `undefined`    |
 
 If you are using the asynchronous price feature, you can take advantage of `product-price-suspense` and its props:
