@@ -86,7 +86,6 @@ function ListPrice({
     alwaysShow && commercialOffer.AvailableQuantity <= 0 ? 'isUnavailable' : '',
   ])
 
-
   return (
     <span className={containerClasses}>
       <IOMessageWithMarkers
