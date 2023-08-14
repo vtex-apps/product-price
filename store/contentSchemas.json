@@ -70,7 +70,7 @@
       "title": "admin/installments-list-item.title",
       "type": "object",
       "properties": {
-        "$ref": "app:vtex.product-price#/definitions/Installments/properties"
+        "$ref": "app:obahortifruti.product-price#/definitions/Installments/properties"
       }
     },
     "ListPriceRange": {

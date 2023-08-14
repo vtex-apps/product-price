@@ -1,14 +1,14 @@
 {
-  "vendor": "vtex",
+  "vendor": "obahortifruti",
   "name": "product-price",
   "version": "1.31.0",
-  "title": "VTEX Product Price",
+  "title": "OBA Product Price",
   "description": "Components used to show everything price related in the context of the product",
   "builders": {
     "react": "3.x",
-    "store": "0.x",
     "messages": "1.x",
-    "docs": "0.x"
+    "docs": "0.x",
+    "store": "0.x"
   },
   "dependencies": {
     "vtex.native-types": "0.x",

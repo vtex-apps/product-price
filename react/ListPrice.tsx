@@ -86,6 +86,7 @@ function ListPrice({
     alwaysShow && commercialOffer.AvailableQuantity <= 0 ? 'isUnavailable' : '',
   ])
 
+
   return (
     <span className={containerClasses}>
       <IOMessageWithMarkers
@@ -100,7 +101,7 @@ function ListPrice({
               key="listPriceValue"
               className={`${handles.listPriceValue} strike`}
             >
-              <FormattedCurrency value={listPriceValue} />
+              De: <FormattedCurrency value={listPriceValue} />
             </span>
           ),
           listPriceWithTax: (

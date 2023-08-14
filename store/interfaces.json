@@ -3,42 +3,42 @@
     "component": "ListPrice",
     "composition": "children",
     "content": {
-      "$ref": "app:vtex.product-price#/definitions/ListPrice"
+      "$ref": "app:obahortifruti.product-price#/definitions/ListPrice"
     }
   },
   "product-selling-price": {
     "component": "SellingPrice",
     "composition": "children",
     "content": {
-      "$ref": "app:vtex.product-price#/definitions/SellingPrice"
+      "$ref": "app:obahortifruti.product-price#/definitions/SellingPrice"
     }
   },
   "product-spot-price": {
     "component": "SpotPrice",
     "composition": "children",
     "content": {
-      "$ref": "app:vtex.product-price#/definitions/SpotPrice"
+      "$ref": "app:obahortifruti.product-price#/definitions/SpotPrice"
     }
   },
   "product-spot-price-savings": {
     "component": "SpotPriceSavings",
     "composition": "children",
     "content": {
-      "$ref": "app:vtex.product-price#/definitions/SpotPriceSavings"
+      "$ref": "app:obahortifruti.product-price#/definitions/SpotPriceSavings"
     }
   },
   "product-price-savings": {
     "component": "Savings",
     "composition": "children",
     "content": {
-      "$ref": "app:vtex.product-price#/definitions/Savings"
+      "$ref": "app:obahortifruti.product-price#/definitions/Savings"
     }
   },
   "product-installments": {
     "component": "Installments",
     "composition": "children",
     "content": {
-      "$ref": "app:vtex.product-price#/definitions/Installments"
+      "$ref": "app:obahortifruti.product-price#/definitions/Installments"
     }
   },
   "product-installments-list": {
@@ -48,27 +48,27 @@
   "product-installments-list-item": {
     "component": "InstallmentsListItem",
     "content": {
-      "$ref": "app:vtex.product-price#/definitions/InstallmentsListItem"
+      "$ref": "app:obahortifruti.product-price#/definitions/InstallmentsListItem"
     }
   },
   "product-list-price-range": {
     "component": "ListPriceRange",
     "composition": "children",
     "content": {
-      "$ref": "app:vtex.product-price#/definitions/ListPriceRange"
+      "$ref": "app:obahortifruti.product-price#/definitions/ListPriceRange"
     }
   },
   "product-selling-price-range": {
     "component": "SellingPriceRange",
     "composition": "children",
     "content": {
-      "$ref": "app:vtex.product-price#/definitions/SellingPriceRange"
+      "$ref": "app:obahortifruti.product-price#/definitions/SellingPriceRange"
     }
   },
   "product-seller-name": {
     "component": "SellerName",
     "content": {
-      "$ref": "app:vtex.product-price#/definitions/SellerName"
+      "$ref": "app:obahortifruti.product-price#/definitions/SellerName"
     }
   },
   "product-price-suspense": {

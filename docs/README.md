@@ -20,7 +20,7 @@ In the theme's `manifest.json` file, add the Product Price app as a dependency:
 
 ```json
 "dependencies": {
-  "vtex.product-price": "1.x"
+  "obahortifruti.product-price": "1.x"
 }
 ```
 
