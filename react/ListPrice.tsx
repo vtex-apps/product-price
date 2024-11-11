@@ -12,6 +12,7 @@ const CSS_HANDLES = [
   'listPrice',
   'listPriceValue',
   'listPriceWithTax',
+  'listPriceWithTaxWithoutUnit',
   'listPriceWithUnitMultiplier',
   'taxPercentage',
   'taxValue',
@@ -78,6 +79,8 @@ function ListPrice({
   const hasMeasurementUnit = measurementUnit && measurementUnit !== 'un'
   const hasUnitMultiplier = unitMultiplier !== 1
 
+  const listPriceWithTaxWithoutUnit = listPriceValue + (listPriceValue * taxPercentage / unitMultiplier)
+
   if (listPriceValue <= sellingPriceValue) {
     return null
   }
@@ -109,6 +112,14 @@ function ListPrice({
               className={`${handles.listPriceWithTax} strike`}
             >
               <FormattedCurrency value={listPriceWithTax} />
+            </span>
+          ),
+          listPriceWithTaxWithoutUnit: (
+            <span
+              key="listPriceWithTaxWithoutUnit"
+              className={`${handles.listPriceWithTaxWithoutUnit} strike`}
+            >
+              <FormattedCurrency value={listPriceWithTaxWithoutUnit} />
             </span>
           ),
           listPriceWithUnitMultiplier: (
