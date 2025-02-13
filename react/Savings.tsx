@@ -67,6 +67,7 @@ interface Props {
   /** Used to override default CSS handles */
   classes?: CssHandlesTypes.CustomClasses<typeof CSS_HANDLES>
   alwaysShow?: boolean
+  arialabel?: string
 }
 
 function Savings({
@@ -76,6 +77,7 @@ function Savings({
   percentageStyle = 'locale',
   classes,
   alwaysShow = false,
+  arialabel
 }: Props) {
   const { handles, withModifiers } = useCssHandles(CSS_HANDLES, { classes })
   const { formatNumber } = useIntl()
@@ -114,7 +116,7 @@ function Savings({
   ])
 
   return (
-    <span className={containerClasses}>
+    <span className={containerClasses} aria-label={arialabel}>
       <IOMessageWithMarkers
         message={message}
         markers={markers}
