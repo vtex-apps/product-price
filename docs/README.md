@@ -94,6 +94,7 @@ The `product-price-savings` block has two additional props:
 | ------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
 | `percentageStyle`   | `locale` or `compact` | Set to `compact` to remove the white space between the number and the percent sign. It uses the pattern provided by the current locale as default.                        | `locale`      |
 | `minimumPercentage` | `number`              | Set the minimum value for the percentage value display. If not configured, it will display always. Example: `10` means savings less than or equal to 10% will not appear. | `0`           |
+| `arialabel`          | `string` | Aria-label to be included for accessibility purposes                      |
 
 The following blocks have an additional prop: `product-list-price`, `product-selling-price`, `product-spot-price`, `product-spot-price-savings`, `product-price-savings`, `product-list-price-range`, and `product-selling-price-range`. The prop is:
 
