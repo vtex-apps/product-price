@@ -79,6 +79,7 @@ function Savings({
 }: Props) {
   const { handles, withModifiers } = useCssHandles(CSS_HANDLES, { classes })
   const { formatNumber } = useIntl()
+  const intl = useIntl()
   const productContextValue = useProduct()
   const productSummaryValue = ProductSummaryContext.useProductSummary()
 
@@ -114,7 +115,13 @@ function Savings({
   ])
 
   return (
-    <span className={containerClasses}>
+    <span
+      className={containerClasses}
+      aria-label={intl.formatMessage(
+        { id: 'store/product-price.price-savings.aria-label' },
+        { previousPriceValue, newPriceValue }
+      )}
+    >
       <IOMessageWithMarkers
         message={message}
         markers={markers}

@@ -34,5 +34,6 @@
   "admin/selling-price-range-message.description": "Message shown when there is a price difference between SKUs.\nValues available for interpolation: '{minPriceValue}, {maxPriceValue}, {minPriceWithTax}, {maxPriceWithTax}'",
   "admin/selling-price-range-message.title": "Selling Price (Range)",
   "admin/selling-price-range-no-range-message.description": "Message shown when there isn't a price difference between SKUs.\nValues available for interpolation: '{sellingPriceValue}, {sellingPriceWithTax}'",
-  "admin/selling-price-range-no-range-message.title": "Selling Price (No Range)"
+  "admin/selling-price-range-no-range-message.title": "Selling Price (No Range)",
+  "store/product-price.price-savings.aria-label": "Price changed from {previousPriceValue} to {newPriceValue}"
 }
