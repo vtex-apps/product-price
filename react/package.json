@@ -32,5 +32,5 @@
     "vtex.product-summary-context": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.product-summary-context@0.7.1/public/@types/vtex.product-summary-context",
     "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.128.4/public/@types/vtex.render-runtime"
   },
-  "version": "1.31.1"
+  "version": "1.31.2"
 }
