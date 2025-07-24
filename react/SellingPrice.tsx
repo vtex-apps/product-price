@@ -76,7 +76,7 @@ function SellingPrice({
     productContextValue?.selectedItem?.measurementUnit ?? ''
 
   const unitMultiplier = productContextValue?.selectedItem?.unitMultiplier ?? 1
-  const sellingPriceWithUnitMultiplier = commercialOffer.Price * unitMultiplier
+  const sellingPriceWithUnitMultiplier = sellingPriceValue * unitMultiplier
 
   const sellingPriceWithUnitMultiplierAndTax =
   (sellingPriceValue + sellingPriceValue * (taxPercentage/unitMultiplier)) * unitMultiplier
