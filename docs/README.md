@@ -200,7 +200,7 @@ In addition, remember to take into account the message variables for each block,
 | `sellingPriceValue`              | `string`  | Selling price value.                                                                             |
 | `sellingPriceWithTax`            | `string`  | Selling price with tax.                                                                          |
 | `sellingPriceWithUnitMultiplier` | `string`  | Selling price multiplied by a unit multiplier.                                                   |
-| `sellingPriceWithUnitMultiplierAndTax` | `string` | Selling price multiplied by unit multiplier and added tax. |
+| `sellingPriceWithUnitMultiplierAndTax` | `string` | Selling price multiplied by a unit multiplier and added tax. |
 | `taxPercentage`                  | `string`  | Tax percentage.                                                                                  |
 | `hasListPrice`                   | `boolean` | Determines whether the product has a list price (`true`) or not (`false`).                       |
 | `taxValue`                       | `string`  | Tax value.                                                                                       |
