@@ -200,6 +200,7 @@ In addition, remember to take into account the message variables for each block,
 | `sellingPriceValue`              | `string`  | Selling price value.                                                                             |
 | `sellingPriceWithTax`            | `string`  | Selling price with tax.                                                                          |
 | `sellingPriceWithUnitMultiplier` | `string`  | Selling price multiplied by a unit multiplier.                                                   |
+| `sellingPriceWithUnitMultiplierAndTax` | `string` | Selling price multiplied by unit multiplier and added tax. |
 | `taxPercentage`                  | `string`  | Tax percentage.                                                                                  |
 | `hasListPrice`                   | `boolean` | Determines whether the product has a list price (`true`) or not (`false`).                       |
 | `taxValue`                       | `string`  | Tax value.                                                                                       |
@@ -207,19 +208,7 @@ In addition, remember to take into account the message variables for each block,
 | `measurementUnit`                | `string`  | Unit of measure text.                                                                            |
 | `hasUnitMultiplier`              | `boolean` | Determines whether the product has a unit multiplier different from 1 (`true`) or not (`false`). |
 | `unitMultiplier`                 | `string`  | Value of the unit multiplier.                                                                    |
-| Message variable | Type | Description |
-| --- | --- | --- |
-| `sellingPriceValue` | `string` | Selling price value. |
-| `sellingPriceWithTax` | `string` | Selling price with tax. |
-| `sellingPriceWithUnitMultiplier` | `string` | Selling price multiplied by unit multiplier. |
-| `sellingPriceWithUnitMultiplierAndTax` | `string` | Selling price multiplied by unit multiplier and added tax. |
-| `taxPercentage` | `string` | Tax percentage. |
-| `hasListPrice` | `boolean` | Whether the product has a list price (`true`) or not (`false`). |
-| `taxValue` | `string` | Tax value. |
-| `hasMeasurementUnit` | `boolean` | Whether the product has a measurement unit (`true`) or not (`false`). |
-| `measurementUnit` | `string` | Measure unit text. |
-| `hasUnitMultiplier` | `boolean` | Whether the product has a unit multiplier different than 1 (`true`) or not (`false`). |
-| `unitMultiplier` | `string` | Value of the unit multiplier. |
+
 
 You can use the `product-selling-price` `sellingPriceWithUnitMultiplier`, `hasMeasurementUnit`, `unitMultiplier`, and `measurementUnit` variables together to render the unit of measure and unit multiplier on products that have it.
 
