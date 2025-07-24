@@ -8,10 +8,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- SellingPriceWithUnitMultiplierAndTax variable for ICU
+- new available price with sellingPriceWithUnitMultiplierAndTax
+
+## [1.31.2] - 2025-03-10
+
++ ### Added
++ - aria-label for product-price components
+
+## [1.31.1] - 2024-11-11
+
 ### Fixed
 
 - I18n on readme file.
+- Translations for messages related to payments in full.
 
 ## [1.31.0] - 2023-03-28
 

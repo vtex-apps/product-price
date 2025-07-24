@@ -2,7 +2,7 @@
   "store/list-price.default": "{listPriceValue}",
   "store/selling-price.default": "{sellingPriceValue}",
   "store/spot-price.default": "Precio al contado: {spotPriceValue}",
-  "store/spot-price-savings.default": "Ahorros de precio al contado: {spotPriceSavingsValue}",
+  "store/spot-price-savings.default": "Ahorros por pago al contado: {spotPriceSavingsValue}",
   "store/savings.default": "Ahorra {savingsValue}",
   "store/installments.default": "Hasta {installmentsNumber}x {installmentValue}{hasInterest, select, true {, {interestRate} de interés} false { sin interés}}",
   "store/list-price-range-message.default": "{minPriceValue} - {maxPriceValue}",
@@ -19,7 +19,7 @@
   "admin/spot-price.description": "Valores disponibles para interpolación: '{spotPrice}'",
   "admin/spot-price.title": "Precio al contado",
   "admin/spot-price-savings.description": "Valores disponibles para interpolación: '{previousPriceValue}, {newSpotPriceValue}, {spotPriceSavingsValue}, {spotPriceSavingsWithTax}, {spotPriceSavingsPercentage}'",
-  "admin/spot-price-savings.title": "Ahorros de precio al contado",
+  "admin/spot-price-savings.title": "Ahorro por pago al contado",
   "admin/savings.description": "Valores disponibles para interpolación: '{newPriceValue}, {previousPriceValue}, {savingsValue}, {savingsPercentage}, {savingsWithTax}'",
   "admin/savings.title": "Ahorros",
   "admin/installments.description": "Valores disponibles para interpolación: '{installmentsNumber}, {installmentValue}, {installmentsTotalValue}, {interestRate}, {hasInterest}, {paymentSystemName}'",
@@ -34,5 +34,6 @@
   "admin/selling-price-range-message.description": "Mensaje que se mostrará cuando haya una diferencia de precio entre los SKU.\nValores disponibles para interpolación: '{minPriceValue}, {maxPriceValue}, {minPriceWithTax}, {maxPriceWithTax}'",
   "admin/selling-price-range-message.title": "Precio de venta (rango)",
   "admin/selling-price-range-no-range-message.description": "Mensaje que se mostrará cuando no haya una diferencia de precio entre los SKU.\nValores disponibles para interpolación: '{sellingPriceValue}, {sellingPriceWithTax}'",
-  "admin/selling-price-range-no-range-message.title": "Precio de venta (rango)"
+  "admin/selling-price-range-no-range-message.title": "Precio de venta (rango)",
+  "store/product-price.price-savings.aria-label": "Precio de {previousPriceValue} por {newPriceValue}"
 }
