@@ -7,7 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- new available price with sellingPriceWithUnitMultiplierAndTax
+
 ## [1.31.2] - 2025-03-10
+
 + ### Added
 + - aria-label for product-price components
 
