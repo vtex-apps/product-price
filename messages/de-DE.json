@@ -27,12 +27,12 @@
   "admin/installments-list-item.title": "Ratenzahlung",
   "admin/list-price-range.title": "Listenpreis (Bereich)",
   "admin/list-price-range-message.description": "Nachricht, die angezeigt wird, wenn es eine Preisdifferenz zwischen den SKUs gibt.\nVerfügbare Werte für Interpolation: '{minPriceValue}, {maxPriceValue}, {minPriceWithTax}, {maxPriceWithTax}'",
-  "admin/list-price-range-message.title": "Listenpreis (Range)",
-  "admin/list-price-range-no-range-message.description": "Nachricht, die angezeigt wird, wenn es keine Preisdifferenz zwischen den SKUs gibt.\nWerte für Interpolation: '{listPriceValue}, {listPriceWithTax}'",
+  "admin/list-price-range-message.title": "Listenpreis (Spektrum)",
+  "admin/list-price-range-no-range-message.description": "Nachricht, die angezeigt wird, wenn es keinen Preisunterschied zwischen den SKUs gibt.\nWerte für Interpolation: '{listPriceValue}, {listPriceWithTax}'",
   "admin/list-price-range-no-range-message.title": "Listenpreis (ohne Bereich)",
   "admin/selling-price-range.title": "Verkaufspreis (Bereich)",
   "admin/selling-price-range-message.description": "Nachricht, die angezeigt wird, wenn es eine Preisdifferenz zwischen den SKUs gibt.\nVerfügbare Werte für Interpolation: '{minPriceValue}, {maxPriceValue}, {minPriceWithTax}, {maxPriceWithTax}'",
-  "admin/selling-price-range-message.title": "Verkaufspreis (Range)",
-  "admin/selling-price-range-no-range-message.description": "Nachricht, die angezeigt wird, wenn es keine Preisdifferenz zwischen den SKUs gibt.\nWerte für Interpolation: '{sellingPriceValue}, {sellingPriceWithTax}'",
+  "admin/selling-price-range-message.title": "Verkaufspreis (Spektrum)",
+  "admin/selling-price-range-no-range-message.description": "Nachricht, die angezeigt wird, wenn es keinen Preisunterschied zwischen den SKUs gibt.\nWerte für Interpolation: '{sellingPriceValue}, {sellingPriceWithTax}'",
   "admin/selling-price-range-no-range-message.title": "Verkaufspreis (ohne Bereich)"
 }
