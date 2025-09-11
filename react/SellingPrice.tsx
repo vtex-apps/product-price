@@ -14,6 +14,7 @@ const CSS_HANDLES = [
   'sellingPriceWithTax',
   'sellingPriceWithUnitMultiplier',
   'sellingPriceWithUnitMultiplierAndTax',
+  'sellingPriceWithTaxWithoutUnitMultiplier',
   'taxPercentage',
   'taxValue',
   'measurementUnit',
@@ -80,7 +81,10 @@ function SellingPrice({
 
   const sellingPriceWithUnitMultiplierAndTax =
   sellingPriceValue * (unitMultiplier + taxPercentage)
-
+  
+  const sellingPriceWithTaxWithoutUnitMultiplier =
+  sellingPriceValue * (1 + taxPercentage)
+  
   const taxValue = commercialOffer.Tax
 
   const hasListPrice = sellingPriceValue !== listPriceValue
@@ -128,6 +132,14 @@ function SellingPrice({
               className={handles.sellingPriceWithUnitMultiplierAndTax}
             >
               <FormattedCurrency value={sellingPriceWithUnitMultiplierAndTax} />
+            </span>
+          ),
+          sellingPriceWithTaxWithoutUnitMultiplier: (
+            <span
+              key="sellingPriceWithTaxWithoutUnitMultiplier"
+              className={handles.sellingPriceWithTaxWithoutUnitMultiplier}
+            >
+              <FormattedCurrency value={sellingPriceWithTaxWithoutUnitMultiplier} />
             </span>
           ),
           taxPercentage: (
