@@ -186,6 +186,7 @@ In addition, remember to take into account the message variables for each block,
 | `listPriceValue`              | `string`  | List price value.                                                                                |
 | `listPriceWithTax`            | `string`  | List price value with tax.                                                                       |
 | `listPriceWithUnitMultiplier` | `string`  | List price multiplied by a unit multiplier.                                                      |
+| `listPriceWithTaxWithoutUnitMultiplier` | `string`  | List price with tax without unit multiplier.                                           |
 | `taxPercentage`               | `string`  | Tax percentage.                                                                                  |
 | `taxValue`                    | `string`  | Tax value.                                                                                       |
 | `hasMeasurementUnit`          | `boolean` | Determines whether the product has a unit of measure (`true`) or not (`false`).                  |
@@ -201,6 +202,7 @@ In addition, remember to take into account the message variables for each block,
 | `sellingPriceWithTax`            | `string`  | Selling price with tax.                                                                          |
 | `sellingPriceWithUnitMultiplier` | `string`  | Selling price multiplied by a unit multiplier.                                                   |
 | `sellingPriceWithUnitMultiplierAndTax` | `string` | Selling price multiplied by a unit multiplier and added tax. |
+| `sellingPriceWithTaxWithoutUnitMultiplier` | `string` | Selling price with tax without unit multiplier. |
 | `taxPercentage`                  | `string`  | Tax percentage.                                                                                  |
 | `hasListPrice`                   | `boolean` | Determines whether the product has a list price (`true`) or not (`false`).                       |
 | `taxValue`                       | `string`  | Tax value.                                                                                       |
