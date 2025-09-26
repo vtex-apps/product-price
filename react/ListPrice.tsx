@@ -79,8 +79,7 @@ function ListPrice({
   const hasMeasurementUnit = measurementUnit && measurementUnit !== 'un'
   const hasUnitMultiplier = unitMultiplier !== 1
   
-  const listPriceWithTaxWithoutUnitMultiplier = 
-  listPriceValue * (1 + taxPercentage)
+  const listPriceWithTaxWithoutUnitMultiplier = listPriceValue + (listPriceValue * taxPercentage / unitMultiplier)
 
   if (listPriceValue <= sellingPriceValue) {
     return null
