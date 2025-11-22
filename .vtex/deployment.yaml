@@ -1,0 +1,17 @@
+- name: product-price
+  referenceId: 6BGC3CBD
+  pipelines:
+    - name: techdocs-v1
+      parameters:
+        entityReference: default/component/product-price
+        indexFile: README.md
+        sourceDir: ./
+      when:
+        - event: push
+          source: branch
+          regex: master
+          path:
+            - "docs/**"
+            - ".vtex/deployment.yaml"
+            - ".vtex/deployment.json"
+            - "README.md"
