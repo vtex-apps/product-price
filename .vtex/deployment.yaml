@@ -5,7 +5,7 @@
       parameters:
         entityReference: default/component/product-price
         indexFile: README.md
-        sourceDir: ./
+        sourceDir: docs/
       when:
         - event: push
           source: branch
